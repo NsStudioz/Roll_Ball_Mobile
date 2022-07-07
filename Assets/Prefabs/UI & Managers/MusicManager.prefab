@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2068714463742640827
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2068714463742640825}
+  - component: {fileID: 2068714463742640772}
+  m_Layer: 0
+  m_Name: MusicManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2068714463742640825
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068714463742640827}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -10, y: -15, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2068714463742640772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068714463742640827}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5428e3b5a8808c444b05db28526dfc84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playNextTrack: 0
+  stopOldTrack: 0
+  StartDelayTime: 0
+  stateSwitch: 0
+  currentSceneIndex: 0
+  timeElapsed: 0
+  timeToFade: 1
+  sounds:
+  - name: Theme_Main_Menu
+    clip: {fileID: 8300000, guid: fa7d4d925fb0fbb4baae3bef703b6837, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_1_10
+    clip: {fileID: 8300000, guid: 3779ec9afef9d5143bcea5ebe9932182, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_11_15
+    clip: {fileID: 8300000, guid: 3020c3b3d951ace4bb5e69715918f6a2, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_16_20
+    clip: {fileID: 8300000, guid: 2bc694f7f687af84a95600589f887ed3, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_21_25
+    clip: {fileID: 8300000, guid: a7a008310dcff7548bfa71e70cab944c, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_26_29
+    clip: {fileID: 8300000, guid: 2c8d6ec602e7ad7448eaf78e6907c927, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_30_32
+    clip: {fileID: 8300000, guid: fba5ecf787ab64d4bb5545b5a6294c5d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_33_37
+    clip: {fileID: 8300000, guid: 5763d16ffbda5544fbd0b1b633fed4ed, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_38_40
+    clip: {fileID: 8300000, guid: 22f307947dd1ece458c191f12708fb37, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_41_47
+    clip: {fileID: 8300000, guid: 6d0f98e0fe96b414d935e0529693553d, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_48_49
+    clip: {fileID: 8300000, guid: 9f81566b49be7e84596e8108391e81aa, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: Theme_50
+    clip: {fileID: 8300000, guid: 7838bc9bb5c21af4eb4395097abe2a96, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
