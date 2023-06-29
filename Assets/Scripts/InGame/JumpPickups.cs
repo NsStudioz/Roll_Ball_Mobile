@@ -4,18 +4,40 @@ using UnityEngine;
 
 public class JumpPickups : MonoBehaviour
 {
-    float jumpPickups = 0.5f;
-    GameSession gameSession;
+
+    int jumpPickupOne = 1;
+    int jumpPickupTwo = 2;
+    int jumpPickupThree = 3;
+
+
+    private void OnTriggerEnter2D(Collider2D player)
+    {
+        if (tag == "JumpsPlusOne")
+            GameSession.Instance.CalculateRemainingJumps(jumpPickupOne);
+
+        if (tag == "JumpsPlusTwo")
+            GameSession.Instance.CalculateRemainingJumps(jumpPickupTwo);
+
+        if (tag == "JumpsPlusThree")
+            GameSession.Instance.CalculateRemainingJumps(jumpPickupThree);
+
+        AudioManager.Instance.Play("JumpsPickup");
+        Destroy(gameObject);
+    }
+}
+
+//float jumpPickups = 0.5f;
+
+/*    GameSession gameSession;
 
     void Start()
     {
         GameObject myGameSession = GameObject.Find("Gamesession");
         gameSession = myGameSession.GetComponent<GameSession>();
-    }
+    }*/
 
-    private void OnTriggerEnter2D(Collider2D player)
-    {
-        if (tag == "JumpsPlusOne")
+
+/*        if (tag == "JumpsPlusOne")
         {
             gameSession.AddToJumps(jumpPickups);
         }
@@ -26,9 +48,7 @@ public class JumpPickups : MonoBehaviour
         if (tag == "JumpsPlusThree")
         {
             gameSession.AddToJumps(jumpPickups + 1f);
-        }
+        }*/
 
-        FindObjectOfType<AudioManager>().Play("JumpsPickup");
-        Destroy(gameObject);
-    }
-}
+
+//FindObjectOfType<AudioManager>().Play("JumpsPickup");
