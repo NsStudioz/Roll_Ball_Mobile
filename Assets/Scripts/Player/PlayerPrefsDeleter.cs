@@ -6,6 +6,11 @@ public class PlayerPrefsDeleter : MonoBehaviour
 {
     void Update()
     {
+        DeletePlayerData();
+    }
+
+    private void DeletePlayerData()
+    {
         if (Input.GetKeyDown(KeyCode.Q))
         {
             PlayerPrefs.DeleteAll();
