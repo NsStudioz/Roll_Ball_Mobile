@@ -32,7 +32,14 @@ public class MusicManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        foreach(Sound s in sounds)
+        Initialize();
+
+        SetTracksLoopTrue();
+    }
+
+    private void Initialize()
+    {
+        foreach (Sound s in sounds)
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -51,9 +58,11 @@ public class MusicManager : MonoBehaviour
         SetMusicVolumeToZero();
 
         StartCoroutine(SplashDelayTimeToPlayMainTheme());
+    }
 
-
-        foreach(Sound s in sounds)
+    private void SetTracksLoopTrue()
+    {
+        foreach (Sound s in sounds)
         {
             s.source.loop = true;
         }
@@ -64,48 +73,23 @@ public class MusicManager : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
-    public void Mute(string name)
+    public void SetMuteState(bool muteState)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        foreach(Sound s in sounds)
         {
-            Debug.Log("Sound:" + name + "not found!");
-            return;
+            s.source.mute = muteState;
         }
-        s.source.mute = true;
-    }
-
-    public void Unmute(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.Log("Sound:" + name + "not found!");
-            return;
-        }
-        s.source.mute = false;
     }
 
     public void Play(string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
+        Sound track = Array.Find(sounds, sound => sound.name == name);
+        if (track == null)
         {
             Debug.Log("Music:" + name + "is not found!");
             return;
         }
-        s.source.Play();
-    }
-
-    public void Stop(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if(s == null)
-        {
-            Debug.Log("Music:" + name + "is not found!");
-            return;
-        }
-        s.source.Stop();
+        track.source.Play();
     }
 
     public void StopAllMusic()
@@ -128,33 +112,11 @@ public class MusicManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("m_Muted") == 1)
         {
-            Mute("Theme_Main_Menu");
-            Mute("Theme_1_10");
-            Mute("Theme_11_15");
-            Mute("Theme_16_20");
-            Mute("Theme_21_25");
-            Mute("Theme_26_29");
-            Mute("Theme_30_32");
-            Mute("Theme_33_37");
-            Mute("Theme_38_40");
-            Mute("Theme_41_47");
-            Mute("Theme_48_49");
-            Mute("Theme_50");
+            SetMuteState(true);
         }
         else if (PlayerPrefs.GetInt("m_Muted") == 0)
         {
-            Unmute("Theme_Main_Menu");
-            Unmute("Theme_1_10");
-            Unmute("Theme_11_15");
-            Unmute("Theme_16_20");
-            Unmute("Theme_21_25");
-            Unmute("Theme_26_29");
-            Unmute("Theme_30_32");
-            Unmute("Theme_33_37");
-            Unmute("Theme_38_40");
-            Unmute("Theme_41_47");
-            Unmute("Theme_48_49");
-            Unmute("Theme_50");
+            SetMuteState(false);
         }
     }
 
@@ -229,12 +191,79 @@ public class MusicManager : MonoBehaviour
     private IEnumerator SplashDelayTimeToPlayMainTheme()
     {
         StartCoroutine(FadeInTrack("Theme_Main_Menu"));
-
         yield return new WaitForSecondsRealtime(TimerThreshold);
-
         playNextTrack = false;
         stopOldTrack = false;
-
     }
 
 }
+
+/*            Mute("Theme_Main_Menu");
+            Mute("Theme_1_10");
+            Mute("Theme_11_15");
+            Mute("Theme_16_20");
+            Mute("Theme_21_25");
+            Mute("Theme_26_29");
+            Mute("Theme_30_32");
+            Mute("Theme_33_37");
+            Mute("Theme_38_40");
+            Mute("Theme_41_47");
+            Mute("Theme_48_49");
+            Mute("Theme_50");*/
+
+/*            Unmute("Theme_Main_Menu");
+            Unmute("Theme_1_10");
+            Unmute("Theme_11_15");
+            Unmute("Theme_16_20");
+            Unmute("Theme_21_25");
+            Unmute("Theme_26_29");
+            Unmute("Theme_30_32");
+            Unmute("Theme_33_37");
+            Unmute("Theme_38_40");
+            Unmute("Theme_41_47");
+            Unmute("Theme_48_49");
+            Unmute("Theme_50");*/
+
+/*    public void Mute(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("Sound:" + name + "not found!");
+            return;
+        }
+        s.source.mute = true;
+    }*/
+
+/*    public void Unmute(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("Sound:" + name + "not found!");
+            return;
+        }
+        s.source.mute = false;
+    }*/
+
+
+/*    public void Stop(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if(s == null)
+        {
+            Debug.Log("Music:" + name + "is not found!");
+            return;
+        }
+        s.source.Stop();
+    }*/
+
+/*    private void TrackNullCheck(Sound track, string name)
+    {
+        track = Array.Find(sounds, sound => sound.name == name);
+        if (track == null)
+        {
+            Debug.Log("Music:" + name + "is not found!");
+            return;
+        }
+    }*/
