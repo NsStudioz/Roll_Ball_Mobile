@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     [SerializeField] float delayBeforeLoading = 1.5f; // in seconds
     [SerializeField] bool isDestroyed = false;
     [SerializeField] float timeElapsed;
+    private readonly int jumpOnce = -1;
 
     [Header("Scene Elements")]
     [SerializeField] int currentSceneIndex;
@@ -25,9 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] int sceneIndex = 1;
 
     // GameObjects:
-    GameSession gameSession;
     TimerScript timerScript;
-
 
     void Start()
     {
@@ -35,11 +34,12 @@ public class Player : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         //
         GameObject thisGameSession = GameObject.Find("Gamesession");
-        gameSession = thisGameSession.GetComponent<GameSession>();
         timerScript = thisGameSession.GetComponent<TimerScript>();
         //
-        gameSession.playerRemJumps = 3;
-        gameSession.keyCount = 0;
+        GameSession.Instance.playerRemJumps = 3;
+        GameSession.Instance.keyCount = 0;
+        GameSession.Instance.SetTexts();
+        //
         timerScript.decimalLevelTimer = 10f;
         timerScript.timerText.text = timerScript.levelTimer.ToString();
         timerScript.isTimeOutPlayed = false;
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
 
     public void HoldButton() // Jump when press
     {
-        if (gameSession.playerRemJumps == 0 || isDestroyed)
+        if (GameSession.Instance.GetPlayerRemainingJump() == 0 || isDestroyed)
         {
             return;
         }
@@ -81,7 +81,7 @@ public class Player : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
             myRigidBody2D.velocity = jumpVelocity;
-            gameSession.JumpsMinusOne();
+            GameSession.Instance.CalculateRemainingJumps(jumpOnce);
             timerScript.exitOnTime = false;
             AudioManager.Instance.Play("PlayerJump");
         }
@@ -156,7 +156,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (gameSession.playerRemJumps == 0 || isDestroyed)
+            if (GameSession.Instance.GetPlayerRemainingJump() == 0 || isDestroyed)
             {
                 return;
             }
@@ -164,12 +164,11 @@ public class Player : MonoBehaviour
             {
                 Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
                 myRigidBody2D.velocity = jumpVelocity;
-                gameSession.JumpsMinusOne();
+                GameSession.Instance.CalculateRemainingJumps(jumpOnce);
                 timerScript.exitOnTime = false;
                 AudioManager.Instance.Play("PlayerJump");
             }
         }
-
     }
 }
 
@@ -201,3 +200,8 @@ public class Player : MonoBehaviour
 //FindObjectOfType<AudioManager>().Play("LevelCompleted");
 //FindObjectOfType<AudioManager>().Play("LevelCompleted");
 //FindObjectOfType<AudioManager>().Play("PlayerDeath");
+
+//GameSession gameSession;
+//gameSession = thisGameSession.GetComponent<GameSession>();
+//gameSession.playerRemJumps = 3;
+//gameSession.JumpsMinusOne();
