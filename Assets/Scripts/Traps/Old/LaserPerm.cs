@@ -4,19 +4,23 @@ using UnityEngine;
 
 public class LaserPerm : MonoBehaviour
 {
-    [SerializeField] bool isLaserOn;
+
+    [SerializeField] private GameObject laserGO;
+
+    [SerializeField] private bool isLaserOn;
 
     public GameObject laserObject;
 
-    void Update()
+    private void Start()
+    {
+        SetLaserState();
+    }
+
+    private void SetLaserState()
     {
         if (isLaserOn == true)
-        {
             laserObject.SetActive(true);
-        }
         else
-        {
             laserObject.SetActive(false);
-        }
     }
 }

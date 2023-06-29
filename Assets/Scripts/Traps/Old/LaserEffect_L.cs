@@ -7,7 +7,7 @@ public class LaserEffect_L : MonoBehaviour
 
     float sizeChangeDelay = 0.5f;
 
-    void Awake()
+/*    void Awake()
     {
         transform.localScale = new Vector2(1, 1.4f);
     }
@@ -15,7 +15,7 @@ public class LaserEffect_L : MonoBehaviour
     void Update()
     {
         StartCoroutine(laserSizeChange());
-    }
+    }*/
 
 
     IEnumerator laserSizeChange()
