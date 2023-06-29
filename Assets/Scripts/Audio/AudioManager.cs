@@ -7,11 +7,11 @@ public class AudioManager : MonoBehaviour
 
     public Sound[] sounds;
 
-    public static AudioManager instance;
+    public static AudioManager Instance;
 
     void Awake()
     {
-        if (instance == null) { instance = this; } // singleton pattern
+        if (Instance == null) { Instance = this; } // singleton pattern
         else
         {
             Destroy(gameObject);
@@ -20,7 +20,12 @@ public class AudioManager : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
 
-        foreach(Sound s in sounds) // foreach; Sound = Sound script. s = the sound that we are currently looking at (Sound script). sounds = in our sounds array.
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        foreach (Sound s in sounds) // check in sounds array.
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
@@ -39,8 +44,8 @@ public class AudioManager : MonoBehaviour
 
     public void Play (string name)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name); // Array.Find (Find the 'sounds array', we then want to find the sound where sound.name is equal to the name)
-        if (s == null) 
+        Sound s = Array.Find(sounds, sound => sound.name == name); // Array.Find (Find the 'sounds array', 
+        if (s == null)                                             // we then want to find the sound where sound.name is equal to the name).
         {
             Debug.Log("Sound:" + name + "not found!");
             return; 
@@ -48,56 +53,50 @@ public class AudioManager : MonoBehaviour
         s.source.Play();
     }
 
-    public void Mute(string name)
+    public void MuteState(bool muteState)
     {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        foreach(Sound s in sounds)
         {
-            Debug.Log("Sound:" + name + "not found!");
-            return;
+            s.source.mute = muteState;
         }
-        s.source.mute = true;
-    }
-
-    public void Unmute(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.Log("Sound:"  + name + "not found!");
-            return;
-        }
-        s.source.mute = false;
-    }
-
-    void Update()
-    {
-        //SetSoundSettings();
     }
 
     public void SetSoundSettings()
     {
         if(PlayerPrefs.GetInt("muted") == 1)
         {
-            Mute("PlayerJump");
-            Mute("PlayerHit");
-            Mute("PlayerDeath");
-            Mute("PlayerSound4");
-            Mute("ButtonClick");
-            Mute("AudioButtonClick");
-            Mute("LevelChoosed");
-            Mute("Timer");
-            Mute("JumpsPickup");
-            Mute("TimePickup");
-            Mute("LevelCompleted");
-            Mute("BackButtonClick");
-            Mute("MenuButtonClick");
-            Mute("KeyPickup");
-            Mute("BlockUnlock");
+            MuteState(true);
         }
         else if (PlayerPrefs.GetInt("muted") == 0)
         {
-            Unmute("PlayerJump");
+            MuteState(false);
+        }
+    }
+}
+
+/*    void Update()
+    {
+        //SetSoundSettings();
+    }*/
+
+/*            Mute("PlayerJump");
+Mute("PlayerHit");
+Mute("PlayerDeath");
+Mute("PlayerSound4");
+Mute("ButtonClick");
+Mute("AudioButtonClick");
+Mute("LevelChoosed");
+Mute("Timer");
+Mute("JumpsPickup");
+Mute("TimePickup");
+Mute("LevelCompleted");
+Mute("BackButtonClick");
+Mute("MenuButtonClick");
+Mute("KeyPickup");
+Mute("BlockUnlock");*/
+
+
+/*            Unmute("PlayerJump");
             Unmute("PlayerHit");
             Unmute("PlayerDeath");
             Unmute("PlayerSound4");
@@ -111,7 +110,26 @@ public class AudioManager : MonoBehaviour
             Unmute("BackButtonClick");
             Unmute("MenuButtonClick");
             Unmute("KeyPickup");
-            Unmute("BlockUnlock");
+            Unmute("BlockUnlock");*/
+
+/*    public void Mute(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("Sound:" + name + "not found!");
+            return;
         }
-    }
-}
+        s.source.mute = true;
+    }*/
+
+/*    public void Unmute(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        if (s == null)
+        {
+            Debug.Log("Sound:"  + name + "not found!");
+            return;
+        }
+        s.source.mute = false;
+    }*/
