@@ -6,7 +6,7 @@ public class LevelChanger : MonoBehaviour
     TimerScript timerScript;
     MusicManager musicManager;
 
-    public Animator animator; // animator reference so we will be able to use its attributes.
+    public Animator animator;
     private int levelToLoad;
 
     void Start()
@@ -18,38 +18,25 @@ public class LevelChanger : MonoBehaviour
         musicManager = forMusicManager.GetComponent<MusicManager>();
     }
 
-
-    void Update()
+    private void FadeToLevel (int currentLevelIndex)
     {
-/*        if (Input.GetMouseButtonDown(1)) // if clicked left mouse button
-        {
-            FadeToNextLevel(); // when we call this method and pass in the value of '1' (the index)
-        }*/
-    }
+        levelToLoad = currentLevelIndex; 
 
-    public void FadeToNextLevel()
-    {
-        FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-
-    public void FadeToCurrentLevel()
-    {
-        FadeToLevel(SceneManager.GetActiveScene().buildIndex);
-    }
-
-    public void FadeToLevel (int currentLevelIndex) // stores a variable of type int, called currentLevelIndex
-    {
-        levelToLoad = currentLevelIndex; // store the new value of '1' into 'levelToLoad'
-
-        animator.SetTrigger("FadeOut"); // run animation
+        animator.SetTrigger("FadeOut"); 
 
         FindObjectOfType<AudioManager>().Play("LevelChoosed");
     }
 
     public void OnFadeComplete()
     {
-        SceneManager.LoadScene(levelToLoad); // load the scene with the value index of '1' (levelToLoad)
+        SceneManager.LoadScene(levelToLoad);
 
+        if (levelToLoad > 5)
+        {
+            timerScript.timerTextObject.SetActive(true);
+        }
+
+        // Music Manager Mechanic:
         if (levelToLoad >= 3 && levelToLoad <= 12)
         {
             musicManager.SwapTracks("Theme_Main_Menu", "Theme_1_10");
@@ -98,11 +85,6 @@ public class LevelChanger : MonoBehaviour
         {
             Debug.Log("Something went wrong, please check!");
             //musicManager.Play("Theme_Main_Menu");
-        }
-
-        if (levelToLoad > 5)
-        {
-            timerScript.timerTextObject.SetActive(true);
         }
     }
 

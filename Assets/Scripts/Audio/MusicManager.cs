@@ -52,10 +52,6 @@ public class MusicManager : MonoBehaviour
 
         StartCoroutine(SplashDelayTimeToPlayMainTheme());
 
-/*        StartCoroutine(FadeInTrack("Theme_Main_Menu"));
-
-        playNextTrack = false;
-        stopOldTrack = false;*/
 
         foreach(Sound s in sounds)
         {
@@ -241,103 +237,4 @@ public class MusicManager : MonoBehaviour
 
     }
 
-
-    /*    public void FadeOutNew(string name)
-        {
-            Sound s = Array.Find(sounds, sound => sound.name == name);
-            if (s == null)
-            {
-                Debug.Log("Sound:" + name + "not found!");
-                return;
-            }
-
-            while (timeElapsed < timeToFade)
-            {
-                timeElapsed += Time.deltaTime;
-
-                s.source.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
-
-                if (s.source.volume <= 0 || timeElapsed >= timeToFade)
-                {
-                    s.source.Stop();
-                    timeElapsed = 0f;
-                }
-                return;
-            }
-        }
-    */
-
-    /*    public void FadeInNew(string name)
-        {
-            Sound s = Array.Find(sounds, sound => sound.name == name);
-            if (s == null)
-            {
-                Debug.Log("Sound:" + name + "not found!");
-                return;
-            }
-
-            s.source.Play();
-
-            while (timeElapsed < timeToFade)
-            {
-                timeElapsed += Time.deltaTime;
-
-                s.source.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-
-                if (s.source.volume >= 1 || timeElapsed >= timeToFade)
-                {
-                    timeElapsed = 0f;
-                }
-                return;
-            }
-        }*/
-
-    /*        if (levelToLoad == 3)
-        {
-            musicManager.SwapTracks("Theme_Main_Menu", "Theme_1_10");
-        }
-        else if (levelToLoad == 13)
-        {
-            musicManager.SwapTracks("Theme_1_10", "Theme_11_15");
-        }
-        else if (levelToLoad == 18)
-        {
-            musicManager.SwapTracks("Theme_11_15", "Theme_16_20");
-        }
-        else if (levelToLoad == 23)
-        {
-            musicManager.SwapTracks("Theme_16_20", "Theme_21_25");
-        }
-        else if (levelToLoad == 28)
-        {
-            musicManager.SwapTracks("Theme_21_25", "Theme_26_29");
-        }
-        else if (levelToLoad == 32)
-        {
-            musicManager.SwapTracks("Theme_26_29", "Theme_30_32");
-        }
-        else if (levelToLoad == 35)
-        {
-            musicManager.SwapTracks("Theme_30_32", "Theme_33_37");
-        }
-        else if (levelToLoad == 40)
-        {
-            musicManager.SwapTracks("Theme_33_37", "Theme_38_40");
-        }
-        else if (levelToLoad == 43)
-        {
-            musicManager.SwapTracks("Theme_38_40", "Theme_41_47");
-        }
-        else if (levelToLoad == 50)
-        {
-            musicManager.SwapTracks("Theme_41_47", "Theme_48_49");
-        }
-        else if (levelToLoad == 52)
-        {
-            musicManager.SwapTracks("Theme_48_49", "Theme_50");
-        }
-        else
-        {
-            musicManager.Play("Theme_Main_Menu");
-        }*/
 }

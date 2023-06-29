@@ -3,7 +3,7 @@
 public class UrlOpener : MonoBehaviour
 {
 
-    public string Url;
+    [SerializeField] string Url;
 
     public void OpenPrivacyPage()
     {

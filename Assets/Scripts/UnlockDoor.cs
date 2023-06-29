@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class UnlockDoor : MonoBehaviour
 {
-    // int keysUsed = 1;
+
     GameSession gameSession;
 
-    public ParticleSystem unlockedblockSystem;
+    [SerializeField] ParticleSystem unlockedblockSystem;
 
     void Start()
     {
@@ -25,7 +25,7 @@ public class UnlockDoor : MonoBehaviour
         }
     }
 
-    public void PlayUnlockParticles()
+    private void PlayUnlockParticles()
     {
         unlockedblockSystem.transform.position = transform.position;
         unlockedblockSystem.Play();

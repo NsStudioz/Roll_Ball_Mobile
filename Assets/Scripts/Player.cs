@@ -11,10 +11,10 @@ public class Player : MonoBehaviour
     [SerializeField] float delayBeforeLoading = 1.5f; // in seconds
     [SerializeField] float timeElapsed;
     //
-    public int nextSceneLoad;
-    public int currentSceneIndex;
-    public bool isDestroyed = false;
-    public int sceneIndex = 1;
+    [SerializeField] int nextSceneLoad;
+    [SerializeField] int currentSceneIndex;
+    [SerializeField] bool isDestroyed = false;
+    [SerializeField] int sceneIndex = 1;
     // References:
     Rigidbody2D myRigidBody2D;
     CapsuleCollider2D myBodyCollider;
@@ -63,13 +63,13 @@ public class Player : MonoBehaviour
         MoveBall();
     }
     
-    public void MoveBall()
+    private void MoveBall()
     {
         float xMove = SimpleInput.GetAxis("Horizontal");
         myRigidBody2D.AddForce(new Vector2(xMove * ballMoveSpeed * Time.deltaTime, 0f));
     }
 
-    public void Jump()
+/*    public void Jump()
     {
         if (gameSession.playerRemJumps == 0 || isDestroyed)
         {
@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
             timerScript.exitOnTime = false;
             FindObjectOfType<AudioManager>().Play("PlayerJump");
         }
-    }
+    }*/
 
     public void HoldButton() // Jump when press
     {
@@ -107,7 +107,7 @@ public class Player : MonoBehaviour
     }
 
 
-    public void TriggeringLevelExit()
+    private void TriggeringLevelExit()
     {
         if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Level Exit")))
         {
@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public void OutOfTime()
+    private void OutOfTime()
     {
         if (timerScript.timesUp == true)
         {
@@ -165,9 +165,6 @@ public class Player : MonoBehaviour
             myRigidBody2D.simulated = false;
         }
     }
-
-    // [SerializeField] float xInput;
-    // [SerializeField] float particleDuration = 0.5f; // Player's Death Particle
 
     // PC Controls:
     private void PcJumpMechanic()

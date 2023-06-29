@@ -10,7 +10,7 @@ public class LevelExit : MonoBehaviour
     TimerScript timerScript;
     MusicManager musicManager;
 
-    public int currentSceneIndex;
+    [SerializeField] int currentSceneIndex;
 
     private int[] musicTriggerValues = { 12, 17, 22, 27, 31, 34, 39, 42, 49, 51 };
 
@@ -24,7 +24,7 @@ public class LevelExit : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
-    public void OnTriggerEnter2D(Collider2D player)
+    private void OnTriggerEnter2D(Collider2D player)
     {
         timerScript.startTimer = false;
 

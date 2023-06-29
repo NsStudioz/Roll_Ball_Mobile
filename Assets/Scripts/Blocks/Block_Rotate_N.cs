@@ -8,8 +8,6 @@ public class Block_Rotate_N : MonoBehaviour
 
     [SerializeField] int rotationSpeed = 200;
 
-    void Start() { }
-
     void Update()
     {
         transform.Rotate(new Vector3(0, 0, Time.deltaTime * rotationSpeed));

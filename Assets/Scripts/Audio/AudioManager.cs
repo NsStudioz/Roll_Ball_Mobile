@@ -1,4 +1,4 @@
-﻿using UnityEngine.Audio; // should be included when working with sound.
+﻿using UnityEngine.Audio;
 using System;
 using UnityEngine;
 

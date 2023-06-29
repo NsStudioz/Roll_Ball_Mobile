@@ -6,9 +6,9 @@ public class SoundSettings : MonoBehaviour
 {
 
     public static SoundSettings soundSettings;
-    public GameObject soundButtonOn;
-    public GameObject soundButtonOff;
-    public bool muted = false;
+    [SerializeField] GameObject soundButtonOn;
+    [SerializeField] GameObject soundButtonOff;
+    [SerializeField] bool muted = false;
 
     AudioManager audioManager;
 

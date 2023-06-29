@@ -6,11 +6,11 @@ public class MusicSettings : MonoBehaviour
 {
     MusicManager musicManager;
 
-    public GameObject musicButtonOn;
-    public GameObject musicButtonOff;
+    [SerializeField] GameObject musicButtonOn;
+    [SerializeField] GameObject musicButtonOff;
 
-    public bool m_Muted = false;
-
+    [SerializeField] bool m_Muted = false;
+    
     private void Awake()
     {
         GameObject forMusicManager = GameObject.Find("MusicManager");
@@ -71,20 +71,5 @@ public class MusicSettings : MonoBehaviour
     {
         PlayerPrefs.SetInt("m_Muted", m_Muted ? 1 : 0);
     }
-
-    /*void Awake()
-{
-    if (musicSettings == null)
-    {
-        musicSettings = this;
-    }
-    else
-    {
-        Destroy(gameObject);
-        return;
-    }
-
-    DontDestroyOnLoad(gameObject);
-}*/
 
 }

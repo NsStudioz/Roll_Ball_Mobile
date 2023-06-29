@@ -1,12 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelLoader_Splash : MonoBehaviour
 {
-    [SerializeField] public float timeElapesd = 0f;
-    [SerializeField] public float delayTime = 5f;
+    [SerializeField] float timeElapesd = 0f;
+    [SerializeField] float delayTime = 5f;
 
     void Update()
     {
@@ -23,11 +21,6 @@ public class LevelLoader_Splash : MonoBehaviour
                 return;
             }
         }
-    }
-
-    public void QuitGame()
-    {
-        Application.Quit();
     }
 
 }

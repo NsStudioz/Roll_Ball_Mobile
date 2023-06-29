@@ -1,6 +1,4 @@
-﻿using System;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class LevelChanger_Levels : MonoBehaviour
@@ -9,12 +7,10 @@ public class LevelChanger_Levels : MonoBehaviour
     TimerScript timerScript;
     MusicManager musicManager;
     //
-    public Animator animator; // animator reference so we will be able to use its attributes.
+    public Animator animator;
     //
     private int levelToLoad;
-    public int currentSceneIndex;
-    //private int[] triggerValues = {12, 22, 32, 42, 52};
-    private int[] musicTriggerValues = { 3, 13, 18, 23, 28, 32, 35, 40, 43, 50, 52 };
+    [SerializeField] int currentSceneIndex;
 
 
     void Start()
@@ -45,24 +41,18 @@ public class LevelChanger_Levels : MonoBehaviour
     public void FadeToMainMenu()
     {
         FadeToHomeLevel();
-        // comparing currentSceneIndex values with triggerValues.
-/*        if (triggerValues.Contains(currentSceneIndex)) 
-        {
-            Debug.Log("Ad has started");
-            AdManager.Instance.ShowAd(this);
-        }*/
     }
 
-    public void FadeToLevel (int currentLevelIndex) // stores a variable of type int, called currentLevelIndex
+    private void FadeToLevel (int currentLevelIndex)
     {
-        levelToLoad = currentLevelIndex; // store the new value of '1' into 'levelToLoad'
-        animator.SetTrigger("FadeOut"); // run animation
+        levelToLoad = currentLevelIndex;
+        animator.SetTrigger("FadeOut");
     }
 
-    public void FadeToHomeLevel() // stores a variable of type int, called currentLevelIndex
+    public void FadeToHomeLevel()
     {
-        levelToLoad = 1; // store the new value of '1' into 'levelToLoad'
-        animator.SetTrigger("FadeOut"); // run animation
+        levelToLoad = 1; 
+        animator.SetTrigger("FadeOut"); 
     }
 
     public void OnFadeComplete()
@@ -72,21 +62,16 @@ public class LevelChanger_Levels : MonoBehaviour
         timerScript.timeElapsed = 0f;
         timerScript.timesUp = false;
         timerScript.timeOutText.SetActive(false);
-        // timerScript.timerTextObject.SetActive(true);
 
         if (levelToLoad > 5)
         {
             timerScript.timerTextObject.SetActive(true);
         }
 
-/*        if (musicTriggerValues.Contains(levelToLoad))
-        {
-            musicManager.stateSwitch = false;
-        }*/
-
+        // Music Manager Mechanic:
         if (!musicManager.stateSwitch)
         {
-            switch (levelToLoad) // 
+            switch (levelToLoad) 
             {
                 case 3:
                     musicManager.SwapTracks("Theme_Main_Menu", "Theme_1_10");
@@ -122,16 +107,10 @@ public class LevelChanger_Levels : MonoBehaviour
                     musicManager.SwapTracks("Theme_48_49", "Theme_50");
                     break;
                 default:
-                    Debug.Log("No Default Music found or necessary");
                     break;
             }
         }
     }
-
-/*    internal void ContinueGame()
-    {
-        Debug.Log("Closing Ad");
-    }*/
 
 }
 

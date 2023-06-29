@@ -8,12 +8,6 @@ public class LaserPerm : MonoBehaviour
 
     public GameObject laserObject;
 
-/*    void Start()
-    {
-        
-    }*/
-
-
     void Update()
     {
         if (isLaserOn == true)

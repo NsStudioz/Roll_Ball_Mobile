@@ -1,33 +1,29 @@
 ﻿using System.Collections;
 using UnityEngine;
-/*using UnityEngine.UI;*/
 using UnityEngine.SceneManagement;
 using TMPro;
 
 public class TimerScript : MonoBehaviour
 {
 
+    [SerializeField] int sceneIndex = 1;
     public float decimalLevelTimer = 10f;
     public int levelTimer;
-    public int sceneIndex = 1;
     //
     public float timeElapsed = 0f;
-    public float delayTime = 2f;
-    public float delayThreshold = 2f;
+    private float delayThreshold = 2f;
     //
     public bool startTimer;
     public bool exitOnTime = false;
     public bool timesUp = false;
     public bool playerDied = false;
+    public bool isTimeOutPlayed;
     //
     public TMP_Text timerText;
     public GameObject timeOutText;
     public GameObject timerTextObject;
-
-    AudioSource audioSource;
-    public AudioClip timeOutClip;
-    public bool isTimeOutPlayed;
-
+    //
+    //private float delayTime = 2f;
 
     void Awake()
     {
@@ -42,7 +38,7 @@ public class TimerScript : MonoBehaviour
             timerTextObject.SetActive(false);
             startTimer = false;
         }
-        audioSource = GetComponent<AudioSource>();
+
         timerText.text = levelTimer.ToString();
     }
 

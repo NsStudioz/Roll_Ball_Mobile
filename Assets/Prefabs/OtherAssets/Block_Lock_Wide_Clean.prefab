@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1452886168766892313}
   - component: {fileID: 1452886168766892312}
   - component: {fileID: 1452886168766892314}
+  - component: {fileID: 8596869497911130520}
   m_Layer: 15
   m_Name: Block_Lock_Wide_Clean
   m_TagString: LockedDoors
@@ -47,6 +48,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -108,3 +110,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &8596869497911130520
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1452886168766892311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ce8b279737804d45b5a10fa708bd5e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unlockedblockSystem: {fileID: 3906289857995130210, guid: 2377036f272694441add448b5c541046,
+    type: 3}
