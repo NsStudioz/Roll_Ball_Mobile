@@ -4,28 +4,37 @@ using TMPro;
 
 public class GameSession : MonoBehaviour
 {
+
+    public static GameSession Instance;
+
+
     [SerializeField] private int currentSceneIndex;
 
-    public float playerRemJumps; // player's remaining jumps.
+    public int playerRemJumps; // player's remaining jumps.
     public int keyCount;
     //
-    [SerializeField] TMP_Text jumpsText;
-    [SerializeField] TMP_Text keysText;
-    [SerializeField] GameObject keysImageObject;
-    [SerializeField] GameObject keysTextObject;
+    [SerializeField] private TMP_Text jumpsText;
+    [SerializeField] private TMP_Text keysText;
+    [SerializeField] private GameObject keysImageObject;
+    [SerializeField] private GameObject keysTextObject;
     
     private void Awake()
     {
-        int numGameSession = FindObjectsOfType<GameSession>().Length;
+        //InitOld();
 
-        if (numGameSession > 1)
-        {
-            Destroy(gameObject);
-        }
+        Initialize();
+    }
+
+    private void Initialize()
+    {
+        if (Instance == null) { Instance = this; } // singleton pattern
         else
         {
-            DontDestroyOnLoad(gameObject);
+            Destroy(gameObject);
+            return; // so that no more code is called before we destroy this gameObject.
         }
+
+        DontDestroyOnLoad(gameObject);
     }
 
     void Start()
@@ -49,11 +58,24 @@ public class GameSession : MonoBehaviour
         jumpsText.text = playerRemJumps.ToString();
     }
 
-    public void AddToJumps(float jumpPickupsToAdd)
+    public void AddToJumps(int jumpPickupsToAdd)
     {
         playerRemJumps += jumpPickupsToAdd;
         jumpsText.text = playerRemJumps.ToString();
     }
+
+    private void CalculateRemainingJumps(int jumps)
+    {
+        playerRemJumps += jumps;
+        jumpsText.text = playerRemJumps.ToString();
+    }
+
+    private void CalculateRemainingKeys(int keys)
+    {
+        keyCount += keys;
+        keysText.text = keyCount.ToString();
+    }
+
     
     public void AddToKeys(int keysToAdd)
     {
@@ -83,6 +105,21 @@ public class GameSession : MonoBehaviour
     }
 
 }
+
+
+/*    private void InitOld()
+    {
+        int numGameSession = FindObjectsOfType<GameSession>().Length;
+
+        if (numGameSession > 1)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            DontDestroyOnLoad(gameObject);
+        }
+    }*/
 
 
 
