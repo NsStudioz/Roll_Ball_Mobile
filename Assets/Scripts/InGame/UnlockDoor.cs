@@ -5,22 +5,16 @@ using UnityEngine;
 public class UnlockDoor : MonoBehaviour
 {
 
-    GameSession gameSession;
-
     [SerializeField] ParticleSystem unlockedblockSystem;
 
-    void Start()
-    {
-        GameObject thisGameSession = GameObject.Find("Gamesession");
-        gameSession = thisGameSession.GetComponent<GameSession>();
-    }
+    private int keys = -1;
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Player" && gameSession.keyCount > 0)
+        if (other.gameObject.name == "Player" && GameSession.Instance.GetPlayerKeyCount() > 0)
         {
-            gameSession.SubtractFromKeys(1);
-            FindObjectOfType<AudioManager>().Play("BlockUnlock");
+            GameSession.Instance.CalculateRemainingKeys(keys);
+            AudioManager.Instance.Play("BlockUnlock");
             PlayUnlockParticles();
         }
     }
@@ -31,6 +25,16 @@ public class UnlockDoor : MonoBehaviour
         unlockedblockSystem.Play();
         Destroy(gameObject);
     }
-
-
 }
+
+
+/*    GameSession gameSession;
+
+    void Start()
+    {
+        GameObject thisGameSession = GameObject.Find("Gamesession");
+        gameSession = thisGameSession.GetComponent<GameSession>();
+    }*/
+
+//gameSession.SubtractFromKeys(1);
+//FindObjectOfType<AudioManager>().Play("BlockUnlock");
