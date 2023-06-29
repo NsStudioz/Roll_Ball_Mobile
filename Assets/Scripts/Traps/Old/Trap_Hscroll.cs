@@ -2,35 +2,38 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BlackHole_Hscroll : MonoBehaviour
+public class Trap_Hscroll : MonoBehaviour
 {
-    [SerializeField] float scrollRate = 1f;
-    [SerializeField] float delayTime = 2f;
-    [SerializeField] float timeElapsed = 0f;
+    [SerializeField] float scrollRate;
+    [SerializeField] float posRange;
+    [SerializeField] float negRange;
+    [SerializeField] float posRangeLimit;
+    [SerializeField] float negRangeLimit;
 
+    // bool:
     [SerializeField] bool isMovingRight;
 
-    void Update()
+    void FixedUpdate()
     {
-        timeElapsed += Time.deltaTime;
-        
-        if (isMovingRight == true)
+        if(isMovingRight)
         {
             MoveRight();
-            if (timeElapsed >= delayTime)
+
+            if(posRange >= posRangeLimit)
             {
                 isMovingRight = false;
-                timeElapsed = 0f;
+                posRange = 0f;
             }
         }
 
-        if (isMovingRight == false)
+        if(!isMovingRight)
         {
             MoveLeft();
-            if (timeElapsed >= delayTime)
+
+            if(negRange <= negRangeLimit)
             {
                 isMovingRight = true;
-                timeElapsed = 0f;
+                negRange = 0f;
             }
         }
     }
@@ -39,11 +42,13 @@ public class BlackHole_Hscroll : MonoBehaviour
     {
         float xMoveRight = scrollRate * Time.deltaTime;
         transform.Translate(new Vector2(xMoveRight, 0f));
+        posRange += xMoveRight;
     }
 
     private void MoveLeft()
     {
         float xMoveLeft = -scrollRate * Time.deltaTime;
         transform.Translate(new Vector2(xMoveLeft, 0f));
+        negRange += xMoveLeft;
     }
 }
