@@ -20,8 +20,6 @@ public class GameSession : MonoBehaviour
     
     private void Awake()
     {
-        //InitOld();
-
         Initialize();
     }
 
@@ -36,11 +34,15 @@ public class GameSession : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-
-    void Start()
+    
+    public int GetPlayerRemainingJump()
     {
-        jumpsText.text = playerRemJumps.ToString();
-        keysText.text = keyCount.ToString();
+        return playerRemJumps;
+    }
+
+    public int GetPlayerKeyCount()
+    {
+        return keyCount;
     }
 
     void Update()
@@ -48,46 +50,36 @@ public class GameSession : MonoBehaviour
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         KeysObjectsAppearance();
+    }
+
+    public void SetTexts()
+    {
         jumpsText.text = playerRemJumps.ToString();
         keysText.text = keyCount.ToString();
     }
 
-    public void JumpsMinusOne()
-    {
-        playerRemJumps--;
-        jumpsText.text = playerRemJumps.ToString();
-    }
-
-    public void AddToJumps(int jumpPickupsToAdd)
-    {
-        playerRemJumps += jumpPickupsToAdd;
-        jumpsText.text = playerRemJumps.ToString();
-    }
-
-    private void CalculateRemainingJumps(int jumps)
+    public void CalculateRemainingJumps(int jumps)
     {
         playerRemJumps += jumps;
         jumpsText.text = playerRemJumps.ToString();
     }
 
-    private void CalculateRemainingKeys(int keys)
+    public void CalculateRemainingKeys(int keys)
     {
         keyCount += keys;
         keysText.text = keyCount.ToString();
     }
 
-    
-    public void AddToKeys(int keysToAdd)
+    public int GetSceneIndex()
     {
-        keyCount = keyCount + keysToAdd;
-        keysText.text = keyCount.ToString();
+        return currentSceneIndex;
     }
 
-    public void SubtractFromKeys(int keysToRemove)
+    private void SetSceneIndex()
     {
-        keyCount = keyCount - keysToRemove;
-        keysText.text = keyCount.ToString();
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
+
 
     private void KeysObjectsAppearance()
     {
@@ -103,9 +95,9 @@ public class GameSession : MonoBehaviour
             keysTextObject.SetActive(false);
         }
     }
-
 }
 
+//InitOld();
 
 /*    private void InitOld()
     {
@@ -119,6 +111,35 @@ public class GameSession : MonoBehaviour
         {
             DontDestroyOnLoad(gameObject);
         }
+    }*/
+
+
+//jumpsText.text = playerRemJumps.ToString();
+//keysText.text = keyCount.ToString();
+
+/*    public void JumpsMinusOne()
+{
+    playerRemJumps--;
+    jumpsText.text = playerRemJumps.ToString();
+}*/
+
+/*    public void AddToJumps(int jumpPickupsToAdd)
+    {
+        playerRemJumps += jumpPickupsToAdd;
+        jumpsText.text = playerRemJumps.ToString();
+    }*/
+
+
+/*    public void AddToKeys(int keysToAdd)
+    {
+        keyCount = keyCount + keysToAdd;
+        keysText.text = keyCount.ToString();
+    }*/
+
+/*    public void SubtractFromKeys(int keysToRemove)
+    {
+        keyCount = keyCount - keysToRemove;
+        keysText.text = keyCount.ToString();
     }*/
 
 
