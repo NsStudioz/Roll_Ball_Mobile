@@ -5,32 +5,32 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    // Serialized/Public Variables
+
+    [Header("Objects")]
+    [SerializeField] private Rigidbody2D myRigidBody2D;
+    [SerializeField] private CapsuleCollider2D myBodyCollider;
+    [SerializeField] private SpriteRenderer mySpriteRenderer;
+    [SerializeField] private ParticleSystem system;
+
+    [Header("Player Elements")]
     [SerializeField] float ballMoveSpeed = 4f;
     [SerializeField] float ballJumpSpeed = 5f;
     [SerializeField] float delayBeforeLoading = 1.5f; // in seconds
-    [SerializeField] float timeElapsed;
-    //
-    [SerializeField] int nextSceneLoad;
-    [SerializeField] int currentSceneIndex;
     [SerializeField] bool isDestroyed = false;
+    [SerializeField] float timeElapsed;
+
+    [Header("Scene Elements")]
+    [SerializeField] int currentSceneIndex;
+    [SerializeField] int nextSceneLoad;
     [SerializeField] int sceneIndex = 1;
-    // References:
-    Rigidbody2D myRigidBody2D;
-    CapsuleCollider2D myBodyCollider;
-    SpriteRenderer mySpriteRenderer;
+
     // GameObjects:
     GameSession gameSession;
     TimerScript timerScript;
-    // Particles:
-    public ParticleSystem system;
+
 
     void Start()
     {
-        myRigidBody2D = GetComponent<Rigidbody2D>();
-        myBodyCollider = GetComponent<CapsuleCollider2D>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
-        //
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
         //
@@ -54,8 +54,10 @@ public class Player : MonoBehaviour
         ReturnToCurrentScene();
         OutOfTime();
 
+#if UNITY_EDITOR
         //PC CONTROLS:
         PcJumpMechanic();
+#endif
     }
 
     void FixedUpdate() // Suitable for Movement;
@@ -68,22 +70,6 @@ public class Player : MonoBehaviour
         float xMove = SimpleInput.GetAxis("Horizontal");
         myRigidBody2D.AddForce(new Vector2(xMove * ballMoveSpeed * Time.deltaTime, 0f));
     }
-
-/*    public void Jump()
-    {
-        if (gameSession.playerRemJumps == 0 || isDestroyed)
-        {
-            return;
-        }
-        else
-        {
-            Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
-            myRigidBody2D.velocity = jumpVelocity;
-            gameSession.JumpsMinusOne();
-            timerScript.exitOnTime = false;
-            FindObjectOfType<AudioManager>().Play("PlayerJump");
-        }
-    }*/
 
     public void HoldButton() // Jump when press
     {
@@ -138,8 +124,8 @@ public class Player : MonoBehaviour
             FindObjectOfType<AudioManager>().Play("PlayerDeath");
             system.Play();
             isDestroyed = true;
-            myRigidBody2D.simulated = false; // disable physics of object completely.
-            mySpriteRenderer.enabled = false; // disable SpriteRenderer2D.
+            myRigidBody2D.simulated = false; // disable physics completely.
+            mySpriteRenderer.enabled = false; // disable sprite visibility.
             timerScript.playerDied = true;
         }
     }
@@ -186,6 +172,28 @@ public class Player : MonoBehaviour
         }
 
     }
-
-
 }
+
+
+/*    public void Jump()
+    {
+        if (gameSession.playerRemJumps == 0 || isDestroyed)
+        {
+            return;
+        }
+        else
+        {
+            Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
+            myRigidBody2D.velocity = jumpVelocity;
+            gameSession.JumpsMinusOne();
+            timerScript.exitOnTime = false;
+            FindObjectOfType<AudioManager>().Play("PlayerJump");
+        }
+    }*/
+
+
+/*        myRigidBody2D = GetComponent<Rigidbody2D>();
+        myBodyCollider = GetComponent<CapsuleCollider2D>();
+        mySpriteRenderer = GetComponent<SpriteRenderer>();
+   public ParticleSystem system;
+*/
