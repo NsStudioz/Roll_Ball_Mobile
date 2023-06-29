@@ -83,7 +83,7 @@ public class Player : MonoBehaviour
             myRigidBody2D.velocity = jumpVelocity;
             gameSession.JumpsMinusOne();
             timerScript.exitOnTime = false;
-            FindObjectOfType<AudioManager>().Play("PlayerJump");
+            AudioManager.Instance.Play("PlayerJump");
         }
     }
 
@@ -91,7 +91,6 @@ public class Player : MonoBehaviour
     {
         return;
     }
-
 
     private void TriggeringLevelExit()
     {
@@ -102,7 +101,7 @@ public class Player : MonoBehaviour
                 FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
                 timerScript.exitOnTime = true;
                 myRigidBody2D.simulated = false;
-                FindObjectOfType<AudioManager>().Play("LevelCompleted");
+                AudioManager.Instance.Play("LevelCompleted");
             }
             else
             {
@@ -112,7 +111,7 @@ public class Player : MonoBehaviour
                 timerScript.exitOnTime = true;
                 myRigidBody2D.simulated = false;
                 //
-                FindObjectOfType<AudioManager>().Play("LevelCompleted");
+                AudioManager.Instance.Play("LevelCompleted");
             }
         }
     }
@@ -121,7 +120,7 @@ public class Player : MonoBehaviour
     {
         if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Traps")))
         {
-            FindObjectOfType<AudioManager>().Play("PlayerDeath");
+            AudioManager.Instance.Play("PlayerDeath");
             system.Play();
             isDestroyed = true;
             myRigidBody2D.simulated = false; // disable physics completely.
@@ -167,7 +166,7 @@ public class Player : MonoBehaviour
                 myRigidBody2D.velocity = jumpVelocity;
                 gameSession.JumpsMinusOne();
                 timerScript.exitOnTime = false;
-                FindObjectOfType<AudioManager>().Play("PlayerJump");
+                AudioManager.Instance.Play("PlayerJump");
             }
         }
 
@@ -197,3 +196,8 @@ public class Player : MonoBehaviour
         mySpriteRenderer = GetComponent<SpriteRenderer>();
    public ParticleSystem system;
 */
+
+//FindObjectOfType<AudioManager>().Play("PlayerJump");
+//FindObjectOfType<AudioManager>().Play("LevelCompleted");
+//FindObjectOfType<AudioManager>().Play("LevelCompleted");
+//FindObjectOfType<AudioManager>().Play("PlayerDeath");
