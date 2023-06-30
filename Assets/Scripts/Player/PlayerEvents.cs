@@ -20,6 +20,15 @@ public class PlayerEvents
 
     public delegate void PlayerDead();
     public static PlayerDead OnPlayerDead;
+
+    public delegate void GamePause();
+    public static GamePause OnGamePause;
+
+    public delegate void GameResume();
+    public static GameResume OnGameResume;
+
+    public delegate void LevelLoad();
+    public static LevelLoad OnLevelLoad;
     //
     public delegate void KeyPickup();
     public static KeyPickup OnKeyPickup;
