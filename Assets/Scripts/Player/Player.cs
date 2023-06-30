@@ -21,30 +21,15 @@ public class Player : MonoBehaviour
     private readonly int jumpOnce = -1;
 
     [Header("Scene Elements")]
-    [SerializeField] int currentSceneIndex;
     [SerializeField] int nextSceneLoad;
-    [SerializeField] int sceneIndex = 1;
-
-    // GameObjects:
-    TimerScript timerScript;
 
     void Start()
     {
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        //
-        GameObject thisGameSession = GameObject.Find("Gamesession");
-        timerScript = thisGameSession.GetComponent<TimerScript>();
         //
         GameSession.Instance.playerRemJumps = 3;
         GameSession.Instance.keyCount = 0;
         GameSession.Instance.SetTexts();
-        //
-/*        timerScript.decimalLevelTimer = 10f;
-        timerScript.timerText.text = timerScript.levelTimer.ToString();
-        timerScript.isTimeOutPlayed = false;
-        timerScript.startTimer = false;
-        timerScript.exitOnTime = false;*/
     }
 
     private void OnEnable()
@@ -62,7 +47,6 @@ public class Player : MonoBehaviour
         TriggeringLevelExit();
         PlayerDeath();
         ReturnToCurrentScene();
-        //OutOfTime();
 
 #if UNITY_EDITOR
         //PC CONTROLS:
@@ -92,7 +76,6 @@ public class Player : MonoBehaviour
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
             myRigidBody2D.velocity = jumpVelocity;
             GameSession.Instance.CalculateRemainingJumps(jumpOnce);
-            //timerScript.exitOnTime = false;
             AudioManager.Instance.Play("PlayerJump");
         }
     }
@@ -100,6 +83,11 @@ public class Player : MonoBehaviour
     public void ReleaseButton() // Do nothing upon release
     {
         return;
+    }
+
+    private void OutOfTime()
+    {
+        myRigidBody2D.simulated = false;
     }
 
     private void TriggeringLevelExit()
@@ -111,7 +99,7 @@ public class Player : MonoBehaviour
             if (SceneManager.GetActiveScene().buildIndex == 52)
             {
                 FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
-                //timerScript.exitOnTime = true;
+                PlayerEvents.OnTriggerStopTimer?.Invoke();
                 myRigidBody2D.simulated = false;
                 AudioManager.Instance.Play("LevelCompleted");
             }
@@ -120,7 +108,7 @@ public class Player : MonoBehaviour
                 FindObjectOfType<LevelChanger_Levels>().FadeToNextLevel();
                 // Setting Int for Index
                 if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))  { PlayerPrefs.SetInt("levelAt", nextSceneLoad); }
-                //timerScript.exitOnTime = true;
+                PlayerEvents.OnTriggerStopTimer?.Invoke();
                 myRigidBody2D.simulated = false;
                 //
                 AudioManager.Instance.Play("LevelCompleted");
@@ -137,8 +125,7 @@ public class Player : MonoBehaviour
             isDestroyed = true;
             myRigidBody2D.simulated = false; // disable physics completely.
             mySpriteRenderer.enabled = false; // disable sprite visibility.
-            //timerScript.playerDied = true;
-            PlayerEvents.OnPlayerDead?.Invoke();
+            PlayerEvents.OnTriggerStopTimer?.Invoke();
         }
     }
 
@@ -150,21 +137,9 @@ public class Player : MonoBehaviour
             if (timeElapsed > delayBeforeLoading)
             {
                 FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
-                //timerScript.playerDied = false;
+                PlayerEvents.OnTriggerStopTimer.Invoke();
             }
         }
-    }
-
-    private void OutOfTime()
-    {
-/*        if (timerScript.timesUp == true)
-        {
-            timerScript.PlayTimeOutClip();
-            myRigidBody2D.simulated = false;
-        }*/
-        //AudioManager.Instance.Play("PlayerDeath");
-
-        myRigidBody2D.simulated = false;
     }
 
     // PC Controls:
@@ -181,7 +156,6 @@ public class Player : MonoBehaviour
                 Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
                 myRigidBody2D.velocity = jumpVelocity;
                 GameSession.Instance.CalculateRemainingJumps(jumpOnce);
-                //timerScript.exitOnTime = false;
                 AudioManager.Instance.Play("PlayerJump");
             }
         }
@@ -189,35 +163,23 @@ public class Player : MonoBehaviour
 }
 
 
-/*    public void Jump()
-    {
-        if (gameSession.playerRemJumps == 0 || isDestroyed)
-        {
-            return;
-        }
-        else
-        {
-            Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
-            myRigidBody2D.velocity = jumpVelocity;
-            gameSession.JumpsMinusOne();
-            timerScript.exitOnTime = false;
-            FindObjectOfType<AudioManager>().Play("PlayerJump");
-        }
-    }*/
+// GameObjects:
+//TimerScript timerScript;
+/*        GameObject thisGameSession = GameObject.Find("Gamesession");
+    timerScript = thisGameSession.GetComponent<TimerScript>();*/
+
+//[SerializeField] int currentSceneIndex;
+//currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+//[SerializeField] int sceneIndex = 1;
 
 
-/*        myRigidBody2D = GetComponent<Rigidbody2D>();
-        myBodyCollider = GetComponent<CapsuleCollider2D>();
-        mySpriteRenderer = GetComponent<SpriteRenderer>();
-   public ParticleSystem system;
+//
+/*        timerScript.decimalLevelTimer = 10f;
+        timerScript.isTimeOutPlayed = false;
+        timerScript.startTimer = false;
 */
 
-//FindObjectOfType<AudioManager>().Play("PlayerJump");
-//FindObjectOfType<AudioManager>().Play("LevelCompleted");
-//FindObjectOfType<AudioManager>().Play("LevelCompleted");
-//FindObjectOfType<AudioManager>().Play("PlayerDeath");
 
-//GameSession gameSession;
-//gameSession = thisGameSession.GetComponent<GameSession>();
-//gameSession.playerRemJumps = 3;
-//gameSession.JumpsMinusOne();
+//timerScript.exitOnTime = false;
+//timerScript.playerDied = false;
+//timerScript.exitOnTime = true;
