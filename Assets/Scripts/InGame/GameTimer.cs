@@ -12,7 +12,6 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private float resetTimerDelay;
 
     [SerializeField] private bool startTimer;
-    [SerializeField] private bool outOfTime;
     [SerializeField] private bool isOutOfTimeAudioPlayed;
 
     [SerializeField] private TMP_Text timerText;
@@ -22,6 +21,7 @@ public class GameTimer : MonoBehaviour
 
     private void OnEnable()
     {
+        PlayerEvents.OnLevelLoad += SetTimerToLevel;
         PlayerEvents.OnTimePickup += AddTimeToTimer;
         PlayerEvents.OnLevelStarted += StartTimer;
         PlayerEvents.OnLevelCompleted += ResetTimer;
@@ -31,6 +31,7 @@ public class GameTimer : MonoBehaviour
 
     private void OnDisable()
     {
+        PlayerEvents.OnLevelLoad -= SetTimerToLevel;
         PlayerEvents.OnTimePickup -= AddTimeToTimer;
         PlayerEvents.OnLevelStarted -= StartTimer;
         PlayerEvents.OnLevelCompleted -= ResetTimer;
@@ -45,9 +46,6 @@ public class GameTimer : MonoBehaviour
 
     void Update()
     {
-        if (GameSession.Instance.GetSceneIndex() < 5)
-            return;
-
         if (!startTimer)
             return;
 
@@ -56,18 +54,30 @@ public class GameTimer : MonoBehaviour
 
         if (decimalTimer < 0)
         {
-            SetTimerState(false, true);
+            SetTexts(false, true);
+            SetTimerState(false);
             OutOfTime();
         }
     }
 
-    private void DisableTimer() // timer disabled during the first few level.
+    private void SetTimerToLevel()
+    {
+        if (GameSession.Instance.GetSceneIndex() > 5)
+        {
+            SetTexts(true, false);
+        }
+    }
+
+    // timer disabled during the first few levels.
+    private void DisableTimer() 
     {
         if (GameSession.Instance.GetSceneIndex() < 5)
         {
             SetTexts(false, false);
-            SetTimerState(false, false);
+            SetTimerState(false);
         }
+
+        isOutOfTimeAudioPlayed = false;
     }
 
     private void ResetTimer()
@@ -77,34 +87,32 @@ public class GameTimer : MonoBehaviour
 
     private void ResetTimerSettings()
     {
-        isOutOfTimeAudioPlayed = false;
         decimalTimer = resetTimer;
         SyncTimerText();
     }
 
     private IEnumerator ResetTimerCoRoutine()
     {
-        SetTimerState(false, false);
+        SetTimerState(false);
         SetTexts(true, false);
+        isOutOfTimeAudioPlayed = false;
         yield return new WaitForSeconds(resetTimerDelay);
         ResetTimerSettings();
     }
 
-    public bool GetOutOfTime()
-    {
-        return outOfTime;
-    }
-
     private void OutOfTime()
     {
-        if (outOfTime)
+        PlayerEvents.OnOutOfTime?.Invoke();
+        SetTexts(false, true);
+        PlayOutOfTimeAudio();
+
+/*        if (outOfTime)
         {
             PlayerEvents.OnOutOfTime?.Invoke();
             SetTexts(false, true);
             PlayOutOfTimeAudio();
-        }
+        }*/
     }
-
 
     private void SetTexts(bool _timerTextObject, bool _timeOutTextObject)
     {
@@ -123,11 +131,12 @@ public class GameTimer : MonoBehaviour
         startTimer = true;
     }
 
-    private void SetTimerState(bool _startTimer, bool _outOfTime)
+    private void SetTimerState(bool _startTimer)
     {
         startTimer = _startTimer;
-        outOfTime = _outOfTime;
     }
+
+
 
     // Time Pickups
     private void AddTimeToTimer(float time)
@@ -147,7 +156,24 @@ public class GameTimer : MonoBehaviour
 
 }
 
+//[SerializeField] private bool outOfTime;
 
 //decimalTimer = Time.unscaledDeltaTime;
 //[SerializeField] private int timeElapsed;
 //[SerializeField] private int timeElapsedThreshold;
+
+
+
+
+/*    public bool GetOutOfTime()
+    {
+        return outOfTime;
+    }*/
+
+
+
+/*    private void SetTimerStateOld(bool _startTimer, bool _outOfTime)
+    {
+        startTimer = _startTimer;
+        outOfTime = _outOfTime;
+    }*/
