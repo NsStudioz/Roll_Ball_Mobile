@@ -41,7 +41,7 @@ public class GameTimer : MonoBehaviour
 
     void Start()
     {
-        DisableTimer();
+        //DisableTimer();
     }
 
     void Update()
@@ -62,22 +62,25 @@ public class GameTimer : MonoBehaviour
 
     private void SetTimerToLevel()
     {
-        if (GameSession.Instance.GetSceneIndex() > 5)
+        if (GameSession.Instance.GetSceneIndex() < 5)
+        {
+            //DisableTimer();
+            SetTexts(false, false);
+        }
+        else
         {
             SetTexts(true, false);
         }
+
+        SetTimerState(false);
+        isOutOfTimeAudioPlayed = false;
     }
 
     // timer disabled during the first few levels.
     private void DisableTimer() 
     {
-        if (GameSession.Instance.GetSceneIndex() < 5)
-        {
-            SetTexts(false, false);
-            SetTimerState(false);
-        }
-
-        isOutOfTimeAudioPlayed = false;
+        //SetTexts(false, false);
+        //SetTimerState(false);
     }
 
     private void ResetTimer()
@@ -85,7 +88,7 @@ public class GameTimer : MonoBehaviour
         StartCoroutine(ResetTimerCoRoutine());
     }
 
-    private void ResetTimerSettings()
+    private void ResetTimerCalculations()
     {
         decimalTimer = resetTimer;
         SyncTimerText();
@@ -97,7 +100,7 @@ public class GameTimer : MonoBehaviour
         SetTexts(true, false);
         isOutOfTimeAudioPlayed = false;
         yield return new WaitForSeconds(resetTimerDelay);
-        ResetTimerSettings();
+        ResetTimerCalculations();
     }
 
     private void OutOfTime()
@@ -135,8 +138,6 @@ public class GameTimer : MonoBehaviour
     {
         startTimer = _startTimer;
     }
-
-
 
     // Time Pickups
     private void AddTimeToTimer(float time)
