@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
 
-    TimerScript timerScript;
+    //TimerScript timerScript;
     MusicManager musicManager;
 
     [SerializeField] int currentSceneIndex;
@@ -16,8 +16,8 @@ public class LevelExit : MonoBehaviour
 
     void Start()
     {
-        GameObject thisGameSession = GameObject.Find("Gamesession");
-        timerScript = thisGameSession.GetComponent<TimerScript>();
+/*        GameObject thisGameSession = GameObject.Find("Gamesession");
+        timerScript = thisGameSession.GetComponent<TimerScript>();*/
         GameObject forMusicManager = GameObject.Find("MusicManager");
         musicManager = forMusicManager.GetComponent<MusicManager>();
 
@@ -26,7 +26,8 @@ public class LevelExit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D player)
     {
-        timerScript.startTimer = false;
+        //timerScript.startTimer = false;
+        PlayerEvents.OnLevelCompleted?.Invoke();
 
         if (musicTriggerValues.Contains(currentSceneIndex))
         {
