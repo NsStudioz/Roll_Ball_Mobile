@@ -5,41 +5,66 @@ using UnityEngine;
 public class TimePickups : MonoBehaviour
 {
 
-    [SerializeField] float timeToAdd = 1f;
+    [SerializeField] private float TimePlusOne =   1f;
+    [SerializeField] private float TimePlusTwo =   2f;
+    [SerializeField] private float TimePlusThree = 3f;
+    [SerializeField] private float TimePlusFour =  4f;
+    [SerializeField] private float TimePlusFive =  5f;
 
-    TimerScript timerScript;
+    private void OnTriggerEnter2D(Collider2D player)
+    {
+        if(tag == "TimePlusOne")
+            PlayerEvents.OnTimePickup?.Invoke(TimePlusOne);
+        if (tag == "TimePlusTwo")
+            PlayerEvents.OnTimePickup?.Invoke(TimePlusTwo);
+        if (tag == "TimePlusThree")
+            PlayerEvents.OnTimePickup?.Invoke(TimePlusThree);
+        if (tag == "TimePlusFour")
+            PlayerEvents.OnTimePickup?.Invoke(TimePlusFour);
+        if (tag == "TimePlusFive")
+            PlayerEvents.OnTimePickup?.Invoke(TimePlusFive);
+
+        AudioManager.Instance.Play("TimePickup");
+        Destroy(gameObject);
+    }
+
+}
+
+//[SerializeField] private float timeToAdd = 1f;
+
+/*    TimerScript timerScript;
 
     void Start()
     {
         GameObject myTimerScript = GameObject.Find("Gamesession");
         timerScript = myTimerScript.GetComponent<TimerScript>();
-    }
+    }*/
 
-    private void OnTriggerEnter2D(Collider2D player)
+/*private void OnTriggerEnter2D(Collider2D player)
+{
+    if (tag == "TimePlusOne")
     {
-        if(tag == "TimePlusOne")
-        {
-            timerScript.AddTime(timeToAdd);
-        }
-
-        if (tag == "TimePlusTwo")
-        {
-            timerScript.AddTime(timeToAdd + 1f);
-        }
-        if (tag == "TimePlusThree")
-        {
-            timerScript.AddTime(timeToAdd + 2f);
-        }
-        if (tag == "TimePlusFour")
-        {
-            timerScript.AddTime(timeToAdd + 3f);
-        }
-        if (tag == "TimePlusFive")
-        {
-            timerScript.AddTime(timeToAdd + 4f);
-        }
-
-        FindObjectOfType<AudioManager>().Play("TimePickup");
-        Destroy(gameObject);
+        timerScript.AddTime(timeToAdd);
     }
-}
+
+    if (tag == "TimePlusTwo")
+    {
+        timerScript.AddTime(timeToAdd + 1f);
+    }
+    if (tag == "TimePlusThree")
+    {
+        timerScript.AddTime(timeToAdd + 2f);
+    }
+    if (tag == "TimePlusFour")
+    {
+        timerScript.AddTime(timeToAdd + 3f);
+    }
+    if (tag == "TimePlusFive")
+    {
+        timerScript.AddTime(timeToAdd + 4f);
+    }
+
+    //FindObjectOfType<AudioManager>().Play("TimePickup");
+    AudioManager.Instance.Play("TimePickup");
+    Destroy(gameObject);
+}*/
