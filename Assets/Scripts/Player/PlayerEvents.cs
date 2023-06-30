@@ -29,6 +29,9 @@ public class PlayerEvents
 
     public delegate void LevelLoad();
     public static LevelLoad OnLevelLoad;
+
+    public delegate void TriggerStopTimer();
+    public static TriggerStopTimer OnTriggerStopTimer;
     //
     public delegate void KeyPickup();
     public static KeyPickup OnKeyPickup;
