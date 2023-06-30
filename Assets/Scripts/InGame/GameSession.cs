@@ -7,6 +7,8 @@ public class GameSession : MonoBehaviour
 
     public static GameSession Instance;
 
+    public bool EarlyLevels { get; private set; }  // timer completely disabled during the first few levels.
+    public int CurrentSceneIndex { get; private set; }
 
     [SerializeField] private int currentSceneIndex;
 
@@ -34,7 +36,24 @@ public class GameSession : MonoBehaviour
 
         DontDestroyOnLoad(gameObject);
     }
-    
+
+    private void OnEnable()
+    {
+        PlayerEvents.OnLevelLoad += SetTimerToLevel;
+    }
+
+    private void OnDisable()
+    {
+        PlayerEvents.OnLevelLoad -= SetTimerToLevel;
+    }
+
+    private void SetTimerToLevel()
+    {
+        if (CurrentSceneIndex < 5) { EarlyLevels = true; }
+        else { EarlyLevels = false; }
+    }
+
+
     public int GetPlayerRemainingJump()
     {
         return playerRemJumps;
@@ -45,7 +64,7 @@ public class GameSession : MonoBehaviour
         return keyCount;
     }
 
-    public int GetSceneIndex()
+/*    public int GetSceneIndex()
     {
         return currentSceneIndex;
     }
@@ -53,12 +72,12 @@ public class GameSession : MonoBehaviour
     private void SetSceneIndex()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }
+    }*/
 
 
     void Update()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
 
         KeysObjectsAppearance();
     }
