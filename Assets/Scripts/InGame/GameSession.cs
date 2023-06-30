@@ -45,6 +45,17 @@ public class GameSession : MonoBehaviour
         return keyCount;
     }
 
+    public int GetSceneIndex()
+    {
+        return currentSceneIndex;
+    }
+
+    private void SetSceneIndex()
+    {
+        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
+
     void Update()
     {
         currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
@@ -69,17 +80,6 @@ public class GameSession : MonoBehaviour
         keyCount += keys;
         keysText.text = keyCount.ToString();
     }
-
-    public int GetSceneIndex()
-    {
-        return currentSceneIndex;
-    }
-
-    private void SetSceneIndex()
-    {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }
-
 
     private void KeysObjectsAppearance()
     {
