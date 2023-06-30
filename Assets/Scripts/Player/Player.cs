@@ -40,19 +40,29 @@ public class Player : MonoBehaviour
         GameSession.Instance.keyCount = 0;
         GameSession.Instance.SetTexts();
         //
-        timerScript.decimalLevelTimer = 10f;
+/*        timerScript.decimalLevelTimer = 10f;
         timerScript.timerText.text = timerScript.levelTimer.ToString();
         timerScript.isTimeOutPlayed = false;
         timerScript.startTimer = false;
-        timerScript.exitOnTime = false;
+        timerScript.exitOnTime = false;*/
     }
+
+    private void OnEnable()
+    {
+        PlayerEvents.OnOutOfTime += OutOfTime;
+    }
+    private void OnDisable()
+    {
+        PlayerEvents.OnOutOfTime -= OutOfTime;
+    }
+
 
     void Update() // Suitable for Handling inputs and animations
     {
         TriggeringLevelExit();
         PlayerDeath();
         ReturnToCurrentScene();
-        OutOfTime();
+        //OutOfTime();
 
 #if UNITY_EDITOR
         //PC CONTROLS:
@@ -82,7 +92,7 @@ public class Player : MonoBehaviour
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
             myRigidBody2D.velocity = jumpVelocity;
             GameSession.Instance.CalculateRemainingJumps(jumpOnce);
-            timerScript.exitOnTime = false;
+            //timerScript.exitOnTime = false;
             AudioManager.Instance.Play("PlayerJump");
         }
     }
@@ -96,10 +106,12 @@ public class Player : MonoBehaviour
     {
         if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Level Exit")))
         {
+            PlayerEvents.OnLevelCompleted?.Invoke();
+
             if (SceneManager.GetActiveScene().buildIndex == 52)
             {
                 FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
-                timerScript.exitOnTime = true;
+                //timerScript.exitOnTime = true;
                 myRigidBody2D.simulated = false;
                 AudioManager.Instance.Play("LevelCompleted");
             }
@@ -108,7 +120,7 @@ public class Player : MonoBehaviour
                 FindObjectOfType<LevelChanger_Levels>().FadeToNextLevel();
                 // Setting Int for Index
                 if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))  { PlayerPrefs.SetInt("levelAt", nextSceneLoad); }
-                timerScript.exitOnTime = true;
+                //timerScript.exitOnTime = true;
                 myRigidBody2D.simulated = false;
                 //
                 AudioManager.Instance.Play("LevelCompleted");
@@ -125,7 +137,8 @@ public class Player : MonoBehaviour
             isDestroyed = true;
             myRigidBody2D.simulated = false; // disable physics completely.
             mySpriteRenderer.enabled = false; // disable sprite visibility.
-            timerScript.playerDied = true;
+            //timerScript.playerDied = true;
+            PlayerEvents.OnPlayerDead?.Invoke();
         }
     }
 
@@ -137,18 +150,21 @@ public class Player : MonoBehaviour
             if (timeElapsed > delayBeforeLoading)
             {
                 FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
-                timerScript.playerDied = false;
+                //timerScript.playerDied = false;
             }
         }
     }
 
     private void OutOfTime()
     {
-        if (timerScript.timesUp == true)
+/*        if (timerScript.timesUp == true)
         {
             timerScript.PlayTimeOutClip();
             myRigidBody2D.simulated = false;
-        }
+        }*/
+        //AudioManager.Instance.Play("PlayerDeath");
+
+        myRigidBody2D.simulated = false;
     }
 
     // PC Controls:
@@ -165,7 +181,7 @@ public class Player : MonoBehaviour
                 Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
                 myRigidBody2D.velocity = jumpVelocity;
                 GameSession.Instance.CalculateRemainingJumps(jumpOnce);
-                timerScript.exitOnTime = false;
+                //timerScript.exitOnTime = false;
                 AudioManager.Instance.Play("PlayerJump");
             }
         }
