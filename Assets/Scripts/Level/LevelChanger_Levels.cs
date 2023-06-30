@@ -4,19 +4,29 @@ using UnityEngine.SceneManagement;
 public class LevelChanger_Levels : MonoBehaviour
 {
 
-    TimerScript timerScript;
+    //TimerScript timerScript;
     MusicManager musicManager;
     //
     public Animator animator;
     //
     private int levelToLoad;
-    [SerializeField] int currentSceneIndex;
+    //[SerializeField] int currentSceneIndex;
+
+    private void OnEnable()
+    {
+        
+    }
+
+    private void OnDisable()
+    {
+        
+    }
 
 
     void Start()
     {
-        GameObject thisGameSession = GameObject.Find("Gamesession");
-        timerScript = thisGameSession.GetComponent<TimerScript>();
+/*        GameObject thisGameSession = GameObject.Find("Gamesession");
+        timerScript = thisGameSession.GetComponent<TimerScript>();*/
         //
         GameObject forMusicManager = GameObject.Find("MusicManager");
         musicManager = forMusicManager.GetComponent<MusicManager>();
@@ -24,7 +34,7 @@ public class LevelChanger_Levels : MonoBehaviour
 
     void Update()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        //currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     public void FadeToNextLevel()
@@ -58,15 +68,16 @@ public class LevelChanger_Levels : MonoBehaviour
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(levelToLoad); // load the scene with the value index of 'X' (levelToLoad)
-        timerScript.decimalLevelTimer = 10f;
+        PlayerEvents.OnLevelLoad?.Invoke();
+/*        timerScript.decimalLevelTimer = 10f;
         timerScript.timeElapsed = 0f;
         timerScript.timesUp = false;
-        timerScript.timeOutText.SetActive(false);
+        timerScript.timeOutText.SetActive(false);*/
 
-        if (levelToLoad > 5)
+/*        if (levelToLoad > 5)
         {
             timerScript.timerTextObject.SetActive(true);
-        }
+        }*/
 
         // Music Manager Mechanic:
         if (!musicManager.stateSwitch)
