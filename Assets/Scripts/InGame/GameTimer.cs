@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameTimer : MonoBehaviour
 {
@@ -15,10 +17,15 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private bool isOutOfTimeAudioPlayed;
 
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        ResetTimer();
+    }
 
     private void OnEnable()
     {
-        PlayerEvents.OnLevelLoad += ResetTimer;
+        SceneManager.sceneLoaded += OnSceneLoaded;
+        //
         PlayerEvents.OnLevelStarted += StartTimer;
         PlayerEvents.OnTriggerStopTimer += StopTimer;
         PlayerEvents.OnTimePickup += AddTimeToTimer;    
@@ -26,7 +33,8 @@ public class GameTimer : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerEvents.OnLevelLoad -= ResetTimer;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        //
         PlayerEvents.OnLevelStarted -= StartTimer;
         PlayerEvents.OnTriggerStopTimer -= StopTimer;
         PlayerEvents.OnTimePickup -= AddTimeToTimer;
@@ -35,7 +43,7 @@ public class GameTimer : MonoBehaviour
     void Update()
     {
 
-        if (!GameSession.Instance.EarlyLevels || !startTimer)
+        if (GameSession.Instance.EarlyLevels || !startTimer)
             return;
 
         if (decimalTimer > 0)
@@ -53,6 +61,7 @@ public class GameTimer : MonoBehaviour
     private void ResetTimer()
     {
         decimalTimer = resetTimer;
+        LevelTimer = Mathf.RoundToInt(decimalTimer);
         isOutOfTimeAudioPlayed = false;
     }
 
@@ -94,49 +103,5 @@ public class GameTimer : MonoBehaviour
     }
 }
 
-//[SerializeField] private float resetTimerDelay;
-
-/*        if (decimalTimer < 0)
-        {
-            SetTimerState(false);
-            OutOfTime();
-        }*/
-
-
-/*PlayerEvents.OnLevelCompleted += StopTimer;
-        PlayerEvents.OnPlayerDead += StopTimer;
-        PlayerEvents.OnLevelReset += StopTimer;
-        PlayerEvents.OnLevelCompleted -= StopTimer;
-        PlayerEvents.OnPlayerDead -= StopTimer;
-        PlayerEvents.OnLevelReset -= StopTimer;*/
-
-//StartCoroutine(ResetTimerCoRoutine());
-
-/*    private IEnumerator ResetTimerCoRoutine()
-    {
-        SetTimerState(false);
-        isOutOfTimeAudioPlayed = false;
-        yield return new WaitForSeconds(resetTimerDelay);
-        ResetTimerCalculations();
-    }
-
-    private void ResetTimerCalculations()
-    {
-        decimalTimer = resetTimer;
-    }*/
-
-
-//[SerializeField] private int levelTimer;
-
-/*    public int GetLevelTimer()
-    {
-        return levelTimer;
-    }*/
-
-/*    [SerializeField] private TMP_Text timerText;
-    [SerializeField] private GameObject timerTextObject;
-    [SerializeField] private GameObject timeOutTextObject;*/
-
-//[SerializeField] private bool outOfTime;
 
 //decimalTimer = Time.unscaledDeltaTime;
