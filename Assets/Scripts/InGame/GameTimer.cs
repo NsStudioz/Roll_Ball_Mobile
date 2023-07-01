@@ -10,7 +10,6 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private float decimalTimer = 0;
 
     [SerializeField] private float resetTimer = 10f;
-    [SerializeField] private float resetTimerDelay;
 
     [SerializeField] private bool startTimer;
     [SerializeField] private bool isOutOfTimeAudioPlayed;
@@ -39,7 +38,7 @@ public class GameTimer : MonoBehaviour
         if (!GameSession.Instance.EarlyLevels || !startTimer)
             return;
 
-        if(decimalTimer > 0)
+        if (decimalTimer > 0)
         {
             decimalTimer -= Time.deltaTime;
             LevelTimer = Mathf.RoundToInt(decimalTimer);
@@ -84,7 +83,7 @@ public class GameTimer : MonoBehaviour
         decimalTimer += time;
     }
 
-    // use bool & event to trigger once.
+    // use bool & event to play once.
     private void PlayOutOfTimeAudio()
     {
         if (!isOutOfTimeAudioPlayed)
@@ -93,8 +92,9 @@ public class GameTimer : MonoBehaviour
             isOutOfTimeAudioPlayed = true;
         }
     }
-
 }
+
+//[SerializeField] private float resetTimerDelay;
 
 /*        if (decimalTimer < 0)
         {
