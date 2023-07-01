@@ -15,10 +15,12 @@ public class Player : MonoBehaviour
     [Header("Player Elements")]
     [SerializeField] float ballMoveSpeed = 4f;
     [SerializeField] float ballJumpSpeed = 5f;
-    [SerializeField] float delayBeforeLoading = 1.5f; // in seconds
     [SerializeField] bool isDestroyed = false;
-    [SerializeField] float timeElapsed;
     private readonly int jumpOnce = -1;
+
+    [Header("Player Spawn Timer")]
+    [SerializeField] float delayBeforeLoading = 1.5f; // in seconds
+    [SerializeField] float timeElapsed;
 
     [Header("Scene Elements")]
     [SerializeField] int nextSceneLoad;
@@ -26,10 +28,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
-        //
-        GameSession.Instance.playerRemJumps = 3;
-        GameSession.Instance.keyCount = 0;
-        GameSession.Instance.SetTexts();
     }
 
     private void OnEnable()
@@ -67,7 +65,7 @@ public class Player : MonoBehaviour
 
     public void HoldButton() // Jump when press
     {
-        if (GameSession.Instance.GetPlayerRemainingJump() == 0 || isDestroyed)
+        if (GameSession.Instance.PlayerJumps == 0 || isDestroyed)
         {
             return;
         }
@@ -75,7 +73,8 @@ public class Player : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
             myRigidBody2D.velocity = jumpVelocity;
-            GameSession.Instance.CalculateRemainingJumps(jumpOnce);
+            //GameSession.Instance.CalculatePlayerJumps(jumpOnce);
+            PlayerEvents.OnPlayerJump?.Invoke(jumpOnce);
             AudioManager.Instance.Play("PlayerJump");
         }
     }
@@ -147,7 +146,7 @@ public class Player : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (GameSession.Instance.GetPlayerRemainingJump() == 0 || isDestroyed)
+            if (GameSession.Instance.PlayerJumps == 0 || isDestroyed)
             {
                 return;
             }
@@ -155,13 +154,16 @@ public class Player : MonoBehaviour
             {
                 Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
                 myRigidBody2D.velocity = jumpVelocity;
-                GameSession.Instance.CalculateRemainingJumps(jumpOnce);
+                //GameSession.Instance.CalculatePlayerJumps(jumpOnce);
+                PlayerEvents.OnPlayerJump?.Invoke(jumpOnce);
                 AudioManager.Instance.Play("PlayerJump");
             }
         }
     }
 }
 
+
+//GameSession.Instance.keyCount = 0;
 
 // GameObjects:
 //TimerScript timerScript;
