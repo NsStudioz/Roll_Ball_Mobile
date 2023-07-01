@@ -8,12 +8,13 @@ public class UnlockDoor : MonoBehaviour
     [SerializeField] ParticleSystem unlockedblockSystem;
 
     private int keys = -1;
+    private string player = "Player";
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == "Player" && GameSession.Instance.GetPlayerKeyCount() > 0)
+        if (other.gameObject.name == player && GameSession.Instance.KeyCount > 0)
         {
-            GameSession.Instance.CalculateRemainingKeys(keys);
+            PlayerEvents.OnKeyUsed(keys);
             AudioManager.Instance.Play("BlockUnlock");
             PlayUnlockParticles();
         }
@@ -26,6 +27,8 @@ public class UnlockDoor : MonoBehaviour
         Destroy(gameObject);
     }
 }
+
+//GameSession.Instance.CalculateKeyCount(keys);
 
 
 /*    GameSession gameSession;
