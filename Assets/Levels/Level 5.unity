@@ -8899,7 +8899,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
-  m_PresetInfoIsWorld: 0
+  m_PresetInfoIsWorld: 1
 --- !u!223 &1543141381925655930
 Canvas:
   m_ObjectHideFlags: 0
@@ -10226,9 +10226,7 @@ MonoBehaviour:
   delayBeforeLoading: 1.5
   isDestroyed: 0
   timeElapsed: 0
-  currentSceneIndex: 0
   nextSceneLoad: 0
-  sceneIndex: 1
 --- !u!95 &5621431019482065936
 Animator:
   serializedVersion: 4
@@ -10734,7 +10732,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 5621431019482065936}
-  currentSceneIndex: 0
 --- !u!114 &6996263912843883278
 MonoBehaviour:
   m_ObjectHideFlags: 0

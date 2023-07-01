@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameUIManager : MonoBehaviour
 {
@@ -15,6 +16,14 @@ public class GameUIManager : MonoBehaviour
     [SerializeField] private TMP_Text timerText;
     [SerializeField] private GameObject timerTextObject;
     [SerializeField] private GameObject OutOfTimeTextObject;
+
+    [Header("Jump Elements")]
+    [SerializeField] private TMP_Text jumpsText;
+
+    [Header("Key Elements")]
+    [SerializeField] private GameObject keysObjects;
+    [SerializeField] private TMP_Text keysText;
+
 
     void Awake()
     {
@@ -35,14 +44,22 @@ public class GameUIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEvents.OnOutOfTime += ShowTimeOutText;
         PlayerEvents.OnLevelLoad += SetTimerTextVisibility;
+        PlayerEvents.OnLevelLoad += SetKeysObjectsVisibility;
+
+        PlayerEvents.OnOutOfTime += ShowTimeOutText;
+        PlayerEvents.OnPlayerJumpsCheck += SyncJumpsText;
+        PlayerEvents.OnKeyCountCheck += SyncKeyCountText;
 
     }
     private void OnDisable()
     {
-        PlayerEvents.OnOutOfTime -= ShowTimeOutText;
         PlayerEvents.OnLevelLoad -= SetTimerTextVisibility;
+        PlayerEvents.OnLevelLoad -= SetKeysObjectsVisibility;
+
+        PlayerEvents.OnOutOfTime -= ShowTimeOutText;
+        PlayerEvents.OnPlayerJumpsCheck -= SyncJumpsText;
+        PlayerEvents.OnKeyCountCheck -= SyncKeyCountText;
 
     }
 
@@ -51,6 +68,29 @@ public class GameUIManager : MonoBehaviour
     {
         SyncGameTimerText();
     }
+
+    private void SyncJumpsText(int jumps)
+    {
+        //jumpsText.text = GameSession.Instance.PlayerJumps.ToString();
+        jumpsText.text = jumps.ToString();
+
+    }
+
+    private void SyncKeyCountText(int keys)
+    {
+        //keysText.text = GameSession.Instance.KeyCount.ToString();
+        keysText.text = keys.ToString();
+    }
+
+    private void SetKeysObjectsVisibility()
+    {
+        if(GameSession.Instance.CurrentSceneIndex > 32)
+            keysObjects.SetActive(true);
+        else
+            keysObjects.SetActive(false);
+    }
+
+
 
     #region Timer Texts
 
