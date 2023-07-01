@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelChanger : MonoBehaviour
 {
-    TimerScript timerScript;
+    //TimerScript timerScript;
     MusicManager musicManager;
 
     public Animator animator;
@@ -11,8 +11,8 @@ public class LevelChanger : MonoBehaviour
 
     void Start()
     {
-        GameObject thisGameSession = GameObject.Find("Gamesession");
-        timerScript = thisGameSession.GetComponent<TimerScript>();
+/*        GameObject thisGameSession = GameObject.Find("Gamesession");
+        timerScript = thisGameSession.GetComponent<TimerScript>();*/
 
         GameObject forMusicManager = GameObject.Find("MusicManager");
         musicManager = forMusicManager.GetComponent<MusicManager>();
@@ -31,10 +31,12 @@ public class LevelChanger : MonoBehaviour
     {
         SceneManager.LoadScene(levelToLoad);
 
-        if (levelToLoad > 5)
+        PlayerEvents.OnLevelLoad?.Invoke();
+
+/*        if (levelToLoad > 5)
         {
             timerScript.timerTextObject.SetActive(true);
-        }
+        }*/
 
         // Music Manager Mechanic:
         if (levelToLoad >= 3 && levelToLoad <= 12)
