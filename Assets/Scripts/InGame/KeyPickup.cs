@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyObtainable : MonoBehaviour
+public class KeyPickup : MonoBehaviour
 {
 
     int keys = 1;
@@ -10,10 +10,12 @@ public class KeyObtainable : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D player)
     {
         AudioManager.Instance.Play("KeyPickup");
-        GameSession.Instance.CalculateRemainingKeys(keys);
+        PlayerEvents.OnKeyPickup(keys);
         Destroy(gameObject);
     }
 }
+
+//GameSession.Instance.CalculateKeyCount(keys);
 
 /*
     GameSession gameSession;
