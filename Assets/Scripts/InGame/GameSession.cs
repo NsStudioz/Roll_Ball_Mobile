@@ -10,16 +10,10 @@ public class GameSession : MonoBehaviour
     public bool EarlyLevels { get; private set; }  // timer completely disabled during the first few levels.
     public int CurrentSceneIndex { get; private set; }
 
-    [SerializeField] private int currentSceneIndex;
+    public int PlayerJumps { get; private set; }
 
-    public int playerRemJumps; // player's remaining jumps.
-    public int keyCount;
-    //
-    [SerializeField] private TMP_Text jumpsText;
-    [SerializeField] private TMP_Text keysText;
-    [SerializeField] private GameObject keysImageObject;
-    [SerializeField] private GameObject keysTextObject;
-    
+    public int KeyCount { get; private set; }
+
     private void Awake()
     {
         Initialize();
@@ -40,11 +34,40 @@ public class GameSession : MonoBehaviour
     private void OnEnable()
     {
         PlayerEvents.OnLevelLoad += SetTimerToLevel;
+        PlayerEvents.OnLevelLoad += ResetPlayerJumps;
+        PlayerEvents.OnLevelLoad += ResetPlayerKeyCount;
+        //
+        PlayerEvents.OnPlayerJump += CalculatePlayerJumps;
+        PlayerEvents.OnJumpPickup += CalculatePlayerJumps;
+        //
+        PlayerEvents.OnKeyUsed += CalculateKeyCount;
+        PlayerEvents.OnKeyPickup += CalculateKeyCount;
+
     }
 
     private void OnDisable()
     {
         PlayerEvents.OnLevelLoad -= SetTimerToLevel;
+        PlayerEvents.OnLevelLoad -= ResetPlayerJumps;
+        PlayerEvents.OnLevelLoad -= ResetPlayerKeyCount;
+        //
+        PlayerEvents.OnPlayerJump -= CalculatePlayerJumps;
+        PlayerEvents.OnJumpPickup -= CalculatePlayerJumps;
+        //
+        PlayerEvents.OnKeyUsed -= CalculateKeyCount;
+        PlayerEvents.OnKeyPickup -= CalculateKeyCount;
+
+    }
+
+    private void ResetPlayerKeyCount()
+    {
+        if(KeyCount > 0)
+            KeyCount = 0;
+    }
+
+    private void ResetPlayerJumps()
+    {
+        PlayerJumps = 3;
     }
 
     private void SetTimerToLevel()
@@ -53,16 +76,51 @@ public class GameSession : MonoBehaviour
         else { EarlyLevels = false; }
     }
 
+    void Update()
+    {
+        CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
 
-    public int GetPlayerRemainingJump()
+    private void SyncSceneIndexToLevel()
+    {
+        CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }
+
+    public void CalculatePlayerJumps(int jumps)
+    {
+        PlayerJumps += jumps;
+        PlayerEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
+    }
+
+    public void CalculateKeyCount(int keys)
+    {
+        KeyCount += keys;
+        PlayerEvents.OnKeyCountCheck?.Invoke(KeyCount);
+    }
+
+}
+
+
+/*    [SerializeField] private int currentSceneIndex;
+
+    public int playerRemJumps; // player's remaining jumps.
+    public int keyCount;
+    //
+    [SerializeField] private TMP_Text keysText;
+    [SerializeField] private GameObject keysImageObject;
+    [SerializeField] private TMP_Text jumpsText;
+    [SerializeField] private GameObject keysTextObject;*/
+
+//keysText.text = keyCount.ToString();
+/*    public int GetPlayerRemainingJump()
     {
         return playerRemJumps;
-    }
+    }*/
 
-    public int GetPlayerKeyCount()
+/*    public int GetPlayerKeyCount()
     {
         return keyCount;
-    }
+    }*/
 
 /*    public int GetSceneIndex()
     {
@@ -75,32 +133,13 @@ public class GameSession : MonoBehaviour
     }*/
 
 
-    void Update()
-    {
-        CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-
-        KeysObjectsAppearance();
-    }
-
-    public void SetTexts()
+/*    public void SetTexts()
     {
         jumpsText.text = playerRemJumps.ToString();
         keysText.text = keyCount.ToString();
-    }
+    }*/
 
-    public void CalculateRemainingJumps(int jumps)
-    {
-        playerRemJumps += jumps;
-        jumpsText.text = playerRemJumps.ToString();
-    }
-
-    public void CalculateRemainingKeys(int keys)
-    {
-        keyCount += keys;
-        keysText.text = keyCount.ToString();
-    }
-
-    private void KeysObjectsAppearance()
+/*    private void KeysObjectsAppearance()
     {
         var sceneIndex = SceneManager.GetActiveScene().buildIndex;
         if(sceneIndex >= 32)
@@ -113,8 +152,7 @@ public class GameSession : MonoBehaviour
             keysImageObject.SetActive(false);
             keysTextObject.SetActive(false);
         }
-    }
-}
+    }*/
 
 //InitOld();
 
