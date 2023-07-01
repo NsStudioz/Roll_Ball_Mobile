@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
+using System;
 
 public class GameSession : MonoBehaviour
 {
@@ -33,9 +34,7 @@ public class GameSession : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEvents.OnLevelLoad += SetTimerToLevel;
-        PlayerEvents.OnLevelLoad += ResetPlayerJumps;
-        PlayerEvents.OnLevelLoad += ResetPlayerKeyCount;
+        SceneManager.sceneLoaded += OnSceneLoaded;
         //
         PlayerEvents.OnPlayerJump += CalculatePlayerJumps;
         PlayerEvents.OnJumpPickup += CalculatePlayerJumps;
@@ -47,9 +46,7 @@ public class GameSession : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerEvents.OnLevelLoad -= SetTimerToLevel;
-        PlayerEvents.OnLevelLoad -= ResetPlayerJumps;
-        PlayerEvents.OnLevelLoad -= ResetPlayerKeyCount;
+        SceneManager.sceneLoaded -= OnSceneLoaded;
         //
         PlayerEvents.OnPlayerJump -= CalculatePlayerJumps;
         PlayerEvents.OnJumpPickup -= CalculatePlayerJumps;
@@ -59,15 +56,45 @@ public class GameSession : MonoBehaviour
 
     }
 
-    private void ResetPlayerKeyCount()
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        if(KeyCount > 0)
-            KeyCount = 0;
+        CurrentSceneIndex = scene.buildIndex;
+        Debug.Log("Scene Index: " + CurrentSceneIndex);
+
+        if (scene.buildIndex > 2 && scene.buildIndex < 53)
+            ResetJumpsAndKeysAndTimer();
+    }
+
+    private void ResetJumpsAndKeysAndTimer()
+    {
+        SetTimerToLevel();
+        ResetPlayerJumps();
+        ResetPlayerKeyCount();
     }
 
     private void ResetPlayerJumps()
     {
         PlayerJumps = 3;
+        PlayerEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
+    }
+
+    private void CalculatePlayerJumps(int jumps)
+    {
+        PlayerJumps += jumps;
+        PlayerEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
+    }
+
+    private void ResetPlayerKeyCount()
+    {
+        if(KeyCount > 0)
+            KeyCount = 0;
+        PlayerEvents.OnKeyCountCheck?.Invoke(KeyCount);
+    }
+
+    private void CalculateKeyCount(int keys)
+    {
+        KeyCount += keys;
+        PlayerEvents.OnKeyCountCheck?.Invoke(KeyCount);
     }
 
     private void SetTimerToLevel()
@@ -75,30 +102,29 @@ public class GameSession : MonoBehaviour
         if (CurrentSceneIndex < 5) { EarlyLevels = true; }
         else { EarlyLevels = false; }
     }
-
-    void Update()
-    {
-        CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }
-
-    private void SyncSceneIndexToLevel()
-    {
-        CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }
-
-    public void CalculatePlayerJumps(int jumps)
-    {
-        PlayerJumps += jumps;
-        PlayerEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
-    }
-
-    public void CalculateKeyCount(int keys)
-    {
-        KeyCount += keys;
-        PlayerEvents.OnKeyCountCheck?.Invoke(KeyCount);
-    }
-
 }
+
+/*    private void SyncSceneIndexToLevel()
+    {
+        CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        Debug.Log("Scene Index: " + CurrentSceneIndex);
+    }*/
+
+//PlayerEvents.OnLevelLoad += SyncSceneIndexToLevel;
+//PlayerEvents.OnLevelLoad += SetTimerToLevel;
+//PlayerEvents.OnLevelLoad += ResetPlayerJumps;
+//PlayerEvents.OnLevelLoad += ResetPlayerKeyCount;
+//
+
+//PlayerEvents.OnLevelLoad -= SyncSceneIndexToLevel;
+//PlayerEvents.OnLevelLoad -= SetTimerToLevel;
+//PlayerEvents.OnLevelLoad -= ResetPlayerJumps;
+//PlayerEvents.OnLevelLoad -= ResetPlayerKeyCount;
+
+/*    void Update()
+    {
+        //CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    }*/
 
 
 /*    [SerializeField] private int currentSceneIndex;
