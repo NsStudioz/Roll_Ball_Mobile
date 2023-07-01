@@ -13,18 +13,18 @@ public class JumpPickups : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D player)
     {
         if (tag == "JumpsPlusOne")
-            GameSession.Instance.CalculateRemainingJumps(jumpPickupOne);
-
+            PlayerEvents.OnJumpPickup?.Invoke(jumpPickupOne);
         if (tag == "JumpsPlusTwo")
-            GameSession.Instance.CalculateRemainingJumps(jumpPickupTwo);
-
+            PlayerEvents.OnJumpPickup?.Invoke(jumpPickupTwo);
         if (tag == "JumpsPlusThree")
-            GameSession.Instance.CalculateRemainingJumps(jumpPickupThree);
+            PlayerEvents.OnJumpPickup?.Invoke(jumpPickupThree);
 
         AudioManager.Instance.Play("JumpsPickup");
         Destroy(gameObject);
     }
 }
+
+//GameSession.Instance.CalculatePlayerJumps(jumpPickupOne);
 
 //float jumpPickups = 0.5f;
 
