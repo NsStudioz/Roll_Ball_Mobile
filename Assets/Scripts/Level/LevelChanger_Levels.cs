@@ -61,18 +61,14 @@ public class LevelChanger_Levels : MonoBehaviour
 
     public void FadeToHomeLevel()
     {
-        levelToLoad = 1; 
-        animator.SetTrigger("FadeOut"); 
+        levelToLoad = 1;
+        animator.SetTrigger("FadeOut");
     }
 
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(levelToLoad); // load the scene with the value index of 'X' (levelToLoad)
         PlayerEvents.OnLevelLoad?.Invoke();
-/*        timerScript.decimalLevelTimer = 10f;
-        timerScript.timeElapsed = 0f;
-        timerScript.timesUp = false;
-        timerScript.timeOutText.SetActive(false);*/
 
 /*        if (levelToLoad > 5)
         {
@@ -122,8 +118,13 @@ public class LevelChanger_Levels : MonoBehaviour
             }
         }
     }
-
 }
+
+
+/*        timerScript.decimalLevelTimer = 10f;
+        timerScript.timeElapsed = 0f;
+        timerScript.timesUp = false;
+        timerScript.timeOutText.SetActive(false);*/
 
 
 
