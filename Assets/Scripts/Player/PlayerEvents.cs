@@ -32,17 +32,23 @@ public class PlayerEvents
 
     public delegate void TriggerStopTimer();
     public static TriggerStopTimer OnTriggerStopTimer;
+
+    public delegate void PlayerJumpFinished(int playerJumps);
+    public static PlayerJumpFinished OnPlayerJumpsCheck;
     //
-    public delegate void KeyPickup();
+    public delegate void KeyPickup(int keys);
     public static KeyPickup OnKeyPickup;
 
-    public delegate void KeyUsed();
+    public delegate void KeyCountCheck(int keys);
+    public static KeyCountCheck OnKeyCountCheck;
+
+    public delegate void KeyUsed(int keys);
     public static KeyUsed OnKeyUsed;
 
-    public delegate void PlayerJump();
+    public delegate void PlayerJump(int jumps);
     public static PlayerJump OnPlayerJump;
 
-    public delegate void JumpPickup();
+    public delegate void JumpPickup(int keys);
     public static JumpPickup OnJumpPickup;
 
     public delegate void TimePickup(float time);
