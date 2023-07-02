@@ -4,19 +4,11 @@ using UnityEngine;
 
 public class LevelStart : MonoBehaviour
 {
+    private string player = "Player";
 
-/*    TimerScript timerScript;
-
-    void Start()
+    private void OnTriggerExit2D(Collider2D other)
     {
-        GameObject timesUp = GameObject.Find("Gamesession");
-        timerScript = timesUp.GetComponent<TimerScript>();
-    }*/
-
-    private void OnTriggerExit2D(Collider2D player)
-    {
-        //timerScript.startTimer = true;
-        PlayerEvents.OnLevelStarted?.Invoke();
+        if (other.gameObject.name == player)
+            PlayerEvents.OnLevelStarted?.Invoke();
     }
-
 }
