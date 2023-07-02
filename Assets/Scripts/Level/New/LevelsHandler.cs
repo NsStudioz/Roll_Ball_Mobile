@@ -39,18 +39,26 @@ public class LevelsHandler : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnLevelCompleted += FadeToNextLevel;
+        GameEvents.OnReturnToMainMenu += FadeToMainMenu;
         GameEvents.OnRestartLevel += RestartLevel;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnLevelCompleted -= FadeToNextLevel;
+        GameEvents.OnReturnToMainMenu -= FadeToMainMenu;
+        GameEvents.OnRestartLevel -= RestartLevel;
+    }
+
+    private void FadeToMainMenu()
+    {
+        FadeToLevel(MAIN_MENU_INDEX);
     }
 
     private void RestartLevel(int currentLevelIndex)
     {
         levelIndex = currentLevelIndex;
         OnComplete_SwitchToScene();
-    }
-
-    private void OnDisable()
-    {
-        GameEvents.OnLevelCompleted -= FadeToNextLevel;
     }
 
     private void FadeToNextLevel()
