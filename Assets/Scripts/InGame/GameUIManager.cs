@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -42,27 +43,37 @@ public class GameUIManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnSceneLoaded(Scene scene, LoadSceneMode Mode)
+    {
+        if (scene.buildIndex > 2 && scene.buildIndex < 53)
+        {
+            SetTimerTextVisibility();
+            SetKeysObjectsVisibility();
+            SyncGameTimerText();
+        }
+    }
+
+    private void Start()
+    {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
     private void OnEnable()
     {
-        PlayerEvents.OnLevelLoad += SetTimerTextVisibility;
-        PlayerEvents.OnLevelLoad += SetKeysObjectsVisibility;
-
         PlayerEvents.OnOutOfTime += ShowTimeOutText;
         PlayerEvents.OnPlayerJumpsCheck += SyncJumpsText;
         PlayerEvents.OnKeyCountCheck += SyncKeyCountText;
-
     }
+
     private void OnDisable()
     {
-        PlayerEvents.OnLevelLoad -= SetTimerTextVisibility;
-        PlayerEvents.OnLevelLoad -= SetKeysObjectsVisibility;
-
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        //
         PlayerEvents.OnOutOfTime -= ShowTimeOutText;
         PlayerEvents.OnPlayerJumpsCheck -= SyncJumpsText;
         PlayerEvents.OnKeyCountCheck -= SyncKeyCountText;
 
     }
-
 
     void Update()
     {
@@ -71,14 +82,12 @@ public class GameUIManager : MonoBehaviour
 
     private void SyncJumpsText(int jumps)
     {
-        //jumpsText.text = GameSession.Instance.PlayerJumps.ToString();
         jumpsText.text = jumps.ToString();
-
     }
 
     private void SyncKeyCountText(int keys)
     {
-        //keysText.text = GameSession.Instance.KeyCount.ToString();
+
         keysText.text = keys.ToString();
     }
 
@@ -89,7 +98,6 @@ public class GameUIManager : MonoBehaviour
         else
             keysObjects.SetActive(false);
     }
-
 
 
     #region Timer Texts
@@ -131,3 +139,7 @@ public class GameUIManager : MonoBehaviour
     #endregion
 
 }
+
+
+//jumpsText.text = GameSession.Instance.PlayerJumps.ToString();
+//keysText.text = GameSession.Instance.KeyCount.ToString();
