@@ -106,7 +106,7 @@ public class PauseMenuUI : MonoBehaviour
         //FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
         GameEvents.OnReturnToMainMenu?.Invoke();
 
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
+        //FindObjectOfType<AudioManager>().Play("ButtonClick");
 
         if (musicManager.currentSceneIndex >= 3 && musicManager.currentSceneIndex <= 12)
         {
