@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ public class LevelsHandler : MonoBehaviour
     private int levelIndex;
     private readonly float FADE_OUT_DURATION = 1f;
 
+    private readonly int MAIN_MENU_INDEX = 1;
+    private readonly int ADD_INDEX_BY_ONE = 1;
 
     private void Awake()
     {
@@ -33,11 +36,31 @@ public class LevelsHandler : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    private void OnEnable()
+    {
+        GameEvents.OnLevelCompleted += FadeToNextLevel;
+        GameEvents.OnRestartLevel += RestartLevel;
+    }
+
+    private void RestartLevel(int currentLevelIndex)
+    {
+        levelIndex = currentLevelIndex;
+        OnComplete_SwitchToScene();
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnLevelCompleted -= FadeToNextLevel;
+    }
+
+    private void FadeToNextLevel()
+    {
+        FadeToLevel(SceneManager.GetActiveScene().buildIndex + ADD_INDEX_BY_ONE);
+    }
+
     public void FadeToLevel(int currentLevelIndex)
     {
         levelIndex = currentLevelIndex;
-
-        //animator.Play(fadeOutAnim);
         StartFadeAnimations();
         AudioManager.Instance.Play("LevelChoosed");
     }
@@ -51,25 +74,22 @@ public class LevelsHandler : MonoBehaviour
     {
         animator.Play(fadeOutAnim);
         yield return new WaitForSeconds(delayTime);
-        OnFadeComplete_SwitchToScene();
+        OnComplete_SwitchToScene();
     }
 
-    private void OnFadeComplete_SwitchToScene()
+    private void OnComplete_SwitchToScene()
     {
         SceneManager.LoadScene(levelIndex);
 
         // Music Manager swap tracks from main theme to level theme:
     }
-
+}
 
 /*    public void OnFadeComplete()
     {
         //SceneManager.LoadScene(levelIndex);
     }*/
 
-
-
-}
 
 //animator.SetTrigger("FadeOut");
 //FindObjectOfType<AudioManager>().Play("LevelChoosed");
