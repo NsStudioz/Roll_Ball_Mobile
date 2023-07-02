@@ -5,10 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameUIManager : MonoBehaviour
+public class GameUI : MonoBehaviour
 {
 
-    public static GameUIManager Instance;
+    public static GameUI Instance;
 
     [Header("GameObjects")]
     [SerializeField] private GameTimer gameTimer;
@@ -60,18 +60,18 @@ public class GameUIManager : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEvents.OnOutOfTime += ShowTimeOutText;
-        PlayerEvents.OnPlayerJumpsCheck += SyncJumpsText;
-        PlayerEvents.OnKeyCountCheck += SyncKeyCountText;
+        GameEvents.OnOutOfTime += ShowTimeOutText;
+        GameEvents.OnPlayerJumpsCheck += SyncJumpsText;
+        GameEvents.OnKeyCountCheck += SyncKeyCountText;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         //
-        PlayerEvents.OnOutOfTime -= ShowTimeOutText;
-        PlayerEvents.OnPlayerJumpsCheck -= SyncJumpsText;
-        PlayerEvents.OnKeyCountCheck -= SyncKeyCountText;
+        GameEvents.OnOutOfTime -= ShowTimeOutText;
+        GameEvents.OnPlayerJumpsCheck -= SyncJumpsText;
+        GameEvents.OnKeyCountCheck -= SyncKeyCountText;
 
     }
 
