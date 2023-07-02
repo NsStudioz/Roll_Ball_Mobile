@@ -9,10 +9,12 @@ public class LevelsHandler : MonoBehaviour
     public static LevelsHandler Instance;
 
     [SerializeField] private Animator animator;
-    private int levelIndex;
-
     [SerializeField] private string fadeInAnim;
     [SerializeField] private string fadeOutAnim;
+
+    private int levelIndex;
+    private readonly float FADE_OUT_DURATION = 1f;
+
 
     private void Awake()
     {
@@ -35,11 +37,24 @@ public class LevelsHandler : MonoBehaviour
     {
         levelIndex = currentLevelIndex;
 
-        animator.Play(fadeOutAnim);
+        //animator.Play(fadeOutAnim);
+        StartFadeAnimations();
         AudioManager.Instance.Play("LevelChoosed");
     }
 
-    public void OnFadeComplete()
+    private void StartFadeAnimations()
+    {
+        StartCoroutine(PlayFadeAnimations(FADE_OUT_DURATION));
+    }
+
+    private IEnumerator PlayFadeAnimations(float delayTime)
+    {
+        animator.Play(fadeOutAnim);
+        yield return new WaitForSeconds(delayTime);
+        OnFadeComplete_SwitchToScene();
+    }
+
+    private void OnFadeComplete_SwitchToScene()
     {
         SceneManager.LoadScene(levelIndex);
 
@@ -47,8 +62,22 @@ public class LevelsHandler : MonoBehaviour
     }
 
 
+/*    public void OnFadeComplete()
+    {
+        //SceneManager.LoadScene(levelIndex);
+    }*/
+
+
 
 }
 
 //animator.SetTrigger("FadeOut");
 //FindObjectOfType<AudioManager>().Play("LevelChoosed");
+
+
+/*        if ((animator.GetCurrentAnimatorStateInfo(0).IsName(fadeOutAnim)))
+        {
+        }*/
+
+//StartCoroutine(PlayFadeAnimations(animator.GetCurrentAnimatorStateInfo(0).length));
+//StartCoroutine(PlayFadeAnimations(animator.GetCurrentAnimatorStateInfo(0).IsName(fadeOutAnim)));
