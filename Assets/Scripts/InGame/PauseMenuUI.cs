@@ -25,7 +25,7 @@ public class PauseMenuUI : MonoBehaviour
         //
         pauseGameBtn.onClick.AddListener(Pause);
         resumeGameBtn.onClick.AddListener(Resume);
-        RestartLevelBtn.onClick.AddListener(RestartGame);
+        RestartLevelBtn.onClick.AddListener(RestartLevel);
         ReturnToMainMenuBtn.onClick.AddListener(ReturnToMainMenu);
 
         GameObject forMusicManager = GameObject.Find("MusicManager");
@@ -83,7 +83,7 @@ public class PauseMenuUI : MonoBehaviour
         pauseMenuUI.SetActive(false);
     }
 
-    public void RestartGame()
+    public void RestartLevel()
     {
         StopTimer();
         ResumeGame();
