@@ -3,24 +3,23 @@ using UnityEngine.SceneManagement;
 
 public class LevelLoader_Splash : MonoBehaviour
 {
-    [SerializeField] float timeElapesd = 0f;
-    [SerializeField] float delayTime = 5f;
+    public Animator animator; 
+    [SerializeField] int levelToLoad;
 
-    void Update()
+    public void FadeToNextLevel()
     {
-        if (SceneManager.GetActiveScene().buildIndex < 1)
-        {
-            timeElapesd += Time.deltaTime;
-
-            if (timeElapesd >= delayTime)
-            {
-                FindObjectOfType<LevelChanger_FirstScene>().FadeToNextLevel();
-            }
-            else
-            {
-                return;
-            }
-        }
+        FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    private void FadeToLevel(int currentLevelIndex)
+    {
+        levelToLoad = currentLevelIndex; 
+        animator.SetTrigger("FadeOut");
+    }
+
+    // Public since this function depends on the animator:
+    public void OnFadeComplete()
+    {
+        SceneManager.LoadScene(levelToLoad);
+    }
 }
