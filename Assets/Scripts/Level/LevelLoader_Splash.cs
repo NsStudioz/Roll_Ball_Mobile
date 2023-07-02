@@ -6,11 +6,10 @@ namespace InitSplash
 {
     public class LevelLoader_Splash : MonoBehaviour
     {
-        public Animator animator;
-        [SerializeField] int levelToLoad;
+        [SerializeField] private Animator animator;
 
-        [SerializeField] float timeElapesd = 0f;
-        [SerializeField] float delayTime = 5f;
+        [SerializeField] private float timeElapesd = 0f;
+        [SerializeField] private float delayTime = 5f;
 
         void Update()
         {
@@ -22,23 +21,26 @@ namespace InitSplash
 
         private void FadeToMainMenuScene()
         {
-            FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
-        }
-
-        private void FadeToLevel(int currentLevelIndex)
-        {
-            levelToLoad = currentLevelIndex;
             animator.SetTrigger("FadeOut");
         }
 
         // Public since this function depends on the animator:
         public void OnFadeComplete()
         {
-            SceneManager.LoadScene(levelToLoad);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 }
 
 
+//private int levelToLoad;
+//FadeToLevel();
 
-//if (SceneManager.GetActiveScene().buildIndex < 1) { }
+/*private void FadeToLevel()
+{
+    animator.SetTrigger("FadeOut");
+}*/
+
+//FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
+//levelToLoad = currentLevelIndex;
+//int currentLevelIndex

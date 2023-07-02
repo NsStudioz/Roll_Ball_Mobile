@@ -645,12 +645,12 @@ GameObject:
   - component: {fileID: 996552583}
   - component: {fileID: 996552585}
   m_Layer: 0
-  m_Name: Level_Loader_Splash
+  m_Name: Level_Loader_Splash_Old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &996552583
 Transform:
   m_ObjectHideFlags: 0
@@ -1170,28 +1170,14 @@ GameObject:
   m_Component:
   - component: {fileID: 4907327625277048335}
   - component: {fileID: 4907327625277048328}
-  - component: {fileID: 4907327625277048330}
+  - component: {fileID: 4907327625277048336}
   m_Layer: 0
-  m_Name: LevelChanger_SplashScene
+  m_Name: LevelLoader_Splash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4907327625277048330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4907327625277048329}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4c969b406613da84d9e8b0ec5f53c529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  animator: {fileID: 4907327625277048328}
-  levelToLoad: 0
 --- !u!4 &4907327625277048335
 Transform:
   m_ObjectHideFlags: 0
@@ -1208,6 +1194,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4907327625277048336
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4907327625277048329}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf538bf03f0e514aaab7773b5739988, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 4907327625277048328}
+  timeElapesd: 0
+  delayTime: 5
 --- !u!223 &4907327625858431475
 Canvas:
   m_ObjectHideFlags: 0
