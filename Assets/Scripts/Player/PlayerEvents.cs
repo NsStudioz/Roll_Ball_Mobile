@@ -27,14 +27,14 @@ public class PlayerEvents
     public delegate void GameResume();
     public static GameResume OnGameResume;
 
-    public delegate void LevelLoad();
+/*    public delegate void LevelLoad();
     public static LevelLoad OnLevelLoad;
-
+*/
     public delegate void TriggerStopTimer();
     public static TriggerStopTimer OnTriggerStopTimer;
 
-    public delegate void PlayerJumpFinished(int playerJumps);
-    public static PlayerJumpFinished OnPlayerJumpsCheck;
+    public delegate void PlayerJumpsCheck(int playerJumps);
+    public static PlayerJumpsCheck OnPlayerJumpsCheck;
     //
     public delegate void KeyPickup(int keys);
     public static KeyPickup OnKeyPickup;
