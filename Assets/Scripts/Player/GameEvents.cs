@@ -58,8 +58,8 @@ public class GameEvents
     public delegate void PlayerDead();
     public static PlayerDead OnPlayerDead;
 
-    public delegate void LevelReset();
-    public static LevelReset OnLevelReset;
+    public delegate void RestartLevel(int currentLevelIndex);
+    public static RestartLevel OnRestartLevel;
 
     #endregion
 
