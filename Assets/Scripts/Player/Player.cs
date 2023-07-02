@@ -93,23 +93,29 @@ public class Player : MonoBehaviour
         if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Level Exit")))
         {
             GameEvents.OnLevelCompleted?.Invoke();
+            GameEvents.OnTriggerStopTimer?.Invoke();
+            AudioManager.Instance.Play("LevelCompleted");
+            myRigidBody2D.simulated = false;
 
             if (SceneManager.GetActiveScene().buildIndex == 52)
             {
-                FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
-                GameEvents.OnTriggerStopTimer?.Invoke();
-                myRigidBody2D.simulated = false;
-                AudioManager.Instance.Play("LevelCompleted");
+                GameEvents.OnReturnToMainMenu?.Invoke();
+                //
+                //AudioManager.Instance.Play("LevelCompleted");
+                //FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
+                //GameEvents.OnTriggerStopTimer?.Invoke();
+                //myRigidBody2D.simulated = false;
             }
             else
             {
-                FindObjectOfType<LevelChanger_Levels>().FadeToNextLevel();
+                GameEvents.OnLevelCompleted?.Invoke();
                 // Setting Int for Index
                 if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))  { PlayerPrefs.SetInt("levelAt", nextSceneLoad); }
-                GameEvents.OnTriggerStopTimer?.Invoke();
-                myRigidBody2D.simulated = false;
                 //
-                AudioManager.Instance.Play("LevelCompleted");
+                //AudioManager.Instance.Play("LevelCompleted");
+                //FindObjectOfType<LevelChanger_Levels>().FadeToNextLevel();
+                //GameEvents.OnTriggerStopTimer?.Invoke();
+                //myRigidBody2D.simulated = false;
             }
         }
     }
@@ -127,6 +133,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    // USE OBJECT SPAWNER INSTEAD:
     private void ReturnToCurrentScene()
     {
         if (isDestroyed)
@@ -134,7 +141,7 @@ public class Player : MonoBehaviour
             timeElapsed += Time.deltaTime;
             if (timeElapsed > delayBeforeLoading)
             {
-                FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
+                //FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
                 GameEvents.OnTriggerStopTimer.Invoke();
             }
         }
