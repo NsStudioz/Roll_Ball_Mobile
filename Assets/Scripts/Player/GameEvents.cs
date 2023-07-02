@@ -61,6 +61,9 @@ public class GameEvents
     public delegate void RestartLevel(int currentLevelIndex);
     public static RestartLevel OnRestartLevel;
 
+    public delegate void ReturnToMainMenu();
+    public static ReturnToMainMenu OnReturnToMainMenu;
+
     #endregion
 
 

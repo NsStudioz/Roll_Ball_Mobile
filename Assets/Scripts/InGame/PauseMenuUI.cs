@@ -95,7 +95,8 @@ public class PauseMenuUI : MonoBehaviour
         ResumeGame();
 
         musicManager.stateSwitch = false;
-        FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
+        //FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
+        GameEvents.OnReturnToMainMenu?.Invoke();
 
         FindObjectOfType<AudioManager>().Play("ButtonClick");
 
