@@ -13,6 +13,8 @@ TagManager:
   - TimePlusTwo
   - JumpsPlusTwo
   - LockedDoors
+  - ExitLevel
+  - Traps
   layers:
   - Default
   - TransparentFX
