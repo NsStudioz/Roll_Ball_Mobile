@@ -4,41 +4,62 @@ using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
 
-    int currentSceneIndex;
+    [Header("Menu Scene Indexers")]
+    [SerializeField] private int MAIN_MENU_INDEX = 1;
+    [SerializeField] private int LEVEL_SELECT_INDEX = 2;
+    [SerializeField] private int OPTIONS_INDEX = 53;
+    [SerializeField] private int CREDITS_INDEX = 54;
+    [SerializeField] private int TUTORIAL_INDEX = 55;
 
     public void StartGame()
     {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(currentSceneIndex + 1);
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
+        LoadScene(LEVEL_SELECT_INDEX);
+        PlayAudioClipOnButtonClick();
     }
 
     public void ReturnToMainMenu()
     {
-        SceneManager.LoadScene("Main Menu");
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        FindObjectOfType<AudioManager>().Play("BackButtonClick");
+        LoadScene(MAIN_MENU_INDEX);
+        PlayAudioClipOnBackButtonClick();
     }
 
     public void OptionsMenu()
     {
-        SceneManager.LoadScene("Options Menu");
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
+        LoadScene(OPTIONS_INDEX);
+        PlayAudioClipOnButtonClick();
     }
 
     public void CreditsMenu()
     {
-        SceneManager.LoadScene("Credits Scene");
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
+        LoadScene(CREDITS_INDEX);
+        PlayAudioClipOnButtonClick();
+
     }
+
+    public void TutorialScene()
+    {
+        LoadScene(TUTORIAL_INDEX);
+        PlayAudioClipOnButtonClick();
+    }
+
+    private void LoadScene(int SceneIndex)
+    {
+        SceneManager.LoadScene(SceneIndex);
+    }
+
+    private void PlayAudioClipOnButtonClick()
+    {
+        AudioManager.Instance.Play("ButtonClick");
+    }
+
+    private void PlayAudioClipOnBackButtonClick()
+    {
+        AudioManager.Instance.Play("BackButtonClick");
+    }
+
     public void QuitGame()
     {
         Application.Quit();
     }
 
-    public void TutorialScene()
-    {
-        SceneManager.LoadScene("Tutorial Scene");
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
-    }
 }
