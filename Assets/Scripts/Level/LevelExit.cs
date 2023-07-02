@@ -7,36 +7,41 @@ using UnityEngine.SceneManagement;
 public class LevelExit : MonoBehaviour
 {
 
-    //TimerScript timerScript;
     MusicManager musicManager;
-
-    [SerializeField] int currentSceneIndex;
 
     private int[] musicTriggerValues = { 12, 17, 22, 27, 31, 34, 39, 42, 49, 51 };
 
     void Start()
     {
-/*        GameObject thisGameSession = GameObject.Find("Gamesession");
-        timerScript = thisGameSession.GetComponent<TimerScript>();*/
         GameObject forMusicManager = GameObject.Find("MusicManager");
         musicManager = forMusicManager.GetComponent<MusicManager>();
-
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
     }
 
     private void OnTriggerEnter2D(Collider2D player)
     {
-        //timerScript.startTimer = false;
         PlayerEvents.OnLevelCompleted?.Invoke();
 
-        if (musicTriggerValues.Contains(currentSceneIndex))
+        if (musicTriggerValues.Contains(GameSession.Instance.CurrentSceneIndex))
         {
             musicManager.stateSwitch = false;
         }
         
-        if(currentSceneIndex == 52)
+        if(GameSession.Instance.CurrentSceneIndex == 52)
         {
             musicManager.SwapTracks("Theme_50", "Theme_Main_Menu");
         }
     }
 }
+
+
+
+//TimerScript timerScript;
+//[SerializeField] int currentSceneIndex;
+
+/*        GameObject thisGameSession = GameObject.Find("Gamesession");
+        timerScript = thisGameSession.GetComponent<TimerScript>();*/
+
+
+
+//currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+//timerScript.startTimer = false;
