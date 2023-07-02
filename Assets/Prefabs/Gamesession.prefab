@@ -668,7 +668,7 @@ GameObject:
   - component: {fileID: 2642796860678767892}
   - component: {fileID: 2642796860678767895}
   m_Layer: 5
-  m_Name: Restart Button
+  m_Name: RestartLevel_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -801,7 +801,7 @@ GameObject:
   - component: {fileID: 2642796861379093966}
   - component: {fileID: 2642796861379093961}
   m_Layer: 5
-  m_Name: Home Button
+  m_Name: ReturnToMainMenu_Btn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2411,6 +2411,8 @@ MonoBehaviour:
   controlsUI: {fileID: 8843336869721275862}
   pauseGameBtn: {fileID: 8025707919581588247}
   resumeGameBtn: {fileID: 8025707919391052803}
+  RestartLevelBtn: {fileID: 2642796860678767895}
+  ReturnToMainMenuBtn: {fileID: 2642796861379093961}
 --- !u!1 &8843336869721275862
 GameObject:
   m_ObjectHideFlags: 0

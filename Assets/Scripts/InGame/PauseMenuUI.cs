@@ -7,11 +7,15 @@ using UnityEngine.UI;
 
 public class PauseMenuUI : MonoBehaviour
 {
-
+    [Header("Panels")]
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject controlsUI;
+
+    [Header("Buttons")]
     [SerializeField] private Button pauseGameBtn;
     [SerializeField] private Button resumeGameBtn;
+    [SerializeField] private Button RestartLevelBtn;
+    [SerializeField] private Button ReturnToMainMenuBtn;
 
     MusicManager musicManager;
 
@@ -21,6 +25,8 @@ public class PauseMenuUI : MonoBehaviour
         //
         pauseGameBtn.onClick.AddListener(Pause);
         resumeGameBtn.onClick.AddListener(Resume);
+        RestartLevelBtn.onClick.AddListener(RestartGame);
+        ReturnToMainMenuBtn.onClick.AddListener(ReturnToMainMenu);
 
         GameObject forMusicManager = GameObject.Find("MusicManager");
         musicManager = forMusicManager.GetComponent<MusicManager>();
@@ -30,6 +36,8 @@ public class PauseMenuUI : MonoBehaviour
     {
         pauseGameBtn.onClick.RemoveAllListeners();
         resumeGameBtn.onClick.RemoveAllListeners();
+        RestartLevelBtn.onClick.RemoveAllListeners();
+        ReturnToMainMenuBtn.onClick.RemoveAllListeners();
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
