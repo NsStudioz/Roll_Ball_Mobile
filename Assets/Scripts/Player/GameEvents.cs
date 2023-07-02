@@ -49,6 +49,9 @@ public class GameEvents
 
     #region Level_Events:
 
+    public delegate void LevelSelected(int currentLevelIndex);
+    public static LevelSelected OnLevelSelected;
+
     public delegate void LevelStarted();
     public static LevelStarted OnLevelStarted;
 
