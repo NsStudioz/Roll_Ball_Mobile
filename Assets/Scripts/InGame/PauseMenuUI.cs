@@ -90,10 +90,6 @@ public class PauseMenuUI : MonoBehaviour
 
         musicManager.stateSwitch = true;
 
-        //FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
-        //
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
-
         GameEvents.OnRestartLevel?.Invoke(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -103,11 +99,13 @@ public class PauseMenuUI : MonoBehaviour
         ResumeGame();
 
         musicManager.stateSwitch = false;
-        //FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
         GameEvents.OnReturnToMainMenu?.Invoke();
 
-        //FindObjectOfType<AudioManager>().Play("ButtonClick");
+        OnReturnToMainMenu_SwapTracks();
+    }
 
+    private void OnReturnToMainMenu_SwapTracks()
+    {
         if (musicManager.currentSceneIndex >= 3 && musicManager.currentSceneIndex <= 12)
         {
             musicManager.SwapTracks("Theme_1_10", "Theme_Main_Menu");
