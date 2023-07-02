@@ -10,7 +10,7 @@ public class KeyPickup : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D player)
     {
         AudioManager.Instance.Play("KeyPickup");
-        PlayerEvents.OnKeyPickup(keys);
+        GameEvents.OnKeyPickup(keys);
         Destroy(gameObject);
     }
 }

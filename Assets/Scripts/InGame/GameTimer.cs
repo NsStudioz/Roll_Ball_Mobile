@@ -26,18 +26,18 @@ public class GameTimer : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         //
-        PlayerEvents.OnLevelStarted += StartTimer;
-        PlayerEvents.OnTriggerStopTimer += StopTimer;
-        PlayerEvents.OnTimePickup += AddTimeToTimer;    
+        GameEvents.OnLevelStarted += StartTimer;
+        GameEvents.OnTriggerStopTimer += StopTimer;
+        GameEvents.OnTimePickup += AddTimeToTimer;    
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         //
-        PlayerEvents.OnLevelStarted -= StartTimer;
-        PlayerEvents.OnTriggerStopTimer -= StopTimer;
-        PlayerEvents.OnTimePickup -= AddTimeToTimer;
+        GameEvents.OnLevelStarted -= StartTimer;
+        GameEvents.OnTriggerStopTimer -= StopTimer;
+        GameEvents.OnTimePickup -= AddTimeToTimer;
     }
 
     void Update()
@@ -67,7 +67,7 @@ public class GameTimer : MonoBehaviour
 
     private void OutOfTime()
     {
-        PlayerEvents.OnOutOfTime?.Invoke();
+        GameEvents.OnOutOfTime?.Invoke();
         PlayOutOfTimeAudio();
     }
 

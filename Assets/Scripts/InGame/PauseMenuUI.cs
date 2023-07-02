@@ -39,7 +39,7 @@ public class PauseMenuUI : MonoBehaviour
 
     private void StopTimer()
     {
-        PlayerEvents.OnTriggerStopTimer?.Invoke();
+        GameEvents.OnTriggerStopTimer?.Invoke();
     }
 
     private void Pause() // freeze time in our game

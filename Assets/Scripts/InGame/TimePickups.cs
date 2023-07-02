@@ -14,15 +14,15 @@ public class TimePickups : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D player)
     {
         if(tag == "TimePlusOne")
-            PlayerEvents.OnTimePickup?.Invoke(TimePlusOne);
+            GameEvents.OnTimePickup?.Invoke(TimePlusOne);
         if (tag == "TimePlusTwo")
-            PlayerEvents.OnTimePickup?.Invoke(TimePlusTwo);
+            GameEvents.OnTimePickup?.Invoke(TimePlusTwo);
         if (tag == "TimePlusThree")
-            PlayerEvents.OnTimePickup?.Invoke(TimePlusThree);
+            GameEvents.OnTimePickup?.Invoke(TimePlusThree);
         if (tag == "TimePlusFour")
-            PlayerEvents.OnTimePickup?.Invoke(TimePlusFour);
+            GameEvents.OnTimePickup?.Invoke(TimePlusFour);
         if (tag == "TimePlusFive")
-            PlayerEvents.OnTimePickup?.Invoke(TimePlusFive);
+            GameEvents.OnTimePickup?.Invoke(TimePlusFive);
 
         AudioManager.Instance.Play("TimePickup");
         Destroy(gameObject);

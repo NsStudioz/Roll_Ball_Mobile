@@ -32,11 +32,11 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerEvents.OnOutOfTime += OutOfTime;
+        GameEvents.OnOutOfTime += OutOfTime;
     }
     private void OnDisable()
     {
-        PlayerEvents.OnOutOfTime -= OutOfTime;
+        GameEvents.OnOutOfTime -= OutOfTime;
     }
 
 
@@ -73,7 +73,7 @@ public class Player : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
             myRigidBody2D.velocity = jumpVelocity;
-            PlayerEvents.OnPlayerJump?.Invoke(jumpOnce);
+            GameEvents.OnPlayerJump?.Invoke(jumpOnce);
             AudioManager.Instance.Play("PlayerJump");
         }
     }
@@ -92,12 +92,12 @@ public class Player : MonoBehaviour
     {
         if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Level Exit")))
         {
-            PlayerEvents.OnLevelCompleted?.Invoke();
+            GameEvents.OnLevelCompleted?.Invoke();
 
             if (SceneManager.GetActiveScene().buildIndex == 52)
             {
                 FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
-                PlayerEvents.OnTriggerStopTimer?.Invoke();
+                GameEvents.OnTriggerStopTimer?.Invoke();
                 myRigidBody2D.simulated = false;
                 AudioManager.Instance.Play("LevelCompleted");
             }
@@ -106,7 +106,7 @@ public class Player : MonoBehaviour
                 FindObjectOfType<LevelChanger_Levels>().FadeToNextLevel();
                 // Setting Int for Index
                 if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))  { PlayerPrefs.SetInt("levelAt", nextSceneLoad); }
-                PlayerEvents.OnTriggerStopTimer?.Invoke();
+                GameEvents.OnTriggerStopTimer?.Invoke();
                 myRigidBody2D.simulated = false;
                 //
                 AudioManager.Instance.Play("LevelCompleted");
@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
             isDestroyed = true;
             myRigidBody2D.simulated = false; // disable physics completely.
             mySpriteRenderer.enabled = false; // disable sprite visibility.
-            PlayerEvents.OnTriggerStopTimer?.Invoke();
+            GameEvents.OnTriggerStopTimer?.Invoke();
         }
     }
 
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
             if (timeElapsed > delayBeforeLoading)
             {
                 FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
-                PlayerEvents.OnTriggerStopTimer.Invoke();
+                GameEvents.OnTriggerStopTimer.Invoke();
             }
         }
     }
@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
             {
                 Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
                 myRigidBody2D.velocity = jumpVelocity;
-                PlayerEvents.OnPlayerJump?.Invoke(jumpOnce);
+                GameEvents.OnPlayerJump?.Invoke(jumpOnce);
                 AudioManager.Instance.Play("PlayerJump");
             }
         }

@@ -19,7 +19,7 @@ public class LevelExit : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D player)
     {
-        PlayerEvents.OnLevelCompleted?.Invoke();
+        GameEvents.OnLevelCompleted?.Invoke();
 
         if (musicTriggerValues.Contains(GameSession.Instance.CurrentSceneIndex))
         {

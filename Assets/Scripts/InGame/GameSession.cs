@@ -36,11 +36,11 @@ public class GameSession : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         //
-        PlayerEvents.OnPlayerJump += CalculatePlayerJumps;
-        PlayerEvents.OnJumpPickup += CalculatePlayerJumps;
+        GameEvents.OnPlayerJump += CalculatePlayerJumps;
+        GameEvents.OnJumpPickup += CalculatePlayerJumps;
         //
-        PlayerEvents.OnKeyUsed += CalculateKeyCount;
-        PlayerEvents.OnKeyPickup += CalculateKeyCount;
+        GameEvents.OnKeyUsed += CalculateKeyCount;
+        GameEvents.OnKeyPickup += CalculateKeyCount;
 
     }
 
@@ -48,11 +48,11 @@ public class GameSession : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         //
-        PlayerEvents.OnPlayerJump -= CalculatePlayerJumps;
-        PlayerEvents.OnJumpPickup -= CalculatePlayerJumps;
+        GameEvents.OnPlayerJump -= CalculatePlayerJumps;
+        GameEvents.OnJumpPickup -= CalculatePlayerJumps;
         //
-        PlayerEvents.OnKeyUsed -= CalculateKeyCount;
-        PlayerEvents.OnKeyPickup -= CalculateKeyCount;
+        GameEvents.OnKeyUsed -= CalculateKeyCount;
+        GameEvents.OnKeyPickup -= CalculateKeyCount;
 
     }
 
@@ -75,26 +75,26 @@ public class GameSession : MonoBehaviour
     private void ResetPlayerJumps()
     {
         PlayerJumps = 3;
-        PlayerEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
+        GameEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
     }
 
     private void CalculatePlayerJumps(int jumps)
     {
         PlayerJumps += jumps;
-        PlayerEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
+        GameEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
     }
 
     private void ResetPlayerKeyCount()
     {
         if(KeyCount > 0)
             KeyCount = 0;
-        PlayerEvents.OnKeyCountCheck?.Invoke(KeyCount);
+        GameEvents.OnKeyCountCheck?.Invoke(KeyCount);
     }
 
     private void CalculateKeyCount(int keys)
     {
         KeyCount += keys;
-        PlayerEvents.OnKeyCountCheck?.Invoke(KeyCount);
+        GameEvents.OnKeyCountCheck?.Invoke(KeyCount);
     }
 
     private void SetTimerToLevel()

@@ -13,11 +13,11 @@ public class JumpPickups : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D player)
     {
         if (tag == "JumpsPlusOne")
-            PlayerEvents.OnJumpPickup?.Invoke(jumpPickupOne);
+            GameEvents.OnJumpPickup?.Invoke(jumpPickupOne);
         if (tag == "JumpsPlusTwo")
-            PlayerEvents.OnJumpPickup?.Invoke(jumpPickupTwo);
+            GameEvents.OnJumpPickup?.Invoke(jumpPickupTwo);
         if (tag == "JumpsPlusThree")
-            PlayerEvents.OnJumpPickup?.Invoke(jumpPickupThree);
+            GameEvents.OnJumpPickup?.Invoke(jumpPickupThree);
 
         AudioManager.Instance.Play("JumpsPickup");
         Destroy(gameObject);
