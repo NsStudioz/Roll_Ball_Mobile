@@ -54,11 +54,13 @@ public class LevelsHandler : MonoBehaviour
 
     private void FadeToMainMenu()
     {
+        AudioManager.Instance.Play("ButtonClick");
         FadeToLevel(MAIN_MENU_INDEX);
     }
 
     private void RestartLevel(int currentLevelIndex)
     {
+        AudioManager.Instance.Play("ButtonClick");
         levelIndex = currentLevelIndex;
         OnComplete_SwitchToScene();
     }
@@ -72,7 +74,6 @@ public class LevelsHandler : MonoBehaviour
     {
         levelIndex = currentLevelIndex;
         StartFadeAnimations();
-        AudioManager.Instance.Play("LevelChoosed");
     }
 
     private void StartFadeAnimations()
