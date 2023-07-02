@@ -244,5 +244,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 136815371427893162}
-  fadeInAnim: Fade_In_Screen
-  fadeOutAnim: Fade_Out_Screen
+  fadeInAnim: Fade_In
+  fadeOutAnim: Fade_Out

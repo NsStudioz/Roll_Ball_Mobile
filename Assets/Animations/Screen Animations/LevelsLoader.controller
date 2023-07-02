@@ -242,7 +242,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fade_Out_LevelSelect
+  m_Name: Fade_Out
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
@@ -269,7 +269,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fade_In_Screen
+  m_Name: Fade_In
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions:
