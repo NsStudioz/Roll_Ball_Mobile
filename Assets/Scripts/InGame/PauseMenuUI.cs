@@ -82,9 +82,11 @@ public class PauseMenuUI : MonoBehaviour
 
         musicManager.stateSwitch = true;
 
-        FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
+        //FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
         //
         FindObjectOfType<AudioManager>().Play("ButtonClick");
+
+        GameEvents.OnRestartLevel?.Invoke(SceneManager.GetActiveScene().buildIndex);
     }
 
     public void ReturnToMainMenu()
