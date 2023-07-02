@@ -53,9 +53,9 @@ public class PauseMenuUI : MonoBehaviour
     private void Pause() // freeze time in our game
     {
         ShowPauseMenu();
-        Time.timeScale = 0f;
+        PauseGame();
         //
-        FindObjectOfType<AudioManager>().Play("MenuButtonClick");
+        PlayAudioClipOnMenuButtonClick();
     }
 
     private void Resume()
@@ -63,7 +63,12 @@ public class PauseMenuUI : MonoBehaviour
         HidePauseMenu();
         ResumeGame();
         //
-        FindObjectOfType<AudioManager>().Play("ButtonClick");
+        PlayAudioClipOnButtonClick();
+    }
+
+    private void PauseGame()
+    {
+        Time.timeScale = 0f;
     }
 
     private void ResumeGame()
@@ -83,17 +88,27 @@ public class PauseMenuUI : MonoBehaviour
         pauseMenuUI.SetActive(false);
     }
 
-    public void RestartLevel()
+    private void PlayAudioClipOnButtonClick()
+    {
+        AudioManager.Instance.Play("ButtonClick");
+    }
+
+    private void PlayAudioClipOnMenuButtonClick()
+    {
+        AudioManager.Instance.Play("MenuButtonClick");
+    }
+
+    private void RestartLevel()
     {
         StopTimer();
         ResumeGame();
 
         musicManager.stateSwitch = true;
 
-        GameEvents.OnRestartLevel?.Invoke(SceneManager.GetActiveScene().buildIndex);
+        GameEvents.OnRestartLevel?.Invoke(GameSession.Instance.CurrentSceneIndex);
     }
 
-    public void ReturnToMainMenu()
+    private void ReturnToMainMenu()
     {
         StopTimer();
         ResumeGame();
