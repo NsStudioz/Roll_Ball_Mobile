@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class LevelExit : MonoBehaviour
+public class ExitLevel : MonoBehaviour
 {
 
     private string player = "Player";

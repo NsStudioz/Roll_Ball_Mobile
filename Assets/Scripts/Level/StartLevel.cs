@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LevelStart : MonoBehaviour
+public class StartLevel : MonoBehaviour
 {
     private string player = "Player";
 
