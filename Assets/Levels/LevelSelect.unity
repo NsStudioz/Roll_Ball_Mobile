@@ -7358,6 +7358,7 @@ MonoBehaviour:
   - {fileID: 875882977}
   - {fileID: 1251453769}
   - {fileID: 2139901247}
+  LevelSelectSceneIndexOffset: 3
 --- !u!4 &1161845928
 Transform:
   m_ObjectHideFlags: 0
@@ -8313,10 +8314,11 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 4411119709556626429}
+      - m_Target: {fileID: 136815371427893164, guid: ef9ff27544560d546bce63b36a6301ea,
+          type: 3}
         m_TargetAssemblyTypeName: LevelsHandler, Assembly-CSharp
-        m_MethodName: FadeToLevel
-        m_Mode: 3
+        m_MethodName: 
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -12708,18 +12710,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ef9ff27544560d546bce63b36a6301ea, type: 3}
---- !u!114 &4411119709556626429 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 136815371427893164, guid: ef9ff27544560d546bce63b36a6301ea,
-    type: 3}
-  m_PrefabInstance: {fileID: 4382392608502914129}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe265cb7736fb240ab574e33833d1d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!222 &8177568767924606312
 CanvasRenderer:
   m_ObjectHideFlags: 0
