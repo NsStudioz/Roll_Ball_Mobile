@@ -14,7 +14,7 @@ public class LevelLoader_Splash_OLD : MonoBehaviour
 
             if (timeElapesd >= delayTime)
             {
-                FindObjectOfType<LevelLoader_Splash>().FadeToNextLevel();
+                //FindObjectOfType<LevelLoader_Splash>().FadeToNextLevel();
             }
             else
             {
