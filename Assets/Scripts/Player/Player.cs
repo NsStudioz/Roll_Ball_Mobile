@@ -123,7 +123,7 @@ public class Player : MonoBehaviour
             isDestroyed = true;
             myRigidBody2D.simulated = false; // disable physics completely.
             mySpriteRenderer.enabled = false; // disable sprite visibility.
-            GameEvents.OnTriggerStopTimer?.Invoke();
+            GameEvents.OnPlayerDead?.Invoke();
         }
     }
 

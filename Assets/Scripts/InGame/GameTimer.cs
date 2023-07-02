@@ -28,6 +28,7 @@ public class GameTimer : MonoBehaviour
         //
         GameEvents.OnLevelStarted += StartTimer;
         GameEvents.OnTriggerStopTimer += StopTimer;
+        GameEvents.OnPlayerDead += StopTimer;
         GameEvents.OnTimePickup += AddTimeToTimer;    
     }
 
@@ -37,6 +38,7 @@ public class GameTimer : MonoBehaviour
         //
         GameEvents.OnLevelStarted -= StartTimer;
         GameEvents.OnTriggerStopTimer -= StopTimer;
+        GameEvents.OnPlayerDead -= StopTimer;
         GameEvents.OnTimePickup -= AddTimeToTimer;
     }
 
