@@ -73,7 +73,6 @@ public class Player : MonoBehaviour
         {
             Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
             myRigidBody2D.velocity = jumpVelocity;
-            //GameSession.Instance.CalculatePlayerJumps(jumpOnce);
             PlayerEvents.OnPlayerJump?.Invoke(jumpOnce);
             AudioManager.Instance.Play("PlayerJump");
         }
@@ -154,7 +153,6 @@ public class Player : MonoBehaviour
             {
                 Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
                 myRigidBody2D.velocity = jumpVelocity;
-                //GameSession.Instance.CalculatePlayerJumps(jumpOnce);
                 PlayerEvents.OnPlayerJump?.Invoke(jumpOnce);
                 AudioManager.Instance.Play("PlayerJump");
             }
@@ -163,25 +161,8 @@ public class Player : MonoBehaviour
 }
 
 
-//GameSession.Instance.keyCount = 0;
-
 // GameObjects:
 //TimerScript timerScript;
 /*        GameObject thisGameSession = GameObject.Find("Gamesession");
     timerScript = thisGameSession.GetComponent<TimerScript>();*/
 
-//[SerializeField] int currentSceneIndex;
-//currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-//[SerializeField] int sceneIndex = 1;
-
-
-//
-/*        timerScript.decimalLevelTimer = 10f;
-        timerScript.isTimeOutPlayed = false;
-        timerScript.startTimer = false;
-*/
-
-
-//timerScript.exitOnTime = false;
-//timerScript.playerDied = false;
-//timerScript.exitOnTime = true;
