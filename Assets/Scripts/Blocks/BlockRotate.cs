@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BlockRotate : MonoBehaviour
 {
-    [SerializeField] int rotationSpeed;
+    [SerializeField] private int rotationSpeed;
 
     void Update()
     {
