@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 
 namespace InitSplash
 {
-    public class LevelLoader_Splash : MonoBehaviour
+    public class SplashLoader : MonoBehaviour
     {
         [SerializeField] private Animator animator;
 
@@ -31,16 +31,3 @@ namespace InitSplash
         }
     }
 }
-
-
-//private int levelToLoad;
-//FadeToLevel();
-
-/*private void FadeToLevel()
-{
-    animator.SetTrigger("FadeOut");
-}*/
-
-//FadeToLevel(SceneManager.GetActiveScene().buildIndex + 1);
-//levelToLoad = currentLevelIndex;
-//int currentLevelIndex
