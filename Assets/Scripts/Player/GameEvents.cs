@@ -19,6 +19,7 @@ public class GameEvents
 
     #endregion
 
+
     #region PlayerKey_Events
 
     public delegate void KeyPickup(int keys);
@@ -69,20 +70,30 @@ public class GameEvents
 
     #endregion
 
-
-
-
-
-
-    /*    public delegate void GamePause();
-    public static GamePause OnGamePause;
-
-    public delegate void GameResume();
-    public static GameResume OnGameResume;
-
-    public delegate void LevelLoad();
-    public static LevelLoad OnLevelLoad;
-*/
-
-
 }
+
+//decimalTimer = Time.unscaledDeltaTime;
+
+/*[Header("Scene Elements")]*/
+//[SerializeField] int nextSceneLoad;
+//nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+
+/*if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Level Exit")))
+{
+}*/
+
+// GameObjects:
+//TimerScript timerScript;
+/*        GameObject thisGameSession = GameObject.Find("Gamesession");
+    timerScript = thisGameSession.GetComponent<TimerScript>();*/
+
+
+/*        if ((animator.GetCurrentAnimatorStateInfo(0).IsName(fadeOutAnim)))
+        {
+        }*/
+
+//StartCoroutine(PlayFadeAnimations(animator.GetCurrentAnimatorStateInfo(0).length));
+
+/*public static bool PauseGame = false;     // public = accessible from other scripts.
+                                            // static = we don't want to reference this specific script, 
+                                            // we just want to be able to easily check from other scripts whether or not the game is currently paused.*/
