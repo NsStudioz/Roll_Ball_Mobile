@@ -9132,7 +9132,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &5304659733675852275
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9257,8 +9257,6 @@ MonoBehaviour:
   ballMoveSpeed: 300
   ballJumpSpeed: 5
   isDestroyed: 0
-  delayBeforeLoading: 1.5
-  timeElapsed: 0
   TRAPS_TAG: Traps
   EXITLEVEL_TAG: ExitLevel
 --- !u!1001 &8654074151234870557
