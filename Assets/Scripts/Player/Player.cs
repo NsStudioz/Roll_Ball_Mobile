@@ -83,6 +83,25 @@ public class Player : MonoBehaviour
         return;
     }
 
+    // PC Controls:
+    private void PcJumpMechanic()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (GameSession.Instance.PlayerJumps == 0 || isDestroyed)
+            {
+                return;
+            }
+            else
+            {
+                Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
+                myRigidBody2D.velocity = jumpVelocity;
+                GameEvents.OnPlayerJump?.Invoke(jumpOnce);
+                AudioManager.Instance.Play("PlayerJump");
+            }
+        }
+    }
+
     private void OutOfTime()
     {
         myRigidBody2D.simulated = false;
@@ -123,23 +142,6 @@ public class Player : MonoBehaviour
         }
     }
 
-    // PC Controls:
-    private void PcJumpMechanic()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            if (GameSession.Instance.PlayerJumps == 0 || isDestroyed)
-            {
-                return;
-            }
-            else
-            {
-                Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
-                myRigidBody2D.velocity = jumpVelocity;
-                GameEvents.OnPlayerJump?.Invoke(jumpOnce);
-                AudioManager.Instance.Play("PlayerJump");
-            }
-        }
-    }
+
 }
 
