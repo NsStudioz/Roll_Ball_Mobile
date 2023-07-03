@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class LevelSelection : MonoBehaviour
 {
 
-    public Button[] lvlButtons;
+    [SerializeField] private Button[] lvlButtons;
 
     [SerializeField] private int LevelSelectSceneIndexOffset = 2;
 
@@ -23,9 +23,7 @@ public class LevelSelection : MonoBehaviour
         for (int i = 0; i < lvlButtons.Length; i++)
         {
             if (i + 3 > levelAt)
-            {
                 lvlButtons[i].interactable = false;
-            }
         }
     }
 
