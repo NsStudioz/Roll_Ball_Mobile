@@ -63,6 +63,11 @@ public class Player : MonoBehaviour
         myRigidBody2D.AddForce(new Vector2(xMove * ballMoveSpeed * Time.deltaTime, 0f));
     }
 
+
+    #region Player_Jump_Functions:
+
+    // Function for mobile devices.
+    // Attached to event triggers in a UI GO inspector (I am very aware I can fix this in code without public accessor, this is only a personal preference!):
     public void HoldButton() // Jump when press
     {
         if (GameSession.Instance.PlayerJumps == 0 || isDestroyed)
@@ -71,13 +76,20 @@ public class Player : MonoBehaviour
         }
         else
         {
-            Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
-            myRigidBody2D.velocity = jumpVelocity;
+            Jump();
             GameEvents.OnPlayerJump?.Invoke(jumpOnce);
             AudioManager.Instance.Play("PlayerJump");
         }
     }
 
+    private void Jump()
+    {
+        Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
+        myRigidBody2D.velocity = jumpVelocity;
+    }
+
+    // Function for mobile devices.
+    // Attached to event triggers in a UI GO inspector (I am very aware I can fix this in code without public accessor, this is only a personal preference!):
     public void ReleaseButton() // Do nothing upon release
     {
         return;
@@ -101,6 +113,8 @@ public class Player : MonoBehaviour
             }
         }
     }
+
+    #endregion
 
     private void OutOfTime()
     {
