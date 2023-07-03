@@ -26,7 +26,7 @@ public class LaserTrap : MonoBehaviour
 
     #endregion
 
-    public GameObject laserObject;
+    //public GameObject laserObject;
 
     private void Start()
     {
@@ -59,9 +59,11 @@ public class LaserTrap : MonoBehaviour
     private void SetLaserState()
     {
         if (isLaserOn)
-            laserObject.SetActive(true);
+            laserGO.SetActive(true);
+            //laserObject.SetActive(true);
         else
-            laserObject.SetActive(false);            
+            laserGO.SetActive(false);            
+            //laserObject.SetActive(false);            
     }
 
     private void SetLaserEffectSize()
