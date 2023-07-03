@@ -17,10 +17,10 @@ public class GameSession : MonoBehaviour
 
     private void Awake()
     {
-        Initialize();
+        InitializeSingleton();
     }
 
-    private void Initialize()
+    private void InitializeSingleton()
     {
         if (Instance == null) { Instance = this; } // singleton pattern
         else
@@ -41,7 +41,6 @@ public class GameSession : MonoBehaviour
         //
         GameEvents.OnKeyUsed += CalculateKeyCount;
         GameEvents.OnKeyPickup += CalculateKeyCount;
-
     }
 
     private void OnDisable()
@@ -53,7 +52,6 @@ public class GameSession : MonoBehaviour
         //
         GameEvents.OnKeyUsed -= CalculateKeyCount;
         GameEvents.OnKeyPickup -= CalculateKeyCount;
-
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -86,8 +84,7 @@ public class GameSession : MonoBehaviour
 
     private void ResetPlayerKeyCount()
     {
-        if(KeyCount > 0)
-            KeyCount = 0;
+        if (KeyCount > 0) { KeyCount = 0; }
         GameEvents.OnKeyCountCheck?.Invoke(KeyCount);
     }
 
@@ -103,129 +100,3 @@ public class GameSession : MonoBehaviour
         else { EarlyLevels = false; }
     }
 }
-
-/*    private void SyncSceneIndexToLevel()
-    {
-        CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-        Debug.Log("Scene Index: " + CurrentSceneIndex);
-    }*/
-
-//PlayerEvents.OnLevelLoad += SyncSceneIndexToLevel;
-//PlayerEvents.OnLevelLoad += SetTimerToLevel;
-//PlayerEvents.OnLevelLoad += ResetPlayerJumps;
-//PlayerEvents.OnLevelLoad += ResetPlayerKeyCount;
-//
-
-//PlayerEvents.OnLevelLoad -= SyncSceneIndexToLevel;
-//PlayerEvents.OnLevelLoad -= SetTimerToLevel;
-//PlayerEvents.OnLevelLoad -= ResetPlayerJumps;
-//PlayerEvents.OnLevelLoad -= ResetPlayerKeyCount;
-
-/*    void Update()
-    {
-        //CurrentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }*/
-
-
-/*    [SerializeField] private int currentSceneIndex;
-
-    public int playerRemJumps; // player's remaining jumps.
-    public int keyCount;
-    //
-    [SerializeField] private TMP_Text keysText;
-    [SerializeField] private GameObject keysImageObject;
-    [SerializeField] private TMP_Text jumpsText;
-    [SerializeField] private GameObject keysTextObject;*/
-
-//keysText.text = keyCount.ToString();
-/*    public int GetPlayerRemainingJump()
-    {
-        return playerRemJumps;
-    }*/
-
-/*    public int GetPlayerKeyCount()
-    {
-        return keyCount;
-    }*/
-
-/*    public int GetSceneIndex()
-    {
-        return currentSceneIndex;
-    }
-
-    private void SetSceneIndex()
-    {
-        currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-    }*/
-
-
-/*    public void SetTexts()
-    {
-        jumpsText.text = playerRemJumps.ToString();
-        keysText.text = keyCount.ToString();
-    }*/
-
-/*    private void KeysObjectsAppearance()
-    {
-        var sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        if(sceneIndex >= 32)
-        {
-            keysImageObject.SetActive(true);
-            keysTextObject.SetActive(true);
-        }
-        else
-        {
-            keysImageObject.SetActive(false);
-            keysTextObject.SetActive(false);
-        }
-    }*/
-
-//InitOld();
-
-/*    private void InitOld()
-    {
-        int numGameSession = FindObjectsOfType<GameSession>().Length;
-
-        if (numGameSession > 1)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            DontDestroyOnLoad(gameObject);
-        }
-    }*/
-
-
-//jumpsText.text = playerRemJumps.ToString();
-//keysText.text = keyCount.ToString();
-
-/*    public void JumpsMinusOne()
-{
-    playerRemJumps--;
-    jumpsText.text = playerRemJumps.ToString();
-}*/
-
-/*    public void AddToJumps(int jumpPickupsToAdd)
-    {
-        playerRemJumps += jumpPickupsToAdd;
-        jumpsText.text = playerRemJumps.ToString();
-    }*/
-
-
-/*    public void AddToKeys(int keysToAdd)
-    {
-        keyCount = keyCount + keysToAdd;
-        keysText.text = keyCount.ToString();
-    }*/
-
-/*    public void SubtractFromKeys(int keysToRemove)
-    {
-        keyCount = keyCount - keysToRemove;
-        keysText.text = keyCount.ToString();
-    }*/
-
-
-
-
-
