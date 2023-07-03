@@ -26,10 +26,6 @@ public class Player : MonoBehaviour
     [SerializeField] private string TRAPS_TAG = "Traps";
     [SerializeField] private string EXITLEVEL_TAG = "ExitLevel";
 
-    private void Start()
-    {
-
-    }
 
     private void OnEnable()
     {
@@ -127,9 +123,32 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag(EXITLEVEL_TAG))
         {
-            myRigidBody2D.simulated = false;
+            SetRigidBodyAndRendererComponentsState(false, true);
+        }
+        if (other.CompareTag(TRAPS_TAG))
+        {
+            isDestroyed = true;
+            PlayerHasDied();
         }
     }
+
+    private void PlayerHasDied()
+    {
+        if (isDestroyed)
+            SetRigidBodyAndRendererComponentsState(false, false);
+
+        GameEvents.OnPlayerDead?.Invoke();
+        AudioManager.Instance.Play("PlayerDeath");
+        system.Play();
+    }
+
+    private void SetRigidBodyAndRendererComponentsState(bool rigidBody2D, bool renderer)
+    {
+        myRigidBody2D.simulated = rigidBody2D;
+        mySpriteRenderer.enabled = renderer;
+    }
+
+
 
     private void PlayerDeath()
     {

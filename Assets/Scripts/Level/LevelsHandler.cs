@@ -13,6 +13,8 @@ public class LevelsHandler : MonoBehaviour
     [SerializeField] private string fadeInAnim;
     [SerializeField] private string fadeOutAnim;
 
+    [SerializeField] private float restartLevelTimer = 2f;
+
     private int levelIndex;
     private readonly float FADE_OUT_DURATION = 1f;
 
@@ -42,6 +44,8 @@ public class LevelsHandler : MonoBehaviour
         GameEvents.OnLevelCompleted += FadeToNextLevel;
         GameEvents.OnReturnToMainMenu += FadeToMainMenu;
         GameEvents.OnRestartLevel += RestartLevel;
+        //
+        GameEvents.OnPlayerDead += CountDownTimerToRestartLevel;
     }
 
     private void OnDisable()
@@ -50,6 +54,8 @@ public class LevelsHandler : MonoBehaviour
         GameEvents.OnLevelCompleted -= FadeToNextLevel;
         GameEvents.OnReturnToMainMenu -= FadeToMainMenu;
         GameEvents.OnRestartLevel -= RestartLevel;
+        //
+        GameEvents.OnPlayerDead -= CountDownTimerToRestartLevel;
     }
 
     private void FadeToMainMenu()
@@ -67,7 +73,7 @@ public class LevelsHandler : MonoBehaviour
 
     private void FadeToNextLevel()
     {
-        FadeToLevel(SceneManager.GetActiveScene().buildIndex + ADD_INDEX_BY_ONE);
+        FadeToLevel(GameSession.Instance.CurrentSceneIndex + ADD_INDEX_BY_ONE);
     }
 
     public void FadeToLevel(int currentLevelIndex)
@@ -94,6 +100,27 @@ public class LevelsHandler : MonoBehaviour
 
         // Music Manager swap tracks from main theme to level theme:
     }
+
+    #region OnPlayerDead Listeners:
+
+    private void CountDownTimerToRestartLevel()
+    {
+        StartCoroutine(CountDownTimer());
+    }
+
+    private IEnumerator CountDownTimer()
+    {
+        yield return new WaitForSeconds(restartLevelTimer);
+        OnCountDownTimerEnd_RestartLevel();
+    }
+
+    // OnPlayerDead Listener.
+    private void OnCountDownTimerEnd_RestartLevel()
+    {
+        RestartLevel(GameSession.Instance.CurrentSceneIndex);
+    }
+
+    #endregion
 }
 
 
