@@ -34,6 +34,8 @@ public class PauseMenuUI : MonoBehaviour
 
     private void OnDestroy()
     {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+        //
         pauseGameBtn.onClick.RemoveAllListeners();
         resumeGameBtn.onClick.RemoveAllListeners();
         RestartLevelBtn.onClick.RemoveAllListeners();
@@ -173,51 +175,3 @@ public class PauseMenuUI : MonoBehaviour
 }
 
 
-/*public static bool PauseGame = false;     // public = accessible from other scripts.
-                                            // static = we don't want to reference this specific script, 
-                                            // we just want to be able to easily check from other scripts whether or not the game is currently paused.*/
-//Debug.Log("PauseGame = " + PauseGame);
-
-/*    [SerializeField] private GameObject menuButtonUI;
-[SerializeField] private GameObject playerButtons;*/
-
-//TimerScript timerScript;
-
-/*        GameObject thisGameSession = GameObject.Find("Gamesession"); // find Gamesession
-    timerScript = thisGameSession.GetComponent<TimerScript>(); // reference to timerScript so we can refer to its variables*/
-//timerScript.timerText.text = timerScript.levelTimer.ToString(); // convert to string
-
-/*    public void MenuButtonRole()
-    {
-        if (PauseGame == false)
-        {
-            Pause();
-        }
-        else if (PauseGame == true)
-        {
-            Resume();
-        }
-
-        Debug.Log("PauseGame = " + PauseGame);
-        FindObjectOfType<AudioManager>().Play("MenuButtonClick");
-    }
-*/
-/*    private void SwitchGameIsPausedState()
-    {
-        PauseGame = !PauseGame;
-    }
-
-    private bool PauseGameState(bool state)
-    {
-        return PauseGame = state;
-    }*/
-
-/*        timerScript.decimalLevelTimer = 10f;
-        timerScript.levelTimer = Mathf.RoundToInt(timerScript.decimalLevelTimer);
-        timerScript.timeElapsed = 0;
-        timerScript.exitOnTime = false;
-        timerScript.startTimer = false;
-        timerScript.playerDied = false;*/
-
-/*        timerScript.startTimer = false;
-        timerScript.playerDied = false;*/
