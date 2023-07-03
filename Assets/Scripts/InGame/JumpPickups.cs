@@ -9,7 +9,6 @@ public class JumpPickups : MonoBehaviour
     int jumpPickupTwo = 2;
     int jumpPickupThree = 3;
 
-
     private void OnTriggerEnter2D(Collider2D player)
     {
         if (tag == "JumpsPlusOne")
@@ -24,31 +23,4 @@ public class JumpPickups : MonoBehaviour
     }
 }
 
-//GameSession.Instance.CalculatePlayerJumps(jumpPickupOne);
 
-//float jumpPickups = 0.5f;
-
-/*    GameSession gameSession;
-
-    void Start()
-    {
-        GameObject myGameSession = GameObject.Find("Gamesession");
-        gameSession = myGameSession.GetComponent<GameSession>();
-    }*/
-
-
-/*        if (tag == "JumpsPlusOne")
-        {
-            gameSession.AddToJumps(jumpPickups);
-        }
-        if (tag == "JumpsPlusTwo")
-        {
-            gameSession.AddToJumps(jumpPickups + 0.5f);
-        }
-        if (tag == "JumpsPlusThree")
-        {
-            gameSession.AddToJumps(jumpPickups + 1f);
-        }*/
-
-
-//FindObjectOfType<AudioManager>().Play("JumpsPickup");

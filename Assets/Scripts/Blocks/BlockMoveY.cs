@@ -6,7 +6,6 @@ public class BlockMoveY : MonoBehaviour
 {
 
     [Header("Elements")]
-    // bool:
     [SerializeField] private bool isMovingUp;
     //
     [SerializeField] private float moveRate;

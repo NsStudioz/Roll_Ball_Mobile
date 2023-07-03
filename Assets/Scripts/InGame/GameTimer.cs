@@ -44,7 +44,6 @@ public class GameTimer : MonoBehaviour
 
     void Update()
     {
-
         if (GameSession.Instance.EarlyLevels || !startTimer)
             return;
 
@@ -104,6 +103,3 @@ public class GameTimer : MonoBehaviour
         }
     }
 }
-
-
-//decimalTimer = Time.unscaledDeltaTime;

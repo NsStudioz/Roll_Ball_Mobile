@@ -6,7 +6,6 @@ public class Trap_BlackHoleY : MonoBehaviour
 {
 
     [Header("Elements")]
-    // bool:
     [SerializeField] private bool isMovingUp;
     //
     [SerializeField] private float moveRate;

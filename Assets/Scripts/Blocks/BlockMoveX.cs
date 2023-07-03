@@ -6,7 +6,6 @@ public class BlockMoveX : MonoBehaviour
 {
 
     [Header("Elements")]
-    // bool:
     [SerializeField] private bool isMovingRight;
     //
     [SerializeField] private float moveRate;

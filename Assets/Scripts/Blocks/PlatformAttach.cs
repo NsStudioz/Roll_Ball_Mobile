@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlatformAttach : MonoBehaviour
 {
-    //public GameObject Player;
+
     [SerializeField] private GameObject playerPrefab;
 
     private void OnTriggerEnter2D(Collider2D other)

@@ -79,26 +79,3 @@ public class LaserTrap : MonoBehaviour
         laserGO.transform.localScale = newState;
     }
 }
-
-/*        timeElapsed += Time.deltaTime;
-        if (isLaserOn == true)
-        {
-            laserObject.SetActive(true);
-            if (timeElapsed > delayTime)
-            {
-                isLaserOn = false;
-                laserObject.SetActive(false);
-                timeElapsed = 0f;
-            }
-        }
-
-        if (isLaserOn == false)
-        {
-            laserObject.SetActive(false);
-            if (timeElapsed > delayTime)
-            {
-                isLaserOn = true;
-                laserObject.SetActive(true);
-                timeElapsed = 0f;
-            }
-        }*/

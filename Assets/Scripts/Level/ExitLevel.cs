@@ -28,20 +28,13 @@ public class ExitLevel : MonoBehaviour
         AudioManager.Instance.Play("LevelCompleted");
 
         if (other.gameObject.name == player)
-        {
             CheckLevelProgress();
-        }
-        //GameEvents.OnLevelCompleted?.Invoke();
 
         if (musicTriggerValues.Contains(GameSession.Instance.CurrentSceneIndex))
-        {
             musicManager.stateSwitch = false;
-        }
-        
+
         if(GameSession.Instance.CurrentSceneIndex == 52)
-        {
-            musicManager.SwapTracks("Theme_50", "Theme_Main_Menu");
-        }
+           musicManager.SwapTracks("Theme_50", "Theme_Main_Menu");
     }
 
     private void CheckLevelProgress()
@@ -55,23 +48,12 @@ public class ExitLevel : MonoBehaviour
         }
     }
 
+    // Setting Int for Index
     private void SaveLevelProgress()
-    {
-        // Setting Int for Index
-        if (nextSceneLoad > PlayerPrefs.GetInt("levelAt")) { PlayerPrefs.SetInt("levelAt", nextSceneLoad); }
+    {  
+        if (nextSceneLoad > PlayerPrefs.GetInt("levelAt")) 
+            PlayerPrefs.SetInt("levelAt", nextSceneLoad); 
     }
 
 }
 
-
-
-//TimerScript timerScript;
-//[SerializeField] int currentSceneIndex;
-
-/*        GameObject thisGameSession = GameObject.Find("Gamesession");
-        timerScript = thisGameSession.GetComponent<TimerScript>();*/
-
-
-
-//currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
-//timerScript.startTimer = false;

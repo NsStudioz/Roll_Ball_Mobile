@@ -6,7 +6,6 @@ public class Trap_BlackHoleX : MonoBehaviour
 {
 
     [Header("Elements")]
-    // bool:
     [SerializeField] private bool isMovingRight;
     //
     [SerializeField] private float moveRate;

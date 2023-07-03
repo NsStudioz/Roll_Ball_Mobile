@@ -8,8 +8,6 @@ using UnityEngine.SceneManagement;
 public class GameUI : MonoBehaviour
 {
 
-    public static GameUI Instance;
-
     [Header("GameObjects")]
     [SerializeField] private GameTimer gameTimer;
 
@@ -24,24 +22,6 @@ public class GameUI : MonoBehaviour
     [Header("Key Elements")]
     [SerializeField] private GameObject keysObjects;
     [SerializeField] private TMP_Text keysText;
-
-
-    void Awake()
-    {
-        Initialize();
-    }
-
-    private void Initialize()
-    {
-        if (Instance == null) { Instance = this; } // singleton pattern
-        else
-        {
-            Destroy(gameObject);
-            return; // so that no more code is called before we destroy this gameObject.
-        }
-
-        DontDestroyOnLoad(gameObject);
-    }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode Mode)
     {
@@ -141,5 +121,3 @@ public class GameUI : MonoBehaviour
 }
 
 
-//jumpsText.text = GameSession.Instance.PlayerJumps.ToString();
-//keysText.text = GameSession.Instance.KeyCount.ToString();

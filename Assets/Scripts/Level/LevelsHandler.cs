@@ -96,19 +96,5 @@ public class LevelsHandler : MonoBehaviour
     }
 }
 
-/*    public void OnFadeComplete()
-    {
-        //SceneManager.LoadScene(levelIndex);
-    }*/
 
 
-//animator.SetTrigger("FadeOut");
-//FindObjectOfType<AudioManager>().Play("LevelChoosed");
-
-
-/*        if ((animator.GetCurrentAnimatorStateInfo(0).IsName(fadeOutAnim)))
-        {
-        }*/
-
-//StartCoroutine(PlayFadeAnimations(animator.GetCurrentAnimatorStateInfo(0).length));
-//StartCoroutine(PlayFadeAnimations(animator.GetCurrentAnimatorStateInfo(0).IsName(fadeOutAnim)));

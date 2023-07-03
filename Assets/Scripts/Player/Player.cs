@@ -22,16 +22,13 @@ public class Player : MonoBehaviour
     [SerializeField] float delayBeforeLoading = 1.5f; // in seconds
     [SerializeField] float timeElapsed;
 
-    [Header("Scene Elements")]
-    [SerializeField] int nextSceneLoad;
-
     [Header("Tags")]
     [SerializeField] private string TRAPS_TAG = "Traps";
     [SerializeField] private string EXITLEVEL_TAG = "ExitLevel";
 
     void Start()
     {
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+
     }
 
     private void OnEnable()
@@ -46,7 +43,6 @@ public class Player : MonoBehaviour
 
     void Update() // Suitable for Handling inputs and animations
     {
-        //TriggeringLevelExit();
         PlayerDeath();
         ReturnToCurrentScene();
 
@@ -97,38 +93,6 @@ public class Player : MonoBehaviour
         if (other.CompareTag(EXITLEVEL_TAG))
         {
             myRigidBody2D.simulated = false;
-
-/*            GameEvents.OnTriggerStopTimer?.Invoke();
-            AudioManager.Instance.Play("LevelCompleted");
-
-            if (GameSession.Instance.CurrentSceneIndex == 52)
-                GameEvents.OnReturnToMainMenu?.Invoke();
-            else
-            {
-                GameEvents.OnLevelCompleted?.Invoke();
-                // Setting Int for Index
-                if (nextSceneLoad > PlayerPrefs.GetInt("levelAt")) { PlayerPrefs.SetInt("levelAt", nextSceneLoad); }
-            }*/
-        }
-    }
-
-    private void TriggeringLevelExit()
-    {
-        if(myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Level Exit")))
-        {
-            //GameEvents.OnLevelCompleted?.Invoke();
-            GameEvents.OnTriggerStopTimer?.Invoke();
-            AudioManager.Instance.Play("LevelCompleted");
-            myRigidBody2D.simulated = false;
-
-            if (GameSession.Instance.CurrentSceneIndex == 52)
-                GameEvents.OnReturnToMainMenu?.Invoke();
-            else
-            {
-                GameEvents.OnLevelCompleted?.Invoke();
-                // Setting Int for Index
-                if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))  { PlayerPrefs.SetInt("levelAt", nextSceneLoad); }
-            }
         }
     }
 
@@ -179,21 +143,3 @@ public class Player : MonoBehaviour
     }
 }
 
-
-// GameObjects:
-//TimerScript timerScript;
-/*        GameObject thisGameSession = GameObject.Find("Gamesession");
-    timerScript = thisGameSession.GetComponent<TimerScript>();*/
-
-
-//
-//AudioManager.Instance.Play("LevelCompleted");
-//FindObjectOfType<LevelChanger_Levels>().FadeToMainMenu();
-//GameEvents.OnTriggerStopTimer?.Invoke();
-//myRigidBody2D.simulated = false;
-
-//
-//AudioManager.Instance.Play("LevelCompleted");
-//FindObjectOfType<LevelChanger_Levels>().FadeToNextLevel();
-//GameEvents.OnTriggerStopTimer?.Invoke();
-//myRigidBody2D.simulated = false;

@@ -27,17 +27,3 @@ public class UnlockDoor : MonoBehaviour
         Destroy(gameObject);
     }
 }
-
-//GameSession.Instance.CalculateKeyCount(keys);
-
-
-/*    GameSession gameSession;
-
-    void Start()
-    {
-        GameObject thisGameSession = GameObject.Find("Gamesession");
-        gameSession = thisGameSession.GetComponent<GameSession>();
-    }*/
-
-//gameSession.SubtractFromKeys(1);
-//FindObjectOfType<AudioManager>().Play("BlockUnlock");
