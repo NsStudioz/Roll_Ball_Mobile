@@ -10,7 +10,6 @@ public class GameTimer : MonoBehaviour
     public int LevelTimer { get; private set; }
 
     [SerializeField] private float decimalTimer = 0;
-
     [SerializeField] private float resetTimer = 10f;
 
     [SerializeField] private bool startTimer;
