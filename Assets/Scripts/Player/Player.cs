@@ -26,7 +26,7 @@ public class Player : MonoBehaviour
     [SerializeField] private string TRAPS_TAG = "Traps";
     [SerializeField] private string EXITLEVEL_TAG = "ExitLevel";
 
-    void Start()
+    private void Start()
     {
 
     }
@@ -34,14 +34,18 @@ public class Player : MonoBehaviour
     private void OnEnable()
     {
         GameEvents.OnOutOfTime += OutOfTime;
+        PlayerJumpButton.OnButtonClickDown += HoldButton;
+        PlayerJumpButton.OnButtonClickUp += ReleaseButton;
     }
     private void OnDisable()
     {
         GameEvents.OnOutOfTime -= OutOfTime;
+        PlayerJumpButton.OnButtonClickDown -= HoldButton;
+        PlayerJumpButton.OnButtonClickUp -= ReleaseButton;
     }
 
 
-    void Update() // Suitable for Handling inputs and animations
+    private void Update() // Suitable for Handling inputs and animations
     {
         PlayerDeath();
         ReturnToCurrentScene();
@@ -52,7 +56,7 @@ public class Player : MonoBehaviour
 #endif
     }
 
-    void FixedUpdate() // Suitable for Movement;
+    private void FixedUpdate() // Suitable for Movement;
     {
         MoveBall();
     }
@@ -67,8 +71,7 @@ public class Player : MonoBehaviour
     #region Player_Jump_Functions:
 
     // Function for mobile devices.
-    // Attached to event triggers in a UI GO inspector (I am very aware I can fix this in code without public accessor, this is only a personal preference!):
-    public void HoldButton() // Jump when press
+    private void HoldButton() // Jump when press
     {
         if (GameSession.Instance.PlayerJumps == 0 || isDestroyed)
         {
@@ -89,8 +92,7 @@ public class Player : MonoBehaviour
     }
 
     // Function for mobile devices.
-    // Attached to event triggers in a UI GO inspector (I am very aware I can fix this in code without public accessor, this is only a personal preference!):
-    public void ReleaseButton() // Do nothing upon release
+    private void ReleaseButton() // Do nothing upon release
     {
         return;
     }
