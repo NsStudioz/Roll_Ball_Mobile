@@ -5,23 +5,23 @@ using UnityEngine;
 public class TimePickups : MonoBehaviour
 {
 
-    [SerializeField] private float TimePlusOne =   1f;
-    [SerializeField] private float TimePlusTwo =   2f;
-    [SerializeField] private float TimePlusThree = 3f;
-    [SerializeField] private float TimePlusFour =  4f;
-    [SerializeField] private float TimePlusFive =  5f;
+    private readonly float TimePlusOne =   1f;
+    private readonly float TimePlusTwo =   2f;
+    private readonly float TimePlusThree = 3f;
+    private readonly float TimePlusFour =  4f;
+    private readonly float TimePlusFive =  5f;
 
     private void OnTriggerEnter2D(Collider2D player)
     {
-        if(tag == "TimePlusOne")
+        if(player.CompareTag("TimePlusOne"))
             GameEvents.OnTimePickup?.Invoke(TimePlusOne);
-        if (tag == "TimePlusTwo")
+        if (player.CompareTag("TimePlusTwo"))
             GameEvents.OnTimePickup?.Invoke(TimePlusTwo);
-        if (tag == "TimePlusThree")
+        if (player.CompareTag("TimePlusThree"))
             GameEvents.OnTimePickup?.Invoke(TimePlusThree);
-        if (tag == "TimePlusFour")
+        if (player.CompareTag("TimePlusFour"))
             GameEvents.OnTimePickup?.Invoke(TimePlusFour);
-        if (tag == "TimePlusFive")
+        if (player.CompareTag("TimePlusFive"))
             GameEvents.OnTimePickup?.Invoke(TimePlusFive);
 
         AudioManager.Instance.Play("TimePickup");

@@ -5,17 +5,17 @@ using UnityEngine;
 public class JumpPickups : MonoBehaviour
 {
 
-    int jumpPickupOne = 1;
-    int jumpPickupTwo = 2;
-    int jumpPickupThree = 3;
+    private readonly int jumpPickupOne = 1;
+    private readonly int jumpPickupTwo = 2;
+    private readonly int jumpPickupThree = 3;
 
     private void OnTriggerEnter2D(Collider2D player)
     {
-        if (tag == "JumpsPlusOne")
+        if (player.CompareTag("JumpsPlusOne"))
             GameEvents.OnJumpPickup?.Invoke(jumpPickupOne);
-        if (tag == "JumpsPlusTwo")
+        if (player.CompareTag("JumpsPlusTwo"))
             GameEvents.OnJumpPickup?.Invoke(jumpPickupTwo);
-        if (tag == "JumpsPlusThree")
+        if (player.CompareTag("JumpsPlusThree"))
             GameEvents.OnJumpPickup?.Invoke(jumpPickupThree);
 
         AudioManager.Instance.Play("JumpsPickup");
