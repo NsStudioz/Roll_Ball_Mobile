@@ -97,3 +97,9 @@ public class GameEvents
 /*public static bool PauseGame = false;     // public = accessible from other scripts.
                                             // static = we don't want to reference this specific script, 
                                             // we just want to be able to easily check from other scripts whether or not the game is currently paused.*/
+
+/*        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Traps")))
+        {
+
+
+        }*/
