@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8654074150367165580}
   m_Layer: 13
   m_Name: ExitLevel
-  m_TagString: Untagged
+  m_TagString: ExitLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

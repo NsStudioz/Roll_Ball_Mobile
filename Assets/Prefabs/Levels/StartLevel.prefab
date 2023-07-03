@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 8840949931809413409}
   m_Layer: 12
   m_Name: StartLevel
-  m_TagString: Untagged
+  m_TagString: StartLevel
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
