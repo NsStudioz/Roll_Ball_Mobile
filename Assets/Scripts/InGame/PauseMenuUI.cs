@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class PauseMenuUI : MonoBehaviour
 {
+
     [Header("Panels")]
     [SerializeField] private GameObject pauseMenuUI;
     [SerializeField] private GameObject controlsUI;
@@ -100,6 +101,7 @@ public class PauseMenuUI : MonoBehaviour
         AudioManager.Instance.Play("MenuButtonClick");
     }
 
+    // Button Function
     private void RestartLevel()
     {
         StopTimer();
@@ -107,7 +109,18 @@ public class PauseMenuUI : MonoBehaviour
 
         musicManager.stateSwitch = true;
 
+        TriggerRestartLevelEvent();
+        //GameEvents.OnRestartLevel?.Invoke(GameSession.Instance.CurrentSceneIndex);
+    }
+
+    private void TriggerRestartLevelEvent()
+    {
         GameEvents.OnRestartLevel?.Invoke(GameSession.Instance.CurrentSceneIndex);
+    }
+
+    private void TriggerReturnToMainMenuEvent()
+    {
+        GameEvents.OnReturnToMainMenu?.Invoke();
     }
 
     private void ReturnToMainMenu()
@@ -116,7 +129,8 @@ public class PauseMenuUI : MonoBehaviour
         ResumeGame();
 
         musicManager.stateSwitch = false;
-        GameEvents.OnReturnToMainMenu?.Invoke();
+        TriggerReturnToMainMenuEvent();
+        //GameEvents.OnReturnToMainMenu?.Invoke();
 
         OnReturnToMainMenu_SwapTracks();
     }
