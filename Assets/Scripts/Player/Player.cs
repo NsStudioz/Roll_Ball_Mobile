@@ -13,14 +13,10 @@ public class Player : MonoBehaviour
     [SerializeField] private ParticleSystem system;
 
     [Header("Player Elements")]
-    [SerializeField] float ballMoveSpeed = 4f;
-    [SerializeField] float ballJumpSpeed = 5f;
-    [SerializeField] bool isDestroyed = false;
+    [SerializeField] private float ballMoveSpeed = 4f;
+    [SerializeField] private float ballJumpSpeed = 5f;
+    [SerializeField] private bool isDestroyed = false;
     private readonly int jumpOnce = -1;
-
-    [Header("Player Spawn Timer")]
-    [SerializeField] float delayBeforeLoading = 1.5f; // in seconds
-    [SerializeField] float timeElapsed;
 
     [Header("Tags")]
     [SerializeField] private string TRAPS_TAG = "Traps";
@@ -38,14 +34,15 @@ public class Player : MonoBehaviour
         GameEvents.OnOutOfTime -= OutOfTime;
         PlayerJumpButton.OnButtonClickDown -= HoldButton;
         PlayerJumpButton.OnButtonClickUp -= ReleaseButton;
+
+
+        //
+        // Method: On Disable => Set rigidbody2D and (MAYBE) Renderer inactive.
     }
 
 
     private void Update() // Suitable for Handling inputs and animations
     {
-        PlayerDeath();
-        ReturnToCurrentScene();
-
 #if UNITY_EDITOR
         //PC CONTROLS:
         PcJumpMechanic();
@@ -55,6 +52,12 @@ public class Player : MonoBehaviour
     private void FixedUpdate() // Suitable for Movement;
     {
         MoveBall();
+    }
+
+    private void SetBallPositionToLevelStartPosition()
+    {
+        // ON Scene load => set the player position to be equal to the level start position (use LevelStart tag or prefab) + Vector2 offset.
+        //                  and enable rigidbody2D.
     }
     
     private void MoveBall()
@@ -66,13 +69,10 @@ public class Player : MonoBehaviour
 
     #region Player_Jump_Functions:
 
-    // Function for mobile devices.
+    // Mobile Controls:
     private void HoldButton() // Jump when press
     {
-        if (GameSession.Instance.PlayerJumps == 0 || isDestroyed)
-        {
-            return;
-        }
+        if (GameSession.Instance.PlayerJumps == 0 || isDestroyed) { return; }
         else
         {
             Jump();
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
         myRigidBody2D.velocity = jumpVelocity;
     }
 
-    // Function for mobile devices.
+    // Mobile Controls:
     private void ReleaseButton() // Do nothing upon release
     {
         return;
@@ -147,36 +147,5 @@ public class Player : MonoBehaviour
         myRigidBody2D.simulated = rigidBody2D;
         mySpriteRenderer.enabled = renderer;
     }
-
-
-
-    private void PlayerDeath()
-    {
-        if (myBodyCollider.IsTouchingLayers(LayerMask.GetMask("Traps")))
-        {
-            AudioManager.Instance.Play("PlayerDeath");
-            system.Play();
-            isDestroyed = true;
-            myRigidBody2D.simulated = false; // disable physics completely.
-            mySpriteRenderer.enabled = false; // disable sprite visibility.
-            GameEvents.OnPlayerDead?.Invoke();
-        }
-    }
-
-    // USE OBJECT SPAWNER INSTEAD:
-    private void ReturnToCurrentScene()
-    {
-        if (isDestroyed)
-        {
-            timeElapsed += Time.deltaTime;
-            if (timeElapsed > delayBeforeLoading)
-            {
-                //FindObjectOfType<LevelChanger_Levels>().FadeToCurrentLevel();
-                GameEvents.OnTriggerStopTimer.Invoke();
-            }
-        }
-    }
-
-
 }
 
