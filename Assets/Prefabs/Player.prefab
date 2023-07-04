@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2209275970758837005}
   m_Layer: 11
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,9 +145,10 @@ MonoBehaviour:
   ballMoveSpeed: 300
   ballJumpSpeed: 5
   isDestroyed: 0
-  delayBeforeLoading: 1.5
-  timeElapsed: 0
-  nextSceneLoad: 0
+  TRAPS_TAG: Traps
+  EXITLEVEL_TAG: ExitLevel
+  STARTLEVEL_TAG: StartLevel
+  startLevelPrefab: {fileID: 0}
 --- !u!82 &2209275970758837005
 AudioSource:
   m_ObjectHideFlags: 0
