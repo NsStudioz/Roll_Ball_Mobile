@@ -5,18 +5,32 @@ using UnityEngine;
 public class JumpPickups : MonoBehaviour
 {
 
-    private readonly int jumpPickupOne = 1;
-    private readonly int jumpPickupTwo = 2;
-    private readonly int jumpPickupThree = 3;
+    [SerializeField] private int jumpsToAdd;
+    private readonly string Player = "Player";
+    //
+    private readonly string jumpPickupOne = "JumpsPlusOne";
+    private readonly string jumpPickupTwo = "JumpsPlusTwo";
+    private readonly string jumpPickupThree = "JumpsPlusThree";
+
+    private void Start()
+    {
+        InitializeValue();
+    }
+
+    private void InitializeValue()
+    {
+        if (CompareTag(jumpPickupOne))
+            jumpsToAdd = 1;
+        else if (CompareTag(jumpPickupTwo))
+            jumpsToAdd = 2;
+        else if (CompareTag(jumpPickupThree))
+            jumpsToAdd = 3;
+    }
 
     private void OnTriggerEnter2D(Collider2D player)
     {
-        if (player.CompareTag("JumpsPlusOne"))
-            GameEvents.OnJumpPickup?.Invoke(jumpPickupOne);
-        if (player.CompareTag("JumpsPlusTwo"))
-            GameEvents.OnJumpPickup?.Invoke(jumpPickupTwo);
-        if (player.CompareTag("JumpsPlusThree"))
-            GameEvents.OnJumpPickup?.Invoke(jumpPickupThree);
+        if (player.CompareTag(Player))
+            GameEvents.OnJumpPickup?.Invoke(jumpsToAdd);
 
         AudioManager.Instance.Play("JumpsPickup");
         Destroy(gameObject);

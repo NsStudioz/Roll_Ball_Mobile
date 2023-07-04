@@ -5,24 +5,39 @@ using UnityEngine;
 public class TimePickups : MonoBehaviour
 {
 
-    private readonly float TimePlusOne =   1f;
-    private readonly float TimePlusTwo =   2f;
-    private readonly float TimePlusThree = 3f;
-    private readonly float TimePlusFour =  4f;
-    private readonly float TimePlusFive =  5f;
+    [SerializeField] private float timeToAdd;
+    private readonly string Player = "Player";
+    //
+    private readonly string TimePlusOne = "TimePlusOne";
+    private readonly string TimePlusTwo = "TimePlusTwo";
+    private readonly string TimePlusThree = "TimePlusThree";
+    private readonly string TimePlusFour = "TimePlusFour";
+    private readonly string TimePlusFive = "TimePlusFive";
+
+
+    private void Start()
+    {
+        InitializeValue();
+    }
+
+    private void InitializeValue()
+    {
+        if (CompareTag(TimePlusOne))
+            timeToAdd = 1;
+        else if (CompareTag(TimePlusTwo))
+            timeToAdd = 2;
+        else if (CompareTag(TimePlusThree))
+            timeToAdd = 3;
+        else if (CompareTag(TimePlusFour))
+            timeToAdd = 4;
+        else if (CompareTag(TimePlusFive))
+            timeToAdd = 5;
+    }
 
     private void OnTriggerEnter2D(Collider2D player)
     {
-        if(player.CompareTag("TimePlusOne"))
-            GameEvents.OnTimePickup?.Invoke(TimePlusOne);
-        if (player.CompareTag("TimePlusTwo"))
-            GameEvents.OnTimePickup?.Invoke(TimePlusTwo);
-        if (player.CompareTag("TimePlusThree"))
-            GameEvents.OnTimePickup?.Invoke(TimePlusThree);
-        if (player.CompareTag("TimePlusFour"))
-            GameEvents.OnTimePickup?.Invoke(TimePlusFour);
-        if (player.CompareTag("TimePlusFive"))
-            GameEvents.OnTimePickup?.Invoke(TimePlusFive);
+        if (player.CompareTag(Player))
+            GameEvents.OnTimePickup?.Invoke(timeToAdd);
 
         AudioManager.Instance.Play("TimePickup");
         Destroy(gameObject);
