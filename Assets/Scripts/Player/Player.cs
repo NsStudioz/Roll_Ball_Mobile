@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -21,23 +22,56 @@ public class Player : MonoBehaviour
     [Header("Tags")]
     [SerializeField] private string TRAPS_TAG = "Traps";
     [SerializeField] private string EXITLEVEL_TAG = "ExitLevel";
+    [SerializeField] private string STARTLEVEL_TAG = "StartLevel";
+
+    [Header("Tags")]
+    [SerializeField] private GameObject startLevelPrefab = null;
+
 
 
     private void OnEnable()
     {
+        SceneManager.sceneLoaded += OnSceneLoaded;
+
         GameEvents.OnOutOfTime += OutOfTime;
         PlayerJumpButton.OnButtonClickDown += HoldButton;
         PlayerJumpButton.OnButtonClickUp += ReleaseButton;
     }
+
+    private void OnSceneLoaded(Scene sceneIndex, LoadSceneMode mode)
+    {
+        myRigidBody2D.Sleep();
+
+        if (sceneIndex.buildIndex > 2 && sceneIndex.buildIndex < 53)
+        {
+            SetBallPositionToLevelStartPosition();
+            SetRigidBodyAndRendererComponentsState(true, true);
+
+            if (myRigidBody2D.IsSleeping())
+            {
+                myRigidBody2D.WakeUp();
+            }
+        }
+        else
+        {
+            startLevelPrefab = null;
+            SetRigidBodyAndRendererComponentsState(false, true);
+            //return;
+        }
+    }
+
     private void OnDisable()
     {
         GameEvents.OnOutOfTime -= OutOfTime;
         PlayerJumpButton.OnButtonClickDown -= HoldButton;
         PlayerJumpButton.OnButtonClickUp -= ReleaseButton;
-
-
         //
         // Method: On Disable => Set rigidbody2D and (MAYBE) Renderer inactive.
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
 
@@ -56,10 +90,13 @@ public class Player : MonoBehaviour
 
     private void SetBallPositionToLevelStartPosition()
     {
+        startLevelPrefab = GameObject.FindGameObjectWithTag(STARTLEVEL_TAG);
+
+        transform.position = startLevelPrefab.transform.position;
         // ON Scene load => set the player position to be equal to the level start position (use LevelStart tag or prefab) + Vector2 offset.
         //                  and enable rigidbody2D.
     }
-    
+
     private void MoveBall()
     {
         float xMove = SimpleInput.GetAxis("Horizontal");
@@ -116,7 +153,7 @@ public class Player : MonoBehaviour
 
     private void OutOfTime()
     {
-        myRigidBody2D.simulated = false;
+        SetRigidBodyAndRendererComponentsState(false, true);
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -147,5 +184,12 @@ public class Player : MonoBehaviour
         myRigidBody2D.simulated = rigidBody2D;
         mySpriteRenderer.enabled = renderer;
     }
+
+    private bool GetIngameScenesIndex()
+    {
+        return GameSession.Instance.CurrentSceneIndex > 2 && GameSession.Instance.CurrentSceneIndex < 53;
+    }
+
+
 }
 
