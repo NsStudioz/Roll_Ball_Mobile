@@ -5,9 +5,10 @@ using UnityEngine;
 
 public class FollowPlayer : MonoBehaviour
 {
+
     [SerializeField] private GameObject playerPrefab = null;
     private string PLAYER_TAG = "Player";
-
+    
     private void Start()
     {
         FollowTargetPlayer();
@@ -20,6 +21,11 @@ public class FollowPlayer : MonoBehaviour
         var vCamera = GetComponent<CinemachineVirtualCamera>();
 
         vCamera.Follow = playerPrefab.transform;
+    }
+
+    private void OnDestroy()
+    {
+        playerPrefab = null;
     }
 
 }
