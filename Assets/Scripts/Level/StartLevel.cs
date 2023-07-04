@@ -8,7 +8,7 @@ public class StartLevel : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.gameObject.name == player)
+        if (other.CompareTag(player))
             GameEvents.OnLevelStarted?.Invoke();
     }
 }
