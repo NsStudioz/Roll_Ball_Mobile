@@ -302,7 +302,7 @@ GameObject:
   m_Component:
   - component: {fileID: 393270920}
   m_Layer: 0
-  m_Name: PickupsList
+  m_Name: Pickups
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -336,7 +336,6 @@ GameObject:
   m_Component:
   - component: {fileID: 463754637}
   - component: {fileID: 463754636}
-  - component: {fileID: 463754635}
   - component: {fileID: 463754634}
   - component: {fileID: 463754633}
   m_Layer: 9
@@ -358,6 +357,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!70 &463754634
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -374,18 +374,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.15, y: 1.15}
   m_Direction: 0
---- !u!114 &463754635
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 463754632}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &463754636
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -704,7 +692,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1114498620}
   - component: {fileID: 1114498619}
-  - component: {fileID: 1114498618}
   - component: {fileID: 1114498617}
   - component: {fileID: 1114498616}
   m_Layer: 9
@@ -726,6 +713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!70 &1114498617
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -742,18 +730,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.15, y: 1.15}
   m_Direction: 0
---- !u!114 &1114498618
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1114498615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1114498619
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9269,18 +9245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &537279039192628984
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 537279039192628989}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!70 &537279039192628986
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -9375,7 +9340,6 @@ GameObject:
   m_Component:
   - component: {fileID: 537279039192628987}
   - component: {fileID: 537279039192628988}
-  - component: {fileID: 537279039192628984}
   - component: {fileID: 537279039192628986}
   - component: {fileID: 537279039192628967}
   m_Layer: 9

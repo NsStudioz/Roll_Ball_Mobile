@@ -318,6 +318,40 @@ Transform:
   m_Father: {fileID: 2026824837}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &533502200
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 533502201}
+  m_Layer: 0
+  m_Name: Time
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &533502201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 533502200}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5313964550791048554}
+  - {fileID: 9051400739051027606}
+  - {fileID: 8518546814320855813}
+  m_Father: {fileID: 566769566}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &538620071
 GameObject:
   m_ObjectHideFlags: 0
@@ -412,7 +446,7 @@ GameObject:
   m_Component:
   - component: {fileID: 566769566}
   m_Layer: 0
-  m_Name: PickupsList
+  m_Name: Pickups
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,12 +464,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2006643956181738772}
-  - {fileID: 567515092}
-  - {fileID: 1453245384}
-  - {fileID: 5313964550791048554}
-  - {fileID: 9051400739051027606}
-  - {fileID: 8518546814320855813}
+  - {fileID: 774466303}
+  - {fileID: 533502201}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -449,7 +479,6 @@ GameObject:
   m_Component:
   - component: {fileID: 567515092}
   - component: {fileID: 567515091}
-  - component: {fileID: 567515090}
   - component: {fileID: 567515089}
   - component: {fileID: 567515088}
   m_Layer: 9
@@ -471,6 +500,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!70 &567515089
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -487,18 +517,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.15, y: 1.15}
   m_Direction: 0
---- !u!114 &567515090
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 567515087}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &567515091
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -564,8 +582,42 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 538620072}
-  m_Father: {fileID: 566769566}
+  m_Father: {fileID: 774466303}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &774466302
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 774466303}
+  m_Layer: 0
+  m_Name: Jumps
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &774466303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 774466302}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2006643956181738772}
+  - {fileID: 567515092}
+  - {fileID: 1453245384}
+  m_Father: {fileID: 566769566}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &947599703
 GameObject:
@@ -623,7 +675,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1453245384}
   - component: {fileID: 1453245383}
-  - component: {fileID: 1453245382}
   - component: {fileID: 1453245381}
   - component: {fileID: 1453245380}
   m_Layer: 9
@@ -645,6 +696,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!70 &1453245381
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -661,18 +713,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.15, y: 1.15}
   m_Direction: 0
---- !u!114 &1453245382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1453245379}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1453245383
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -738,7 +778,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1598187823}
-  m_Father: {fileID: 566769566}
+  m_Father: {fileID: 774466303}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1529907670
@@ -9136,6 +9176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!1 &2006643956181738770
 GameObject:
   m_ObjectHideFlags: 0
@@ -9146,7 +9187,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2006643956181738772}
   - component: {fileID: 2006643956181738771}
-  - component: {fileID: 2006643956181738775}
   - component: {fileID: 2006643956181738773}
   - component: {fileID: 2006643956181738760}
   m_Layer: 9
@@ -9221,7 +9261,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2006643955202376989}
-  m_Father: {fileID: 566769566}
+  m_Father: {fileID: 774466303}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &2006643956181738773
@@ -9240,18 +9280,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.15, y: 1.15}
   m_Direction: 0
---- !u!114 &2006643956181738775
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006643956181738770}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5313964550791048548
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9264,6 +9292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87717900666881946a07f286019f1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToAdd: 0
 --- !u!1 &5313964550791048552
 GameObject:
   m_ObjectHideFlags: 0
@@ -9274,8 +9303,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5313964550791048554}
   - component: {fileID: 5313964550791048553}
-  - component: {fileID: 5313964550791048548}
   - component: {fileID: 5313964550791048555}
+  - component: {fileID: 5313964550791048548}
   m_Layer: 14
   m_Name: TimePlusOne_(Obt)
   m_TagString: TimePlusOne
@@ -9347,8 +9376,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 566769566}
-  m_RootOrder: 3
+  m_Father: {fileID: 533502201}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5313964550791048555
 BoxCollider2D:
@@ -9438,8 +9467,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8518546814320855813}
   - component: {fileID: 8518546814320855810}
-  - component: {fileID: 8518546814320855812}
   - component: {fileID: 8518546814320855815}
+  - component: {fileID: 8518546814320855812}
   m_Layer: 14
   m_Name: TimePlusThree_(Obt)
   m_TagString: TimePlusThree
@@ -9459,6 +9488,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87717900666881946a07f286019f1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToAdd: 0
 --- !u!4 &8518546814320855813
 Transform:
   m_ObjectHideFlags: 0
@@ -9471,8 +9501,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 566769566}
-  m_RootOrder: 5
+  m_Father: {fileID: 533502201}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &8518546814320855815
 BoxCollider2D:
@@ -9510,8 +9540,8 @@ GameObject:
   m_Component:
   - component: {fileID: 9051400739051027606}
   - component: {fileID: 9051400739051027607}
-  - component: {fileID: 9051400739051027605}
   - component: {fileID: 9051400739051027604}
+  - component: {fileID: 9051400739051027605}
   m_Layer: 14
   m_Name: TimePlusTwo_(Obt)
   m_TagString: TimePlusTwo
@@ -9557,6 +9587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87717900666881946a07f286019f1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToAdd: 0
 --- !u!4 &9051400739051027606
 Transform:
   m_ObjectHideFlags: 0
@@ -9569,8 +9600,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 566769566}
-  m_RootOrder: 4
+  m_Father: {fileID: 533502201}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &9051400739051027607
 SpriteRenderer:

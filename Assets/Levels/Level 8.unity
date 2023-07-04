@@ -337,7 +337,7 @@ GameObject:
   m_Component:
   - component: {fileID: 592763133}
   m_Layer: 0
-  m_Name: PickupsList
+  m_Name: Pickups
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -547,7 +547,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1320716059}
   - component: {fileID: 1320716058}
-  - component: {fileID: 1320716057}
   - component: {fileID: 1320716056}
   - component: {fileID: 1320716055}
   m_Layer: 9
@@ -569,6 +568,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!70 &1320716056
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -585,18 +585,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 1.15, y: 1.15}
   m_Direction: 0
---- !u!114 &1320716057
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1320716054}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &1320716058
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -6936,7 +6924,6 @@ GameObject:
   m_Component:
   - component: {fileID: 399903701855699996}
   - component: {fileID: 399903701855699999}
-  - component: {fileID: 399903701855699998}
   - component: {fileID: 399903701855699992}
   - component: {fileID: 399903701855699995}
   m_Layer: 9
@@ -6958,6 +6945,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!4 &399903701855699996
 Transform:
   m_ObjectHideFlags: 0
@@ -6974,18 +6962,6 @@ Transform:
   m_Father: {fileID: 592763133}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &399903701855699998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 399903701855699994}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &399903701855699999
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7122,18 +7098,6 @@ Transform:
   m_Father: {fileID: 1730957040866534994}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1730957040866534992
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1730957040866535004}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1730957040866534994
 Transform:
   m_ObjectHideFlags: 0
@@ -7212,7 +7176,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1730957040866534994}
   - component: {fileID: 1730957040866534995}
-  - component: {fileID: 1730957040866534992}
   - component: {fileID: 1730957040866535006}
   - component: {fileID: 1730957040866535007}
   m_Layer: 9
@@ -7250,18 +7213,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5026329312759748449
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5026329312759748452}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!4 &5026329312759748450
 Transform:
   m_ObjectHideFlags: 0
@@ -7304,7 +7256,6 @@ GameObject:
   m_Component:
   - component: {fileID: 5026329312759748450}
   - component: {fileID: 5026329312759748453}
-  - component: {fileID: 5026329312759748449}
   - component: {fileID: 5026329312759748451}
   - component: {fileID: 5026329312759748478}
   m_Layer: 9
@@ -7378,6 +7329,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe88be72cc95c164dbe8470ae89037fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  jumpsToAdd: 0
 --- !u!212 &5026329313667839848
 SpriteRenderer:
   m_ObjectHideFlags: 0

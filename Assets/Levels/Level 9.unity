@@ -503,7 +503,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1137286360}
   m_Layer: 0
-  m_Name: PickupsList
+  m_Name: Pickups
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8366,6 +8366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87717900666881946a07f286019f1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToAdd: 0
 --- !u!4 &2182420360986759804
 Transform:
   m_ObjectHideFlags: 0
@@ -8417,8 +8418,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2182420360986759804}
   - component: {fileID: 2182420360986759807}
-  - component: {fileID: 2182420360986759794}
   - component: {fileID: 2182420360986759805}
+  - component: {fileID: 2182420360986759794}
   m_Layer: 14
   m_Name: TimePlusOne_(Obt) (1)
   m_TagString: TimePlusOne
@@ -8540,8 +8541,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2740582089134203507}
   - component: {fileID: 2740582089134203504}
-  - component: {fileID: 2740582089134203517}
   - component: {fileID: 2740582089134203506}
+  - component: {fileID: 2740582089134203517}
   m_Layer: 14
   m_Name: TimePlusOne_(Obt) (3)
   m_TagString: TimePlusOne
@@ -8602,6 +8603,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87717900666881946a07f286019f1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToAdd: 0
 --- !u!114 &4053432704891963312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8881,8 +8883,8 @@ GameObject:
   m_Component:
   - component: {fileID: 5373069887003347190}
   - component: {fileID: 5373069887003347189}
-  - component: {fileID: 5373069887003347192}
   - component: {fileID: 5373069887003347191}
+  - component: {fileID: 5373069887003347192}
   m_Layer: 14
   m_Name: TimePlusOne_(Obt) (2)
   m_TagString: TimePlusOne
@@ -8995,6 +8997,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87717900666881946a07f286019f1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToAdd: 0
 --- !u!114 &7386283124692417415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9007,6 +9010,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87717900666881946a07f286019f1e49, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeToAdd: 0
 --- !u!61 &7386283124692417416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -9110,8 +9114,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7386283124692417417}
   - component: {fileID: 7386283124692417418}
-  - component: {fileID: 7386283124692417415}
   - component: {fileID: 7386283124692417416}
+  - component: {fileID: 7386283124692417415}
   m_Layer: 14
   m_Name: TimePlusOne_(Obt)
   m_TagString: TimePlusOne
