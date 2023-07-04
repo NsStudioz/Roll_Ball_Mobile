@@ -27,7 +27,7 @@ public class ExitLevel : MonoBehaviour
         GameEvents.OnTriggerStopTimer?.Invoke();
         AudioManager.Instance.Play("LevelCompleted");
 
-        if (other.gameObject.name == player)
+        if (other.CompareTag(player))
             CheckLevelProgress();
 
         if (musicTriggerValues.Contains(GameSession.Instance.CurrentSceneIndex))
