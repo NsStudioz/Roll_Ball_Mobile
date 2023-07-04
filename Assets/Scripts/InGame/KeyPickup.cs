@@ -6,11 +6,16 @@ public class KeyPickup : MonoBehaviour
 {
 
     int keys = 1;
+    private readonly string Player = "Player";
+
 
     private void OnTriggerEnter2D(Collider2D player)
     {
-        AudioManager.Instance.Play("KeyPickup");
-        GameEvents.OnKeyPickup(keys);
-        Destroy(gameObject);
+        if (player.CompareTag(Player))
+        {
+            AudioManager.Instance.Play("KeyPickup");
+            GameEvents.OnKeyPickup(keys);
+            Destroy(gameObject);
+        }
     }
 }
