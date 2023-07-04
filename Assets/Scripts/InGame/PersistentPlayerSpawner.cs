@@ -45,6 +45,9 @@ public class PersistentPlayerSpawner : MonoBehaviour
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
+
+        persistentInstance = null;
+        hasSpawned = false;
     }
 
 
