@@ -45,9 +45,6 @@ public class PersistentPlayerSpawner : MonoBehaviour
     private void OnDestroy()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
-
-        persistentInstance = null;
-        hasSpawned = false;
     }
 
 
@@ -58,12 +55,21 @@ public class PersistentPlayerSpawner : MonoBehaviour
 
     private void SpawnPersistentPlayerObject()
     {
-        if (persistentPlayerPrefab != null)
+        if (persistentInstance == null)
         {
             GameObject persistentObject = Instantiate(persistentPlayerPrefab);
             persistentInstance = persistentObject;
             DontDestroyOnLoad(persistentObject);
         }
+
+        SetPlayerObjectVisibility();
+
+        /*        if (persistentPlayerPrefab != null && persistentInstance == null)
+                {
+                    GameObject persistentObject = Instantiate(persistentPlayerPrefab);
+                    persistentInstance = persistentObject;
+                    DontDestroyOnLoad(persistentObject);
+                }*/
     }
 
     private void SetPlayerObjectVisibility()
@@ -75,7 +81,6 @@ public class PersistentPlayerSpawner : MonoBehaviour
             persistentInstance.SetActive(true);
         else
             persistentInstance.SetActive(false);
-
     }
 
 }
