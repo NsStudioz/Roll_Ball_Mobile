@@ -16,6 +16,7 @@ TagManager:
   - ExitLevel
   - StartLevel
   - Traps
+  - Background
   layers:
   - Default
   - TransparentFX
