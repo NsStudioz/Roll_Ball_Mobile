@@ -46,6 +46,7 @@ public class LevelsHandler : MonoBehaviour
         GameEvents.OnRestartLevel += RestartLevel;
         //
         GameEvents.OnPlayerDead += CountDownTimerToRestartLevel;
+        GameEvents.OnOutOfTime += CountDownTimerToRestartLevel;
     }
 
     private void OnDisable()
@@ -56,6 +57,7 @@ public class LevelsHandler : MonoBehaviour
         GameEvents.OnRestartLevel -= RestartLevel;
         //
         GameEvents.OnPlayerDead -= CountDownTimerToRestartLevel;
+        GameEvents.OnOutOfTime -= CountDownTimerToRestartLevel;
     }
 
     private void FadeToMainMenu()
@@ -100,7 +102,7 @@ public class LevelsHandler : MonoBehaviour
         SceneManager.LoadScene(levelIndex);
     }
 
-    #region OnPlayerDead Listeners:
+    #region OnPlayerDead + OutOfTime Listeners:
 
     private void CountDownTimerToRestartLevel()
     {
@@ -113,7 +115,6 @@ public class LevelsHandler : MonoBehaviour
         OnCountDownTimerEnd_RestartLevel();
     }
 
-    // OnPlayerDead Listener.
     private void OnCountDownTimerEnd_RestartLevel()
     {
         RestartLevel(GameSession.Instance.CurrentSceneIndex);
