@@ -71,9 +71,6 @@ public class GameEvents
     public delegate void ReturnToMainMenu();
     public static ReturnToMainMenu OnReturnToMainMenu;
 
-    public delegate void GameWon();
-    public static GameWon OnGameWon;
-
     #endregion
 
 }
