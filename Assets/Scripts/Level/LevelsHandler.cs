@@ -69,6 +69,7 @@ public class LevelsHandler : MonoBehaviour
         AudioManager.Instance.Play("ButtonClick");
         levelIndex = currentLevelIndex;
         OnComplete_SwitchToScene();
+        GameEvents.OnLevelRestarted?.Invoke();
     }
 
     private void FadeToNextLevel()
@@ -76,7 +77,7 @@ public class LevelsHandler : MonoBehaviour
         FadeToLevel(GameSession.Instance.CurrentSceneIndex + ADD_INDEX_BY_ONE);
     }
 
-    public void FadeToLevel(int currentLevelIndex)
+    private void FadeToLevel(int currentLevelIndex)
     {
         levelIndex = currentLevelIndex;
         StartFadeAnimations();
@@ -97,8 +98,6 @@ public class LevelsHandler : MonoBehaviour
     private void OnComplete_SwitchToScene()
     {
         SceneManager.LoadScene(levelIndex);
-
-        // Music Manager swap tracks from main theme to level theme:
     }
 
     #region OnPlayerDead Listeners:
