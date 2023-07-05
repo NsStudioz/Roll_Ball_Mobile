@@ -75,6 +75,14 @@ public class GameEvents
 
 }
 
+//private int[] musicTriggerValues = { 12, 17, 22, 27, 31, 34, 39, 42, 49, 51 };
+
+/*        GameObject forMusicManager = GameObject.Find("MusicManager");
+        musicManager = forMusicManager.GetComponent<MusicManager>();*/
+
+/*        if (musicTriggerValues.Contains(GameSession.Instance.CurrentSceneIndex))
+        musicManager.stateSwitch = false;*/
+
 //decimalTimer = Time.unscaledDeltaTime;
 
 /*[Header("Scene Elements")]*/
