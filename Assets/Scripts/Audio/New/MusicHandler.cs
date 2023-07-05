@@ -145,47 +145,4 @@ public class MusicHandler : MonoBehaviour
         }
     }
 
-
-
-/*    private void OnNextScene_LoadNextTrack()
-    {
-        switch (selectedLevel = GameSession.Instance.CurrentSceneIndex)
-        {
-            case 3:
-                MusicManager.instance.SwapTracks("Theme_Main_Menu", "Theme_1_10");
-                break;
-            case 4:  // was 13
-                MusicManager.instance.SwapTracks("Theme_1_10", "Theme_11_15");
-                break;
-            case 18:
-                MusicManager.instance.SwapTracks("Theme_11_15", "Theme_16_20");
-                break;
-            case 23:
-                MusicManager.instance.SwapTracks("Theme_16_20", "Theme_21_25");
-                break;
-            case 28:
-                MusicManager.instance.SwapTracks("Theme_21_25", "Theme_26_29");
-                break;
-            case 32:
-                MusicManager.instance.SwapTracks("Theme_26_29", "Theme_30_32");
-                break;
-            case 35:
-                MusicManager.instance.SwapTracks("Theme_30_32", "Theme_33_37");
-                break;
-            case 40:
-                MusicManager.instance.SwapTracks("Theme_33_37", "Theme_38_40");
-                break;
-            case 43:
-                MusicManager.instance.SwapTracks("Theme_38_40", "Theme_41_47");
-                break;
-            case 50:
-                MusicManager.instance.SwapTracks("Theme_41_47", "Theme_48_49");
-                break;
-            case 52:
-                MusicManager.instance.SwapTracks("Theme_48_49", "Theme_50");
-                break;
-            default:
-                break;
-        }
-    }*/
 }

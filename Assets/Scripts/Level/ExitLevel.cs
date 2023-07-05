@@ -10,16 +10,10 @@ public class ExitLevel : MonoBehaviour
     private string player = "Player";
     private int nextSceneLoad;
 
-    MusicManager musicManager;
-
-    private int[] musicTriggerValues = { 12, 17, 22, 27, 31, 34, 39, 42, 49, 51 };
 
     void Start()
     {
         nextSceneLoad = GameSession.Instance.CurrentSceneIndex + 1;
-        //
-        GameObject forMusicManager = GameObject.Find("MusicManager");
-        musicManager = forMusicManager.GetComponent<MusicManager>();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -30,11 +24,8 @@ public class ExitLevel : MonoBehaviour
         if (other.CompareTag(player))
             CheckLevelProgress();
 
-        if (musicTriggerValues.Contains(GameSession.Instance.CurrentSceneIndex))
-            musicManager.stateSwitch = false;
-
-        if(GameSession.Instance.CurrentSceneIndex == 52)
-           musicManager.SwapTracks("Theme_50", "Theme_Main_Menu");
+/*        if(GameSession.Instance.CurrentSceneIndex == 52)
+           musicManager.SwapTracks("Theme_50", "Theme_Main_Menu");*/
     }
 
     private void CheckLevelProgress()
@@ -54,6 +45,5 @@ public class ExitLevel : MonoBehaviour
         if (nextSceneLoad > PlayerPrefs.GetInt("levelAt")) 
             PlayerPrefs.SetInt("levelAt", nextSceneLoad); 
     }
-
 }
 

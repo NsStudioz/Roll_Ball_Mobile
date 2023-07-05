@@ -24,7 +24,7 @@ public class LevelChanger_Levels : MonoBehaviour
 
     public void FadeToCurrentLevel()
     {
-        musicManager.stateSwitch = true;
+        //musicManager.stateSwitch = true;
         FadeToLevel(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -50,7 +50,7 @@ public class LevelChanger_Levels : MonoBehaviour
         SceneManager.LoadScene(levelToLoad); // load the scene with the value index of 'X' (levelToLoad)
 
         // Music Manager Mechanic:
-        if (!musicManager.stateSwitch)
+/*        if (!musicManager.stateSwitch)
         {
             switch (levelToLoad) 
             {
@@ -90,7 +90,7 @@ public class LevelChanger_Levels : MonoBehaviour
                 default:
                     break;
             }
-        }
+        }*/
     }
 }
 
