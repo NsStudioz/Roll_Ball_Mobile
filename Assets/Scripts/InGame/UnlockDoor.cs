@@ -12,7 +12,7 @@ public class UnlockDoor : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.name == player && GameSession.Instance.KeyCount > 0)
+        if (other.gameObject.CompareTag(player) && GameSession.Instance.KeyCount > 0)
         {
             GameEvents.OnKeyUsed(keys);
             AudioManager.Instance.Play("BlockUnlock");
