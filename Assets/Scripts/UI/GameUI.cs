@@ -52,7 +52,6 @@ public class GameUI : MonoBehaviour
         GameEvents.OnOutOfTime -= ShowTimeOutText;
         GameEvents.OnPlayerJumpsCheck -= SyncJumpsText;
         GameEvents.OnKeyCountCheck -= SyncKeyCountText;
-
     }
 
     void Update()
