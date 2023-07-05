@@ -18,14 +18,6 @@ public class MusicManager : MonoBehaviour
     private string MAIN_MENU_TRACK_NAME = "Theme_Main_Menu";
     private float timeElapsed;
 
-    // Unused
-    private bool playNextTrack;
-    private bool stopOldTrack;
-
-    private bool StartDelayTime;
-    private bool stateSwitch = false;
-    private float TimerThreshold = 1f;
-
 
     private void Awake()
     {
@@ -217,86 +209,95 @@ public class MusicManager : MonoBehaviour
 
 
 
-    #region ---------------------------------------------------Old_Functions---------------------------------------------------:
+    #region ---------------------------------------------------MusicManager.cs Old_Functions---------------------------------------------------:
 
-    private IEnumerator FadeInTrack(string name)
-    {
-        playNextTrack = true;
-
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-
-        if (s == null)
-            Debug.Log("Sound:" + name + "not found!");
-
-        timeElapsed = 0f;
-
-        if (playNextTrack)
+    /*    private IEnumerator FadeInTrack(string name)
         {
-            s.source.Play();
+            playNextTrack = true;
 
-            while (timeElapsed < timeToFade)
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+
+            if (s == null)
+                Debug.Log("Sound:" + name + "not found!");
+
+            timeElapsed = 0f;
+
+            if (playNextTrack)
             {
-                s.source.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
-                timeElapsed += Time.deltaTime;
-                yield return null;
+                s.source.Play();
+
+                while (timeElapsed < timeToFade)
+                {
+                    s.source.volume = Mathf.Lerp(0, 1, timeElapsed / timeToFade);
+                    timeElapsed += Time.deltaTime;
+                    yield return null;
+                }
             }
         }
-    }
 
-    private IEnumerator FadeOutTrack(string name)
-    {
-        stopOldTrack = true;
-
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
+        private IEnumerator FadeOutTrack(string name)
         {
-            Debug.Log("Sound:" + name + "not found!");
-        }
+            stopOldTrack = true;
 
-        timeElapsed = 0f;
-
-        if (stopOldTrack)
-        {
-            while (timeElapsed < timeToFade)
+            Sound s = Array.Find(sounds, sound => sound.name == name);
+            if (s == null)
             {
-                s.source.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
-                timeElapsed += Time.deltaTime;
-                yield return null;
+                Debug.Log("Sound:" + name + "not found!");
             }
-            s.source.Stop();
+
+            timeElapsed = 0f;
+
+            if (stopOldTrack)
+            {
+                while (timeElapsed < timeToFade)
+                {
+                    s.source.volume = Mathf.Lerp(1, 0, timeElapsed / timeToFade);
+                    timeElapsed += Time.deltaTime;
+                    yield return null;
+                }
+                s.source.Stop();
+            }
         }
-    }
 
-    private IEnumerator DelayTimeToSwitchBools()
-    {
-        StartDelayTime = true;
+        private IEnumerator DelayTimeToSwitchBools()
+        {
+            StartDelayTime = true;
 
-        yield return new WaitForSecondsRealtime(TimerThreshold);
+            yield return new WaitForSecondsRealtime(TimerThreshold);
 
-        StartDelayTime = false;
-        playNextTrack = false;
-        stopOldTrack = false;
-    }
+            StartDelayTime = false;
+            playNextTrack = false;
+            stopOldTrack = false;
+        }
 
-    public void SwapTracks(string oldTrack, string newTrack)
-    {
-        StartCoroutine(FadeOutTrack(oldTrack)); // stop old track, do a fadeout.
-        StartCoroutine(FadeInTrack(newTrack)); // start new track, do a fadein.
+        public void SwapTracks(string oldTrack, string newTrack)
+        {
+            StartCoroutine(FadeOutTrack(oldTrack)); // stop old track, do a fadeout.
+            StartCoroutine(FadeInTrack(newTrack)); // start new track, do a fadein.
 
-        StartCoroutine(DelayTimeToSwitchBools()); // start new track, do a fadein.
-    }
+            StartCoroutine(DelayTimeToSwitchBools()); // start new track, do a fadein.
+        }
 
-    public IEnumerator SplashDelayTimeToPlayMainTheme()
-    {
-        StartCoroutine(FadeInTrack("Theme_Main_Menu"));
-        yield return new WaitForSecondsRealtime(TimerThreshold);
-        playNextTrack = false;
-        stopOldTrack = false;
-    }
+        public IEnumerator SplashDelayTimeToPlayMainTheme()
+        {
+            StartCoroutine(FadeInTrack("Theme_Main_Menu"));
+            yield return new WaitForSecondsRealtime(TimerThreshold);
+            playNextTrack = false;
+            stopOldTrack = false;
+        }*/
+
+    // Unused
+    /*    private bool playNextTrack;
+        private bool stopOldTrack;
+
+        private bool StartDelayTime;
+        private bool stateSwitch = false;
+        private float TimerThreshold = 1f;*/
 
     #endregion
 
 }
+
 
 
 /*    private void StopAllMusic()
