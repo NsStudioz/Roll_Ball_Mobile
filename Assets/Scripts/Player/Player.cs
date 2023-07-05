@@ -185,11 +185,5 @@ public class Player : MonoBehaviour
         mySpriteRenderer.enabled = renderer;
     }
 
-    private bool GetIngameScenesIndex()
-    {
-        return GameSession.Instance.CurrentSceneIndex > 2 && GameSession.Instance.CurrentSceneIndex < 53;
-    }
-
-
 }
 

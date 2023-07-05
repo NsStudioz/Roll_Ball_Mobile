@@ -63,13 +63,6 @@ public class PersistentPlayerSpawner : MonoBehaviour
         }
 
         SetPlayerObjectVisibility();
-
-        /*        if (persistentPlayerPrefab != null && persistentInstance == null)
-                {
-                    GameObject persistentObject = Instantiate(persistentPlayerPrefab);
-                    persistentInstance = persistentObject;
-                    DontDestroyOnLoad(persistentObject);
-                }*/
     }
 
     private void SetPlayerObjectVisibility()

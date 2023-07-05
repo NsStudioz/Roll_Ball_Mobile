@@ -32,7 +32,7 @@ public class LevelsHandler : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return; // so that no more code is called before we destroy this gameObject.
+            return;
         }
 
         DontDestroyOnLoad(gameObject);

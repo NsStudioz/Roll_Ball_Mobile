@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
+    
+    public static AudioManager Instance;
 
     public Sound[] sounds;
 
-    public static AudioManager Instance;
-
     void Awake()
     {
-        if (Instance == null) { Instance = this; } // singleton pattern
+        if (Instance == null) { Instance = this; }
         else
         {
             Destroy(gameObject);
-            return; // so that no more code is called before we destroy this gameObject.
+            return;
         }
 
         DontDestroyOnLoad(gameObject);
@@ -73,63 +73,3 @@ public class AudioManager : MonoBehaviour
         }
     }
 }
-
-/*    void Update()
-    {
-        //SetSoundSettings();
-    }*/
-
-/*            Mute("PlayerJump");
-Mute("PlayerHit");
-Mute("PlayerDeath");
-Mute("PlayerSound4");
-Mute("ButtonClick");
-Mute("AudioButtonClick");
-Mute("LevelChoosed");
-Mute("Timer");
-Mute("JumpsPickup");
-Mute("TimePickup");
-Mute("LevelCompleted");
-Mute("BackButtonClick");
-Mute("MenuButtonClick");
-Mute("KeyPickup");
-Mute("BlockUnlock");*/
-
-
-/*            Unmute("PlayerJump");
-            Unmute("PlayerHit");
-            Unmute("PlayerDeath");
-            Unmute("PlayerSound4");
-            Unmute("ButtonClick");
-            Unmute("AudioButtonClick");
-            Unmute("LevelChoosed");
-            Unmute("Timer");
-            Unmute("JumpsPickup");
-            Unmute("TimePickup");
-            Unmute("LevelCompleted");
-            Unmute("BackButtonClick");
-            Unmute("MenuButtonClick");
-            Unmute("KeyPickup");
-            Unmute("BlockUnlock");*/
-
-/*    public void Mute(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.Log("Sound:" + name + "not found!");
-            return;
-        }
-        s.source.mute = true;
-    }*/
-
-/*    public void Unmute(string name)
-    {
-        Sound s = Array.Find(sounds, sound => sound.name == name);
-        if (s == null)
-        {
-            Debug.Log("Sound:"  + name + "not found!");
-            return;
-        }
-        s.source.mute = false;
-    }*/
