@@ -96,7 +96,7 @@ public class GameSession : MonoBehaviour
 
     private void SetTimerToLevel()
     {
-        if (CurrentSceneIndex < 5) { EarlyLevels = true; }
+        if (CurrentSceneIndex < 6) { EarlyLevels = true; }
         else { EarlyLevels = false; }
     }
 }
