@@ -10,7 +10,6 @@ public class ExitLevel : MonoBehaviour
     private string player = "Player";
     private int nextSceneLoad;
 
-
     void Start()
     {
         nextSceneLoad = GameSession.Instance.CurrentSceneIndex + 1;
@@ -23,9 +22,6 @@ public class ExitLevel : MonoBehaviour
 
         if (other.CompareTag(player))
             CheckLevelProgress();
-
-/*        if(GameSession.Instance.CurrentSceneIndex == 52)
-           musicManager.SwapTracks("Theme_50", "Theme_Main_Menu");*/
     }
 
     private void CheckLevelProgress()
