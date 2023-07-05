@@ -28,7 +28,6 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject startLevelPrefab = null;
 
 
-
     private void OnEnable()
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
@@ -36,6 +35,18 @@ public class Player : MonoBehaviour
         GameEvents.OnOutOfTime += OutOfTime;
         PlayerJumpButton.OnButtonClickDown += HoldButton;
         PlayerJumpButton.OnButtonClickUp += ReleaseButton;
+    }
+
+    private void OnDisable()
+    {
+        GameEvents.OnOutOfTime -= OutOfTime;
+        PlayerJumpButton.OnButtonClickDown -= HoldButton;
+        PlayerJumpButton.OnButtonClickUp -= ReleaseButton;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
     }
 
     private void OnSceneLoaded(Scene sceneIndex, LoadSceneMode mode)
@@ -56,29 +67,12 @@ public class Player : MonoBehaviour
         {
             startLevelPrefab = null;
             SetRigidBodyAndRendererComponentsState(false, true);
-            //return;
         }
     }
-
-    private void OnDisable()
-    {
-        GameEvents.OnOutOfTime -= OutOfTime;
-        PlayerJumpButton.OnButtonClickDown -= HoldButton;
-        PlayerJumpButton.OnButtonClickUp -= ReleaseButton;
-        //
-        // Method: On Disable => Set rigidbody2D and (MAYBE) Renderer inactive.
-    }
-
-    private void OnDestroy()
-    {
-        SceneManager.sceneLoaded -= OnSceneLoaded;
-    }
-
 
     private void Update() // Suitable for Handling inputs and animations
     {
 #if UNITY_EDITOR
-        //PC CONTROLS:
         PcJumpMechanic();
 #endif
     }
@@ -93,8 +87,6 @@ public class Player : MonoBehaviour
         startLevelPrefab = GameObject.FindGameObjectWithTag(STARTLEVEL_TAG);
 
         transform.position = startLevelPrefab.transform.position;
-        // ON Scene load => set the player position to be equal to the level start position (use LevelStart tag or prefab) + Vector2 offset.
-        //                  and enable rigidbody2D.
     }
 
     private void MoveBall()
@@ -162,7 +154,7 @@ public class Player : MonoBehaviour
         {
             SetRigidBodyAndRendererComponentsState(false, true);
         }
-        if (other.CompareTag(TRAPS_TAG))
+        else if (other.CompareTag(TRAPS_TAG))
         {
             isDestroyed = true;
             PlayerHasDied();
