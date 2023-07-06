@@ -9,7 +9,7 @@ public class Trap_BlackHoleY : MonoBehaviour
     [SerializeField] private bool isMovingUp;
     //
     [SerializeField] private float moveRate;
-    [SerializeField] private float range;
+    private float range;
     [SerializeField] private float rangeLimit;
 
 

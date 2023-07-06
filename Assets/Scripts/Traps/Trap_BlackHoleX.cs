@@ -9,7 +9,7 @@ public class Trap_BlackHoleX : MonoBehaviour
     [SerializeField] private bool isMovingRight;
     //
     [SerializeField] private float moveRate;
-    [SerializeField] private float range;
+    private float range;
     [SerializeField] private float rangeLimit;
     
 
