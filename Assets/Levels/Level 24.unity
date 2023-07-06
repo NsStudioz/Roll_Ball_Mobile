@@ -10369,8 +10369,9 @@ GameObject:
   - component: {fileID: 4443619575341752951}
   - component: {fileID: 4443619575341752950}
   - component: {fileID: 4443619575341752949}
+  - component: {fileID: 4443619575341752952}
   m_Layer: 9
-  m_Name: Block_Moving_Vertical_Narrow
+  m_Name: BlockMove_Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10383,7 +10384,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4443619575341752948}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
   m_Name: 
@@ -10434,6 +10435,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.770071, y: 0.51242876}
   m_EdgeRadius: 0
+--- !u!114 &4443619575341752952
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4443619575341752948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa3be7a76bd40a4c8d5c4ffb2e1f237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 1
+  moveRate: 2
+  rangeLimit: 10
 --- !u!61 &4811418074838602568
 BoxCollider2D:
   m_ObjectHideFlags: 0

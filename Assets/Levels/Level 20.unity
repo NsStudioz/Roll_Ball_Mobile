@@ -14433,8 +14433,9 @@ GameObject:
   - component: {fileID: 1595190035453273364}
   - component: {fileID: 1595190035453273365}
   - component: {fileID: 1595190035453273368}
+  - component: {fileID: 1595190035453273388}
   m_Layer: 9
-  m_Name: Block_Moving_Vertical_Narrow
+  m_Name: BlockMove_Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14447,7 +14448,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595190035453273367}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
   m_Name: 
@@ -14562,6 +14563,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1595190035453273388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595190035453273367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa3be7a76bd40a4c8d5c4ffb2e1f237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 1
+  moveRate: 2
+  rangeLimit: 4
 --- !u!61 &2074745732171110096
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -15250,8 +15266,9 @@ GameObject:
   - component: {fileID: 2074745732171110096}
   - component: {fileID: 45697564947297456}
   - component: {fileID: 4107112570522692252}
+  - component: {fileID: 4107112570522692255}
   m_Layer: 9
-  m_Name: Block_Moving_Narrow (1)
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15264,7 +15281,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4107112570522692251}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -15290,6 +15307,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4107112570522692255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4107112570522692251}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 1
+  rangeLimit: 1
 --- !u!4 &4368842397480640425
 Transform:
   m_ObjectHideFlags: 0
@@ -15910,8 +15942,9 @@ GameObject:
   - component: {fileID: 3323128176958517324}
   - component: {fileID: 8693842442428238904}
   - component: {fileID: 7613739217714985863}
+  - component: {fileID: 8693842442428238905}
   m_Layer: 9
-  m_Name: Block_Moving_Wide
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15924,7 +15957,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7613739217714985862}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -16149,8 +16182,9 @@ GameObject:
   - component: {fileID: 5203191142879500810}
   - component: {fileID: 6079245108611594346}
   - component: {fileID: 7782481400670742082}
+  - component: {fileID: 9127483462732062621}
   m_Layer: 9
-  m_Name: Block_Moving_Narrow
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16163,7 +16197,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7782481400670742081}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -16255,6 +16289,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
     type: 3}
+--- !u!114 &8693842442428238905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7613739217714985862}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 0
+  moveRate: 2
+  rangeLimit: 12
 --- !u!60 &9127483462732062620
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -16292,3 +16341,18 @@ PolygonCollider2D:
       - {x: 1, y: 0.12422979}
       - {x: 0.96986294, y: 0.20484018}
       - {x: 0.88854504, y: 0.25}
+--- !u!114 &9127483462732062621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7782481400670742081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 1
+  rangeLimit: 3

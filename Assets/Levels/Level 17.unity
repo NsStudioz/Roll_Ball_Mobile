@@ -138,8 +138,9 @@ GameObject:
   - component: {fileID: 120003653}
   - component: {fileID: 120003655}
   - component: {fileID: 120003659}
+  - component: {fileID: 120003660}
   m_Layer: 9
-  m_Name: Block_Moving_Vertical_Wide (2)
+  m_Name: BlockMove_Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -297,7 +298,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120003652}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
   m_Name: 
@@ -308,6 +309,21 @@ MonoBehaviour:
   posRangeLimit: 2
   negRangeLimit: -2
   isScrollingUp: 1
+--- !u!114 &120003660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120003652}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa3be7a76bd40a4c8d5c4ffb2e1f237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 1
+  moveRate: 1
+  rangeLimit: 2
 --- !u!1 &315156458
 GameObject:
   m_ObjectHideFlags: 0
@@ -807,8 +823,9 @@ GameObject:
   - component: {fileID: 987879212}
   - component: {fileID: 987879214}
   - component: {fileID: 987879218}
+  - component: {fileID: 987879219}
   m_Layer: 9
-  m_Name: Block_Moving_Vertical_Wide (1)
+  m_Name: BlockMove_Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -966,7 +983,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 987879211}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
   m_Name: 
@@ -977,6 +994,21 @@ MonoBehaviour:
   posRangeLimit: 4.5
   negRangeLimit: -4.5
   isScrollingUp: 1
+--- !u!114 &987879219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 987879211}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa3be7a76bd40a4c8d5c4ffb2e1f237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 1
+  moveRate: 1.5
+  rangeLimit: 4.5
 --- !u!1001 &1006334822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10212,8 +10244,9 @@ GameObject:
   - component: {fileID: 1623829117958194518}
   - component: {fileID: 2890618037395366217}
   - component: {fileID: 2890618037395366219}
+  - component: {fileID: 4669925354755100358}
   m_Layer: 9
-  m_Name: Block_Moving_Vertical_Wide
+  m_Name: BlockMove_Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10226,7 +10259,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2890618037395366218}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
   m_Name: 
@@ -10456,6 +10489,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8093121, y: 1.0117851}
   m_EdgeRadius: 0
+--- !u!114 &4669925354755100358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2890618037395366218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa3be7a76bd40a4c8d5c4ffb2e1f237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 1
+  moveRate: 1.5
+  rangeLimit: 3
 --- !u!4 &7980081126916438640
 Transform:
   m_ObjectHideFlags: 0

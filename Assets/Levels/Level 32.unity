@@ -263,8 +263,9 @@ GameObject:
   - component: {fileID: 95677532}
   - component: {fileID: 95677534}
   - component: {fileID: 95677538}
+  - component: {fileID: 95677539}
   m_Layer: 9
-  m_Name: Block_Moving_Vertical_Narrow (1)
+  m_Name: BlockMove_Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -421,7 +422,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 95677531}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
   m_Name: 
@@ -432,6 +433,21 @@ MonoBehaviour:
   posRangeLimit: 3
   negRangeLimit: -3
   isScrollingUp: 1
+--- !u!114 &95677539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 95677531}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa3be7a76bd40a4c8d5c4ffb2e1f237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 1
+  moveRate: 1.5
+  rangeLimit: 3
 --- !u!1 &104743000
 GameObject:
   m_ObjectHideFlags: 0
@@ -22088,8 +22104,9 @@ GameObject:
   - component: {fileID: 4737407848878536020}
   - component: {fileID: 4737407848878536021}
   - component: {fileID: 4737407848878536024}
+  - component: {fileID: 4737407848878536044}
   m_Layer: 9
-  m_Name: Block_Moving_Vertical_Narrow
+  m_Name: BlockMove_Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22102,7 +22119,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4737407848878536023}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
   m_Name: 
@@ -22217,6 +22234,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &4737407848878536044
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4737407848878536023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa3be7a76bd40a4c8d5c4ffb2e1f237, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 1
+  moveRate: 1.5
+  rangeLimit: 4.5
 --- !u!4 &4981672575404406920
 Transform:
   m_ObjectHideFlags: 0

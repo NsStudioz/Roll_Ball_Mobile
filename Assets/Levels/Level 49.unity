@@ -1671,7 +1671,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 296307203}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -1695,8 +1695,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingRight: 0
-  moveRate: 0
-  rangeLimit: 0
+  moveRate: 0.5
+  rangeLimit: 0.5
 --- !u!1 &297156002
 GameObject:
   m_ObjectHideFlags: 0
@@ -4625,7 +4625,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 676529878}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -4648,9 +4648,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMovingRight: 0
-  moveRate: 0
-  rangeLimit: 0
+  isMovingRight: 1
+  moveRate: 0.5
+  rangeLimit: 0.5
 --- !u!1 &680056262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4942,7 +4942,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680621779}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -4965,9 +4965,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMovingRight: 0
-  moveRate: 0
-  rangeLimit: 0
+  isMovingRight: 1
+  moveRate: 0.5
+  rangeLimit: 0.5
 --- !u!1 &691341335
 GameObject:
   m_ObjectHideFlags: 0
@@ -5808,7 +5808,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 828870577}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -5832,8 +5832,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingRight: 0
-  moveRate: 0
-  rangeLimit: 0
+  moveRate: 0.5
+  rangeLimit: 0.5
 --- !u!1 &851081681
 GameObject:
   m_ObjectHideFlags: 0
@@ -6302,7 +6302,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 864390476}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -6326,8 +6326,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isMovingRight: 0
-  moveRate: 0
-  rangeLimit: 0
+  moveRate: 0.5
+  rangeLimit: 0.5
 --- !u!1 &873178979
 GameObject:
   m_ObjectHideFlags: 0
@@ -38153,7 +38153,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651084019699463259}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -38988,9 +38988,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isMovingRight: 0
-  moveRate: 0
-  rangeLimit: 0
+  isMovingRight: 1
+  moveRate: 0.5
+  rangeLimit: 0.5
 --- !u!70 &4469517064763649864
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

@@ -7454,8 +7454,9 @@ GameObject:
   - component: {fileID: 1791210800}
   - component: {fileID: 1791210806}
   - component: {fileID: 1791210805}
+  - component: {fileID: 1791210807}
   m_Layer: 9
-  m_Name: Block_Moving_Narrow (1)
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7598,7 +7599,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1791210798}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -7623,6 +7624,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
     type: 3}
+--- !u!114 &1791210807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1791210798}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 1.5
+  rangeLimit: 4.5
 --- !u!1 &1831767439
 GameObject:
   m_ObjectHideFlags: 0
@@ -9158,8 +9174,9 @@ GameObject:
   - component: {fileID: 986851126664998429}
   - component: {fileID: 4264865692557290380}
   - component: {fileID: 2991622157044634199}
+  - component: {fileID: 4264865692557290381}
   m_Layer: 9
-  m_Name: Block_Moving_Narrow
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9172,7 +9189,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2991622157044634198}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -9434,6 +9451,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
     type: 3}
+--- !u!114 &4264865692557290381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2991622157044634198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 1
+  rangeLimit: 4
 --- !u!114 &4723305834363583712
 MonoBehaviour:
   m_ObjectHideFlags: 0

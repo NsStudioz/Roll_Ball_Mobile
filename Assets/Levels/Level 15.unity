@@ -138,8 +138,9 @@ GameObject:
   - component: {fileID: 30877136}
   - component: {fileID: 30877137}
   - component: {fileID: 30877142}
+  - component: {fileID: 30877143}
   m_Layer: 9
-  m_Name: Block_Moving_Wide (2)
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -296,7 +297,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 30877135}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -307,6 +308,21 @@ MonoBehaviour:
   posRangeLimit: 12
   negRangeLimit: -12
   isMovingRight: 1
+--- !u!114 &30877143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 30877135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 3
+  rangeLimit: 12
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -702,8 +718,9 @@ GameObject:
   - component: {fileID: 918634929}
   - component: {fileID: 918634930}
   - component: {fileID: 918634935}
+  - component: {fileID: 918634936}
   m_Layer: 9
-  m_Name: Block_Moving_Wide (1)
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -860,7 +877,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 918634928}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -871,6 +888,21 @@ MonoBehaviour:
   posRangeLimit: 6
   negRangeLimit: -6
   isMovingRight: 1
+--- !u!114 &918634936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 918634928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 2
+  rangeLimit: 6
 --- !u!1 &931100709
 GameObject:
   m_ObjectHideFlags: 0
@@ -11472,8 +11504,9 @@ GameObject:
   - component: {fileID: 2671406220724042411}
   - component: {fileID: 8334501642776086239}
   - component: {fileID: 7108313876284764514}
+  - component: {fileID: 8334501642776086240}
   m_Layer: 9
-  m_Name: Block_Moving_Wide
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11486,7 +11519,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7108313876284764513}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -11511,3 +11544,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
     type: 3}
+--- !u!114 &8334501642776086240
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7108313876284764513}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 1
+  rangeLimit: 4

@@ -4093,8 +4093,9 @@ GameObject:
   - component: {fileID: 1087625626}
   - component: {fileID: 1087625625}
   - component: {fileID: 1087625631}
+  - component: {fileID: 1087625632}
   m_Layer: 9
-  m_Name: Block_Moving_Narrow (1)
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4253,7 +4254,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087625624}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -4264,6 +4265,21 @@ MonoBehaviour:
   posRangeLimit: 8
   negRangeLimit: -8
   isMovingRight: 1
+--- !u!114 &1087625632
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1087625624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 1
+  rangeLimit: 8
 --- !u!1 &1139141602
 GameObject:
   m_ObjectHideFlags: 0
@@ -26026,8 +26042,9 @@ GameObject:
   - component: {fileID: 3664887160229087248}
   - component: {fileID: 3365570480147917424}
   - component: {fileID: 1651084019699463260}
+  - component: {fileID: 3664887160229087249}
   m_Layer: 9
-  m_Name: Block_Moving_Narrow
+  m_Name: BlockMove_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26040,7 +26057,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651084019699463259}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
   m_Name: 
@@ -27018,6 +27035,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.7731428, y: 0.51325035}
   m_EdgeRadius: 0
+--- !u!114 &3664887160229087249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1651084019699463259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa24137adf500484383d442fdaadf55e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 1
+  moveRate: 1
+  rangeLimit: 10
 --- !u!70 &3735359531889762104
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
