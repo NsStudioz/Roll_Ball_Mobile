@@ -137,7 +137,6 @@ GameObject:
   - component: {fileID: 30877139}
   - component: {fileID: 30877136}
   - component: {fileID: 30877137}
-  - component: {fileID: 30877138}
   - component: {fileID: 30877142}
   m_Layer: 9
   m_Name: Block_Moving_Wide (2)
@@ -195,23 +194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
---- !u!114 &30877138
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 30877135}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0e52048ae6cff4580021fc0a52b6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 3
-  delayTime: 4
-  timeElapsed: 0
-  moveRight: 1
+  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
+    type: 3}
 --- !u!61 &30877139
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -717,7 +701,6 @@ GameObject:
   - component: {fileID: 918634932}
   - component: {fileID: 918634929}
   - component: {fileID: 918634930}
-  - component: {fileID: 918634931}
   - component: {fileID: 918634935}
   m_Layer: 9
   m_Name: Block_Moving_Wide (1)
@@ -775,23 +758,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
---- !u!114 &918634931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 918634928}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0e52048ae6cff4580021fc0a52b6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 2
-  delayTime: 3
-  timeElapsed: 0
-  moveRight: 1
+  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
+    type: 3}
 --- !u!61 &918634932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10710,22 +10678,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.9876299, y: 18.442032}
   m_EdgeRadius: 0
---- !u!114 &1301038572189485265
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7108313876284764513}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0e52048ae6cff4580021fc0a52b6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1
-  delayTime: 4
-  timeElapsed: 0
-  moveRight: 1
 --- !u!61 &1529281712940173065
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -11519,7 +11471,6 @@ GameObject:
   - component: {fileID: 1529281712940173065}
   - component: {fileID: 2671406220724042411}
   - component: {fileID: 8334501642776086239}
-  - component: {fileID: 1301038572189485265}
   - component: {fileID: 7108313876284764514}
   m_Layer: 9
   m_Name: Block_Moving_Wide
@@ -11558,4 +11509,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
+    type: 3}

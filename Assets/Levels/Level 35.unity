@@ -1815,8 +1815,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1268492063}
   - component: {fileID: 1268492062}
-  - component: {fileID: 1268492061}
   - component: {fileID: 1268492060}
+  - component: {fileID: 1268492064}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(P) (1)
   m_TagString: Untagged
@@ -1850,19 +1850,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &1268492061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1268492059}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca02a6136e3ce346840106ede075838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: -200
 --- !u!212 &1268492062
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1931,6 +1918,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1268492064
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1268492059}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -200
 --- !u!1 &1411578877
 GameObject:
   m_ObjectHideFlags: 0
@@ -2186,7 +2186,7 @@ GameObject:
   - component: {fileID: 1441822382}
   - component: {fileID: 1441822381}
   - component: {fileID: 1441822380}
-  - component: {fileID: 1441822379}
+  - component: {fileID: 1441822383}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(N) (1)
   m_TagString: Untagged
@@ -2194,19 +2194,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1441822379
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1441822378}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c95073de826d6b4c8f98f1b94889a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 200
 --- !u!61 &1441822380
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2301,6 +2288,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1441822383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1441822378}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
 --- !u!1 &1488066580
 GameObject:
   m_ObjectHideFlags: 0
@@ -17941,8 +17941,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1655536433}
   - component: {fileID: 1655536432}
-  - component: {fileID: 1655536431}
   - component: {fileID: 1655536430}
+  - component: {fileID: 1655536434}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(P) (2)
   m_TagString: Untagged
@@ -17976,19 +17976,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &1655536431
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655536429}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca02a6136e3ce346840106ede075838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: -200
 --- !u!212 &1655536432
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -18057,6 +18044,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655536434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655536429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -200
 --- !u!1 &1740020749
 GameObject:
   m_ObjectHideFlags: 0
@@ -21387,19 +21387,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &354659168598457302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354659168598457303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c95073de826d6b4c8f98f1b94889a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 200
 --- !u!1 &354659168598457303
 GameObject:
   m_ObjectHideFlags: 0
@@ -21411,7 +21398,7 @@ GameObject:
   - component: {fileID: 354659168598457299}
   - component: {fileID: 354659168598457296}
   - component: {fileID: 354659168598457297}
-  - component: {fileID: 354659168598457302}
+  - component: {fileID: 354659168598457304}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(N)
   m_TagString: Untagged
@@ -21419,6 +21406,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &354659168598457304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354659168598457303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
 --- !u!212 &354659170087641753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -23300,19 +23300,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8020148620563911117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8020148620563911119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca02a6136e3ce346840106ede075838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: -200
 --- !u!61 &8020148620563911118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -23349,8 +23336,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8020148620563911115}
   - component: {fileID: 8020148620563911116}
-  - component: {fileID: 8020148620563911117}
   - component: {fileID: 8020148620563911118}
+  - component: {fileID: 8020148620563911120}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(P)
   m_TagString: Untagged
@@ -23358,6 +23345,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8020148620563911120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020148620563911119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -200
 --- !u!212 &8020148620969667060
 SpriteRenderer:
   m_ObjectHideFlags: 0

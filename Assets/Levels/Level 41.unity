@@ -428,8 +428,8 @@ GameObject:
   m_Component:
   - component: {fileID: 835939845}
   - component: {fileID: 835939844}
-  - component: {fileID: 835939843}
   - component: {fileID: 835939842}
+  - component: {fileID: 835939846}
   m_Layer: 9
   m_Name: Block_Wide_Rotator_Medium_(N) (1)
   m_TagString: Untagged
@@ -463,19 +463,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.28, y: 2.56}
   m_EdgeRadius: 0
---- !u!114 &835939843
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 835939841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c95073de826d6b4c8f98f1b94889a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 200
 --- !u!212 &835939844
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -544,6 +531,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &835939846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 835939841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
 --- !u!1 &947599703
 GameObject:
   m_ObjectHideFlags: 0
@@ -10215,8 +10215,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7635021010283164013}
   - component: {fileID: 7635021010283164012}
-  - component: {fileID: 7635021010283164014}
   - component: {fileID: 1405901312429699320}
+  - component: {fileID: 7635021010283164014}
   m_Layer: 9
   m_Name: Block_Wide_Rotator_Medium_(N)
   m_TagString: Untagged
@@ -10301,7 +10301,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7635021010283164009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c95073de826d6b4c8f98f1b94889a0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 200

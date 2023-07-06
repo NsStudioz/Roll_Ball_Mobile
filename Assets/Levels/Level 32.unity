@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 95677533}
   - component: {fileID: 95677532}
   - component: {fileID: 95677534}
-  - component: {fileID: 95677535}
   - component: {fileID: 95677538}
   m_Layer: 9
   m_Name: Block_Moving_Vertical_Narrow (1)
@@ -346,23 +345,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
---- !u!114 &95677535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95677531}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 904b3fe3eb93db84a89b1fc1895fb059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1.5
-  delayTime: 2
-  timeElapsed: 0
-  moveUp: 1
+  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
+    type: 3}
 --- !u!212 &95677536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -22088,7 +22072,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
+    type: 3}
 --- !u!1 &4737407848878536023
 GameObject:
   m_ObjectHideFlags: 0
@@ -22102,7 +22087,6 @@ GameObject:
   - component: {fileID: 4737407848878536041}
   - component: {fileID: 4737407848878536020}
   - component: {fileID: 4737407848878536021}
-  - component: {fileID: 4737407848878536042}
   - component: {fileID: 4737407848878536024}
   m_Layer: 9
   m_Name: Block_Moving_Vertical_Narrow
@@ -22181,22 +22165,6 @@ PolygonCollider2D:
       - {x: 1.0001907, y: 0.124985695}
       - {x: 0.96671104, y: 0.20443153}
       - {x: 0.89956665, y: 0.2503426}
---- !u!114 &4737407848878536042
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4737407848878536023}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 904b3fe3eb93db84a89b1fc1895fb059, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1.5
-  delayTime: 3
-  timeElapsed: 0
-  moveUp: 1
 --- !u!212 &4737407848878536043
 SpriteRenderer:
   m_ObjectHideFlags: 0

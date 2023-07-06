@@ -1724,7 +1724,7 @@ GameObject:
   - component: {fileID: 282341937}
   - component: {fileID: 282341936}
   - component: {fileID: 282341935}
-  - component: {fileID: 282341934}
+  - component: {fileID: 282341938}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(N) (1)
   m_TagString: Untagged
@@ -1732,19 +1732,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &282341934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 282341933}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c95073de826d6b4c8f98f1b94889a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 200
 --- !u!61 &282341935
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1839,6 +1826,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &282341938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282341933}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
 --- !u!1 &306386812
 GameObject:
   m_ObjectHideFlags: 0
@@ -5847,8 +5847,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1124520824}
   - component: {fileID: 1124520823}
-  - component: {fileID: 1124520822}
   - component: {fileID: 1124520821}
+  - component: {fileID: 1124520825}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(P) (1)
   m_TagString: Untagged
@@ -5882,19 +5882,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5, y: 2}
   m_EdgeRadius: 0
---- !u!114 &1124520822
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1124520820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca02a6136e3ce346840106ede075838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: -200
 --- !u!212 &1124520823
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -5963,6 +5950,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1124520825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1124520820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -200
 --- !u!1 &1131139721
 GameObject:
   m_ObjectHideFlags: 0
@@ -26821,19 +26821,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &354659168598457302
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 354659168598457303}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c95073de826d6b4c8f98f1b94889a0c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 200
 --- !u!1 &354659168598457303
 GameObject:
   m_ObjectHideFlags: 0
@@ -26845,7 +26832,7 @@ GameObject:
   - component: {fileID: 354659168598457299}
   - component: {fileID: 354659168598457296}
   - component: {fileID: 354659168598457297}
-  - component: {fileID: 354659168598457302}
+  - component: {fileID: 354659168598457304}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(N)
   m_TagString: Untagged
@@ -26853,6 +26840,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &354659168598457304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 354659168598457303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 200
 --- !u!212 &354659170087641753
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -28663,19 +28663,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6075684367464311768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6075684367464311769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca02a6136e3ce346840106ede075838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: -200
 --- !u!1 &6075684367464311769
 GameObject:
   m_ObjectHideFlags: 0
@@ -28686,8 +28673,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6075684367464311773}
   - component: {fileID: 6075684367464311774}
-  - component: {fileID: 6075684367464311768}
   - component: {fileID: 993556293690122807}
+  - component: {fileID: 6075684367464311775}
   m_Layer: 9
   m_Name: Block_Wide_Rotator_Medium_(P)
   m_TagString: Untagged
@@ -28763,6 +28750,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &6075684367464311775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6075684367464311769}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -200
 --- !u!70 &6447103551144047737
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -29384,8 +29384,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7635021010283164013}
   - component: {fileID: 7635021010283164012}
-  - component: {fileID: 7635021010283164014}
   - component: {fileID: 1405901312429699320}
+  - component: {fileID: 7635021010283164014}
   m_Layer: 9
   m_Name: Block_Wide_Rotator_Medium_(N)
   m_TagString: Untagged
@@ -29470,7 +29470,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7635021010283164009}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2c95073de826d6b4c8f98f1b94889a0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rotationSpeed: 200
@@ -29987,19 +29987,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &8020148620563911117
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8020148620563911119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fca02a6136e3ce346840106ede075838, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  RotationSpeed: -200
 --- !u!61 &8020148620563911118
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -30036,8 +30023,8 @@ GameObject:
   m_Component:
   - component: {fileID: 8020148620563911115}
   - component: {fileID: 8020148620563911116}
-  - component: {fileID: 8020148620563911117}
   - component: {fileID: 8020148620563911118}
+  - component: {fileID: 8020148620563911120}
   m_Layer: 9
   m_Name: Block_Rotator_Medium_(P)
   m_TagString: Untagged
@@ -30045,6 +30032,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &8020148620563911120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8020148620563911119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 253cb0196f3abfe48b95c2ed2a8ff170, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: -200
 --- !u!212 &8020148620969667060
 SpriteRenderer:
   m_ObjectHideFlags: 0

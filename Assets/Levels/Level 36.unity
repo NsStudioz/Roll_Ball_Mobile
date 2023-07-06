@@ -4092,7 +4092,6 @@ GameObject:
   - component: {fileID: 1087625627}
   - component: {fileID: 1087625626}
   - component: {fileID: 1087625625}
-  - component: {fileID: 1087625628}
   - component: {fileID: 1087625631}
   m_Layer: 9
   m_Name: Block_Moving_Narrow (1)
@@ -4113,7 +4112,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
+    type: 3}
 --- !u!61 &1087625626
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -4177,22 +4177,6 @@ PolygonCollider2D:
       - {x: 1, y: 0.12422979}
       - {x: 0.96986294, y: 0.20484018}
       - {x: 0.88854504, y: 0.25}
---- !u!114 &1087625628
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1087625624}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0e52048ae6cff4580021fc0a52b6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1
-  delayTime: 8
-  timeElapsed: 0
-  moveRight: 1
 --- !u!212 &1087625629
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26041,7 +26025,6 @@ GameObject:
   - component: {fileID: 306926932102434182}
   - component: {fileID: 3664887160229087248}
   - component: {fileID: 3365570480147917424}
-  - component: {fileID: 6611014060031817844}
   - component: {fileID: 1651084019699463260}
   m_Layer: 9
   m_Name: Block_Moving_Narrow
@@ -26646,7 +26629,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 0}
+  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
+    type: 3}
 --- !u!114 &3472415925679210465
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27173,22 +27157,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6611014060031817844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1651084019699463259}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c0e52048ae6cff4580021fc0a52b6cc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1
-  delayTime: 10
-  timeElapsed: 0
-  moveRight: 1
 --- !u!212 &7283253053335136000
 SpriteRenderer:
   m_ObjectHideFlags: 0
