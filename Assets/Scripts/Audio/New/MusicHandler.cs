@@ -110,7 +110,7 @@ public class MusicHandler : MonoBehaviour
             case 3:
                 TriggerSwapTrackEvent(totalTracksIndexers[0], totalTracksIndexers[1]);
                 break;
-            case 4:  // was 13
+            case 13:
                 TriggerSwapTrackEvent(totalTracksIndexers[1], totalTracksIndexers[2]);
                 break;
             case 18:
