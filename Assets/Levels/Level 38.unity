@@ -3070,87 +3070,6 @@ Transform:
   m_Father: {fileID: 3260060931504412804}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &447827328
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8712167499650936809}
-    m_Modifications:
-    - target: {fileID: 3906289857995130208, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_Name
-      value: BlockUnlockVFX
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -18.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2377036f272694441add448b5c541046, type: 3}
---- !u!198 &447827329 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3906289857995130210, guid: 2377036f272694441add448b5c541046,
-    type: 3}
-  m_PrefabInstance: {fileID: 447827328}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &447827330 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
-    type: 3}
-  m_PrefabInstance: {fileID: 447827328}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &483959719
 GameObject:
   m_ObjectHideFlags: 0
@@ -4906,7 +4825,7 @@ GameObject:
   - component: {fileID: 832490394}
   - component: {fileID: 832490397}
   m_Layer: 15
-  m_Name: Block_Lock_Clean (1)
+  m_Name: Block_Locked
   m_TagString: LockedDoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5017,7 +4936,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce8b279737804d45b5a10fa708bd5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedblockSystem: {fileID: 447827329}
+  unlockedblockSystem: {fileID: 5419993431483730569, guid: 7906fffc90279f84d8b3abad71282668,
+    type: 3}
 --- !u!1 &833424765
 GameObject:
   m_ObjectHideFlags: 0
@@ -5259,7 +5179,7 @@ GameObject:
   - component: {fileID: 860934583}
   - component: {fileID: 860934586}
   m_Layer: 15
-  m_Name: Block_Lock_Clean (2)
+  m_Name: Block_Locked
   m_TagString: LockedDoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5370,7 +5290,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce8b279737804d45b5a10fa708bd5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedblockSystem: {fileID: 447827329}
+  unlockedblockSystem: {fileID: 5419993431483730569, guid: 7906fffc90279f84d8b3abad71282668,
+    type: 3}
 --- !u!1 &861438751
 GameObject:
   m_ObjectHideFlags: 0
@@ -7223,7 +7144,7 @@ GameObject:
   - component: {fileID: 1122492960}
   - component: {fileID: 1122492963}
   m_Layer: 15
-  m_Name: Block_Lock_Clean (4)
+  m_Name: Block_Locked
   m_TagString: LockedDoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7334,7 +7255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce8b279737804d45b5a10fa708bd5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedblockSystem: {fileID: 447827329}
+  unlockedblockSystem: {fileID: 5419993431483730569, guid: 7906fffc90279f84d8b3abad71282668,
+    type: 3}
 --- !u!1 &1128931528
 GameObject:
   m_ObjectHideFlags: 0
@@ -7348,7 +7270,7 @@ GameObject:
   - component: {fileID: 1128931529}
   - component: {fileID: 1128931532}
   m_Layer: 15
-  m_Name: Block_Lock_Clean (3)
+  m_Name: Block_Locked
   m_TagString: LockedDoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7459,7 +7381,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce8b279737804d45b5a10fa708bd5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedblockSystem: {fileID: 447827329}
+  unlockedblockSystem: {fileID: 5419993431483730569, guid: 7906fffc90279f84d8b3abad71282668,
+    type: 3}
 --- !u!1 &1134287417
 GameObject:
   m_ObjectHideFlags: 0
@@ -30390,7 +30313,7 @@ GameObject:
   - component: {fileID: 600996561878489735}
   - component: {fileID: 600996561878489733}
   m_Layer: 15
-  m_Name: Block_Lock_Clean
+  m_Name: Block_Locked
   m_TagString: LockedDoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30408,7 +30331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce8b279737804d45b5a10fa708bd5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedblockSystem: {fileID: 447827329}
+  unlockedblockSystem: {fileID: 5419993431483730569, guid: 7906fffc90279f84d8b3abad71282668,
+    type: 3}
 --- !u!212 &600996561878489734
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -31202,7 +31126,7 @@ GameObject:
   - component: {fileID: 3185490464722664913}
   - component: {fileID: 3185490464722664925}
   m_Layer: 15
-  m_Name: Block_Lock_Wide_Clean
+  m_Name: Block_Locked
   m_TagString: LockedDoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31220,7 +31144,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ce8b279737804d45b5a10fa708bd5e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unlockedblockSystem: {fileID: 447827329}
+  unlockedblockSystem: {fileID: 5419993431483730569, guid: 7906fffc90279f84d8b3abad71282668,
+    type: 3}
 --- !u!4 &3260060931504412804
 Transform:
   m_ObjectHideFlags: 0
@@ -33556,7 +33481,6 @@ Transform:
   - {fileID: 860934585}
   - {fileID: 1128931531}
   - {fileID: 1122492962}
-  - {fileID: 447827330}
   m_Father: {fileID: 8069124498414803981}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
