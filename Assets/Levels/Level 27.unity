@@ -264,26 +264,13 @@ GameObject:
   - component: {fileID: 92505587}
   - component: {fileID: 92505586}
   - component: {fileID: 92505585}
-  - component: {fileID: 92505584}
   m_Layer: 10
   m_Name: laser
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &92505584
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92505583}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51014c8d96403b54285024db983f50f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &92505585
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -893,15 +880,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7592f7c50aebc479322db29cdb3b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserGO: {fileID: 0}
+  laserGO: {fileID: 92505583}
   isLaserOn: 0
   isPermanent: 0
   timeElapsed: 0
   delayTime: 1.5
   isLarge: 0
   effectChangeDelay: 0.25
-  m_OldState: {x: 0, y: 0}
-  m_NewState: {x: 0, y: 0}
+  m_OldState: {x: 0.95, y: 0.9}
+  m_NewState: {x: 1, y: 0.9}
   l_OldState: {x: 0, y: 0}
   l_NewState: {x: 0, y: 0}
 --- !u!4 &864882046
@@ -7919,15 +7906,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7592f7c50aebc479322db29cdb3b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserGO: {fileID: 0}
+  laserGO: {fileID: 2084088835}
   isLaserOn: 1
   isPermanent: 0
   timeElapsed: 0
   delayTime: 1
   isLarge: 0
   effectChangeDelay: 0.25
-  m_OldState: {x: 0, y: 0}
-  m_NewState: {x: 0, y: 0}
+  m_OldState: {x: 0.95, y: 0.9}
+  m_NewState: {x: 1, y: 0.9}
   l_OldState: {x: 0, y: 0}
   l_NewState: {x: 0, y: 0}
 --- !u!4 &1576474376
@@ -7958,7 +7945,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1838632138}
   m_Layer: 0
-  m_Name: TrapList
+  m_Name: Traps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8923,26 +8910,13 @@ GameObject:
   - component: {fileID: 2084088839}
   - component: {fileID: 2084088838}
   - component: {fileID: 2084088837}
-  - component: {fileID: 2084088836}
   m_Layer: 10
   m_Name: laser
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2084088836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2084088835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51014c8d96403b54285024db983f50f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &2084088837
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -9053,7 +9027,7 @@ GameObject:
   - component: {fileID: 1048234503151990635}
   m_Layer: 10
   m_Name: DeathCollider
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9328,26 +9302,13 @@ GameObject:
   - component: {fileID: 3369399194081031238}
   - component: {fileID: 3369399194081031243}
   - component: {fileID: 3369399194081031241}
-  - component: {fileID: 3369399194081031240}
   m_Layer: 10
   m_Name: laser
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3369399194081031240
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3369399194081031239}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51014c8d96403b54285024db983f50f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &3369399194081031241
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -9564,15 +9525,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7592f7c50aebc479322db29cdb3b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserGO: {fileID: 0}
+  laserGO: {fileID: 3369399194081031239}
   isLaserOn: 1
   isPermanent: 0
   timeElapsed: 0
   delayTime: 2
   isLarge: 0
   effectChangeDelay: 0.25
-  m_OldState: {x: 0, y: 0}
-  m_NewState: {x: 0, y: 0}
+  m_OldState: {x: 0.95, y: 0.9}
+  m_NewState: {x: 1, y: 0.9}
   l_OldState: {x: 0, y: 0}
   l_NewState: {x: 0, y: 0}
 --- !u!4 &3369399195247973354

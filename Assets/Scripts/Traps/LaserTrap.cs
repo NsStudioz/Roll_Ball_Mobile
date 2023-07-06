@@ -18,10 +18,10 @@ public class LaserTrap : MonoBehaviour
     [SerializeField] private float effectChangeDelay = 0.25f;
 
     #region VectorEffects:
-    [SerializeField] private Vector2 m_OldState; // 0.99, 0.9;
-    [SerializeField] private Vector2 m_NewState;    // 1, 0.9;
+    [SerializeField] private Vector2 m_OldState = new Vector2(0.95f, 0.9f); // 0.95, 0.9;
+    [SerializeField] private Vector2 m_NewState = new Vector2(1f, 0.9f);    // 1, 0.9;
     //
-    [SerializeField] private Vector2 l_OldState; // 1.09, 1.4
+    [SerializeField] private Vector2 l_OldState; // 1.05, 1.4
     [SerializeField] private Vector2 l_NewState;  // 1.1, 1.4
 
     #endregion
@@ -29,6 +29,7 @@ public class LaserTrap : MonoBehaviour
     private void Start()
     {
         SetLaserState(); // Set laser Active/Inactive
+        InitializeStates();
     }
 
     void Update()
@@ -41,6 +42,15 @@ public class LaserTrap : MonoBehaviour
 
         CalculateLaserState(); // if the timer reaches the threshold, switch the state of bool.
         SetLaserState(); // Set laser Active/Inactive
+    }
+
+    private void InitializeStates()
+    {
+        m_OldState = new Vector2(0.95f, 0.9f);
+        m_NewState = new Vector2(1f, 0.9f);
+        //
+        l_OldState = new Vector2(1.05f, 1.4f);
+        l_NewState = new Vector2(1.1f, 1.4f);
     }
 
     private void CalculateLaserState()

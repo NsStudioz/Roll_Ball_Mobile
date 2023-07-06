@@ -1502,6 +1502,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &804277901
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 804277902}
+  m_Layer: 0
+  m_Name: Lasers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &804277902
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 804277901}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 7687543999691478915}
+  - {fileID: 1917384606}
+  m_Father: {fileID: 936760374}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &810962224
 GameObject:
   m_ObjectHideFlags: 0
@@ -2005,7 +2038,7 @@ GameObject:
   m_Component:
   - component: {fileID: 936760374}
   m_Layer: 0
-  m_Name: TrapList
+  m_Name: Traps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2023,10 +2056,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 286388025262773697}
-  - {fileID: 2899853058441185077}
-  - {fileID: 7687543999691478915}
-  - {fileID: 1917384606}
+  - {fileID: 1910821746}
+  - {fileID: 804277902}
   m_Father: {fileID: 0}
   m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19588,6 +19619,39 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1910821745
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1910821746}
+  m_Layer: 0
+  m_Name: BlackHoles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1910821746
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1910821745}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 286388025262773697}
+  - {fileID: 2899853058441185077}
+  m_Father: {fileID: 936760374}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1917384605
 GameObject:
   m_ObjectHideFlags: 0
@@ -19620,8 +19684,8 @@ Transform:
   - {fileID: 551668211}
   - {fileID: 2102946623}
   - {fileID: 1949082415}
-  m_Father: {fileID: 936760374}
-  m_RootOrder: 3
+  m_Father: {fileID: 804277902}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1917384607
 MonoBehaviour:
@@ -19635,12 +19699,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7592f7c50aebc479322db29cdb3b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserGO: {fileID: 0}
+  laserGO: {fileID: 2102946622}
   isLaserOn: 1
   isPermanent: 0
   timeElapsed: 0
   delayTime: 3
-  isLarge: 0
+  isLarge: 1
   effectChangeDelay: 0.25
   m_OldState: {x: 0, y: 0}
   m_NewState: {x: 0, y: 0}
@@ -22363,10 +22427,9 @@ GameObject:
   - component: {fileID: 2102946623}
   - component: {fileID: 2102946626}
   - component: {fileID: 2102946625}
-  - component: {fileID: 2102946624}
   m_Layer: 10
   m_Name: laser
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22386,18 +22449,6 @@ Transform:
   m_Father: {fileID: 1917384606}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2102946624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2102946622}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae747155d9b5da4481c376678b63fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!70 &2102946625
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -22892,7 +22943,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 286388025263032208}
-  m_Father: {fileID: 936760374}
+  m_Father: {fileID: 1910821746}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &286388025262773698
@@ -22926,7 +22977,7 @@ GameObject:
   - component: {fileID: 286388025262773760}
   m_Layer: 10
   m_Name: TrapHole_Mov_H (L)
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23327,7 +23378,7 @@ GameObject:
   - component: {fileID: 1061373766158248176}
   m_Layer: 10
   m_Name: DeathCollider
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -23965,7 +24016,7 @@ GameObject:
   - component: {fileID: 2899853058441185068}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (L)
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24053,7 +24104,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2899853058089566600}
-  m_Father: {fileID: 936760374}
+  m_Father: {fileID: 1910821746}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &4166505513166026815
@@ -25105,18 +25156,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.3125, y: 2}
   m_Direction: 0
---- !u!114 &7687543999516046067
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7687543999516046068}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dae747155d9b5da4481c376678b63fe9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7687543999516046068
 GameObject:
   m_ObjectHideFlags: 0
@@ -25128,10 +25167,9 @@ GameObject:
   - component: {fileID: 7687543999516046069}
   - component: {fileID: 7687543999516046064}
   - component: {fileID: 7687543999516046066}
-  - component: {fileID: 7687543999516046067}
   m_Layer: 10
   m_Name: laser
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25163,12 +25201,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b7592f7c50aebc479322db29cdb3b96, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  laserGO: {fileID: 0}
+  laserGO: {fileID: 7687543999516046068}
   isLaserOn: 1
   isPermanent: 0
   timeElapsed: 0
   delayTime: 3
-  isLarge: 0
+  isLarge: 1
   effectChangeDelay: 0.25
   m_OldState: {x: 0, y: 0}
   m_NewState: {x: 0, y: 0}
@@ -25206,8 +25244,8 @@ Transform:
   - {fileID: 7687544000865501410}
   - {fileID: 7687543999516046069}
   - {fileID: 7687543999942402290}
-  m_Father: {fileID: 936760374}
-  m_RootOrder: 2
+  m_Father: {fileID: 804277902}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &7687543999942402288
 SpriteRenderer:

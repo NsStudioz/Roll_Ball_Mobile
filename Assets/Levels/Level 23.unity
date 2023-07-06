@@ -479,7 +479,7 @@ GameObject:
   - component: {fileID: 191201731}
   m_Layer: 10
   m_Name: Trap Hole (S) (1)
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -549,7 +549,7 @@ GameObject:
   - component: {fileID: 299565475}
   m_Layer: 10
   m_Name: Trap Hole (M) (2)
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1519,7 +1519,7 @@ GameObject:
   m_Component:
   - component: {fileID: 688297903}
   m_Layer: 0
-  m_Name: TrapList
+  m_Name: Traps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10936,7 +10936,7 @@ GameObject:
   - component: {fileID: 2082658859}
   m_Layer: 10
   m_Name: Trap Hole (M) (1)
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11385,7 +11385,7 @@ GameObject:
   - component: {fileID: 1048234504245702853}
   m_Layer: 10
   m_Name: DeathCollider
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11518,7 +11518,7 @@ GameObject:
   - component: {fileID: 8036388116811232105}
   m_Layer: 10
   m_Name: Trap Hole (S)
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12347,7 +12347,7 @@ GameObject:
   - component: {fileID: 1031122243878796320}
   m_Layer: 10
   m_Name: Trap Hole (M)
-  m_TagString: Untagged
+  m_TagString: Traps
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
