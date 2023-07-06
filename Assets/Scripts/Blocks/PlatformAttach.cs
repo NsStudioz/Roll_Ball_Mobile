@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlatformAttach : MonoBehaviour
 {
 
-    [SerializeField] private GameObject playerPrefab;
     private string player = "Player";
     private bool isOutOfTime = false;
 
