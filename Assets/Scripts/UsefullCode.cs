@@ -137,6 +137,27 @@ public class UsefullCode
     #endregion
 
 
+    #region UnlockDoor:
+
+    //StartCoroutine(CountDownTimerToDestroyEffectInstance(particleSystemInstance));
+
+    /*    private IEnumerator CountDownTimerToDestroyEffectInstance()
+        {
+            yield return new WaitForSeconds(2);
+            Destroy(gameObject);
+        }*/
+
+
+    /*    private void PlayUnlockParticles()
+        {
+            unlockedblockSystem.transform.position = transform.position;
+            unlockedblockSystem.Play();
+            Destroy(gameObject);
+        }*/
+
+    #endregion
+
+
     /*    private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.gameObject == playerPrefab) // if this other collision is the Player
@@ -152,6 +173,8 @@ public class UsefullCode
             playerPrefab.transform.parent = null; // Detach Player position from this platform.
         }
     }*/
+
+
 
 
 }

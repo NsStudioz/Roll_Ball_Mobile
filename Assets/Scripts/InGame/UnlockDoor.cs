@@ -16,14 +16,22 @@ public class UnlockDoor : MonoBehaviour
         {
             GameEvents.OnKeyUsed(keys);
             AudioManager.Instance.Play("BlockUnlock");
-            PlayUnlockParticles();
+            //PlayUnlockParticles();
+            CreateNewEffectInstance();
+            Destroy(gameObject);
         }
     }
 
-    private void PlayUnlockParticles()
+    private void CreateNewEffectInstance()
     {
-        unlockedblockSystem.transform.position = transform.position;
-        unlockedblockSystem.Play();
-        Destroy(gameObject);
+        ParticleSystem pSystem = unlockedblockSystem;
+        ParticleSystem particleSystemInstance = Instantiate(pSystem, gameObject.transform.position, Quaternion.identity);
+
+        particleSystemInstance.Play();
+
+
+
     }
+
+
 }
