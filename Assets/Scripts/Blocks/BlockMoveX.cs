@@ -9,8 +9,8 @@ public class BlockMoveX : MonoBehaviour
     [SerializeField] private bool isMovingRight;
     //
     [SerializeField] private float moveRate;
-    [SerializeField] private float range;
     [SerializeField] private float rangeLimit;
+    private float range;
 
 
     void Update()
