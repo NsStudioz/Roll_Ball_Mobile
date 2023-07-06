@@ -7453,7 +7453,6 @@ GameObject:
   - component: {fileID: 1791210801}
   - component: {fileID: 1791210800}
   - component: {fileID: 1791210806}
-  - component: {fileID: 1791210805}
   - component: {fileID: 1791210807}
   m_Layer: 9
   m_Name: BlockMove_X
@@ -7592,24 +7591,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1791210805
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1791210798}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1.5
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 4.5
-  negRangeLimit: -4.5
-  isMovingRight: 1
 --- !u!114 &1791210806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7622,8 +7603,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
-    type: 3}
 --- !u!114 &1791210807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9173,7 +9152,6 @@ GameObject:
   - component: {fileID: 4264865692557290379}
   - component: {fileID: 986851126664998429}
   - component: {fileID: 4264865692557290380}
-  - component: {fileID: 2991622157044634199}
   - component: {fileID: 4264865692557290381}
   m_Layer: 9
   m_Name: BlockMove_X
@@ -9182,24 +9160,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2991622157044634199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2991622157044634198}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 062e9224746dc0741b8c0b0dc0eaa04d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 4
-  negRangeLimit: -4
-  isMovingRight: 1
 --- !u!4 &3002453823232583360
 Transform:
   m_ObjectHideFlags: 0
@@ -9449,8 +9409,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
-    type: 3}
 --- !u!114 &4264865692557290381
 MonoBehaviour:
   m_ObjectHideFlags: 0

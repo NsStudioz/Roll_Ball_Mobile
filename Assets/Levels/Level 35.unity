@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 18153140}
   - component: {fileID: 18153143}
   - component: {fileID: 18153142}
-  - component: {fileID: 18153144}
   - component: {fileID: 18153145}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (L) (1)
@@ -196,24 +195,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000000066227386, y: -0.00000059604645}
   m_Size: {x: 0.9099146, y: 0.9099146}
   m_Direction: 0
---- !u!114 &18153144
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18153139}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73a2ee8934c22a4995250b88b54d298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1.5
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 3
-  negRangeLimit: -3
-  isScrollingUp: 0
 --- !u!114 &18153145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22274,7 +22255,6 @@ GameObject:
   - component: {fileID: 2899853058441185077}
   - component: {fileID: 2899853058441185076}
   - component: {fileID: 2899853058441185067}
-  - component: {fileID: 2899853058441185068}
   - component: {fileID: 2899853058441185078}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (L)
@@ -22303,24 +22283,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2899853058441185068
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2899853058441185065}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73a2ee8934c22a4995250b88b54d298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 2
-  negRangeLimit: -2
-  isScrollingUp: 1
 --- !u!70 &2899853058441185076
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

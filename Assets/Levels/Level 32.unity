@@ -262,7 +262,6 @@ GameObject:
   - component: {fileID: 95677533}
   - component: {fileID: 95677532}
   - component: {fileID: 95677534}
-  - component: {fileID: 95677538}
   - component: {fileID: 95677539}
   m_Layer: 9
   m_Name: BlockMove_Y
@@ -346,8 +345,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
-    type: 3}
 --- !u!212 &95677536
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -415,24 +412,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &95677538
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 95677531}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1.5
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 3
-  negRangeLimit: -3
-  isScrollingUp: 1
 --- !u!114 &95677539
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19772,7 +19751,6 @@ GameObject:
   - component: {fileID: 2053392927}
   - component: {fileID: 2053392930}
   - component: {fileID: 2053392929}
-  - component: {fileID: 2053392931}
   - component: {fileID: 2053392932}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (S) (1)
@@ -19833,24 +19811,6 @@ CapsuleCollider2D:
   m_Offset: {x: -0.000000066227386, y: -0.00000059604645}
   m_Size: {x: 0.9099146, y: 0.9099146}
   m_Direction: 0
---- !u!114 &2053392931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2053392926}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73a2ee8934c22a4995250b88b54d298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 2
-  negRangeLimit: -2
-  isScrollingUp: 1
 --- !u!114 &2053392932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20469,7 +20429,6 @@ GameObject:
   - component: {fileID: 124930859531823626}
   - component: {fileID: 124930859531823625}
   - component: {fileID: 124930859531823624}
-  - component: {fileID: 124930859531823632}
   - component: {fileID: 124930859531823633}
   m_Layer: 10
   m_Name: TrapHole_Mov_H (S)
@@ -20478,24 +20437,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &124930859531823632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 124930859531823631}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 813d49a0457377948bb2643612f78bed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1.5
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 3
-  negRangeLimit: -3
-  isMovingRight: 1
 --- !u!114 &124930859531823633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22088,8 +22029,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d2e7d6face669c4dba6de4af7b80e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 6283932318687183586, guid: 411a8fe25b141b440bde54eb13e82cbe,
-    type: 3}
 --- !u!1 &4737407848878536023
 GameObject:
   m_ObjectHideFlags: 0
@@ -22103,7 +22042,6 @@ GameObject:
   - component: {fileID: 4737407848878536041}
   - component: {fileID: 4737407848878536020}
   - component: {fileID: 4737407848878536021}
-  - component: {fileID: 4737407848878536024}
   - component: {fileID: 4737407848878536044}
   m_Layer: 9
   m_Name: BlockMove_Y
@@ -22112,24 +22050,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4737407848878536024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4737407848878536023}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f39663ad0393ea84c91dbe58914e4560, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1.5
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 4.5
-  negRangeLimit: -4.5
-  isScrollingUp: 1
 --- !u!4 &4737407848878536040
 Transform:
   m_ObjectHideFlags: 0
@@ -22312,7 +22232,6 @@ GameObject:
   - component: {fileID: 4981672575404406920}
   - component: {fileID: 4981672575404406923}
   - component: {fileID: 4981672575404406922}
-  - component: {fileID: 4981672575404406926}
   - component: {fileID: 4981672575404406927}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (S)
@@ -22321,24 +22240,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &4981672575404406926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4981672575404406924}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e73a2ee8934c22a4995250b88b54d298, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 1
-  posRange: 0
-  negRange: 0
-  posRangeLimit: 3
-  negRangeLimit: -3
-  isScrollingUp: 0
 --- !u!114 &4981672575404406927
 MonoBehaviour:
   m_ObjectHideFlags: 0
