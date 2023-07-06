@@ -72,7 +72,7 @@ public class GameUI : MonoBehaviour
 
     private void SetKeysObjectsVisibility()
     {
-        if(GameSession.Instance.CurrentSceneIndex > 32)
+        if(GameSession.Instance.CurrentSceneIndex >= 32)
             keysObjects.SetActive(true);
         else
             keysObjects.SetActive(false);

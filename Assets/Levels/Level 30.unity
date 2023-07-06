@@ -562,6 +562,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: BlockUnlockVFX
       objectReference: {fileID: 0}
+    - target: {fileID: 3906289857995130208, guid: 2377036f272694441add448b5c541046,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3906289857995130211, guid: 2377036f272694441add448b5c541046,
         type: 3}
       propertyPath: m_RootOrder
@@ -1086,7 +1091,7 @@ GameObject:
   - component: {fileID: 1245405439}
   - component: {fileID: 1245405442}
   m_Layer: 15
-  m_Name: Block_Lock_Clean (1)
+  m_Name: Block_Lock
   m_TagString: LockedDoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8009,7 +8014,7 @@ GameObject:
   - component: {fileID: 1788735474}
   - component: {fileID: 1788735477}
   m_Layer: 15
-  m_Name: Block_Lock_Clean
+  m_Name: Block_Lock
   m_TagString: LockedDoors
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
