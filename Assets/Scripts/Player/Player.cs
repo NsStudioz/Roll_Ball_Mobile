@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
 
     private void OnSceneLoaded(Scene sceneIndex, LoadSceneMode mode)
     {
+        isDestroyed = false;
         myRigidBody2D.Sleep();
 
         if (sceneIndex.buildIndex > 2 && sceneIndex.buildIndex < 53)
@@ -59,9 +60,7 @@ public class Player : MonoBehaviour
             SetRigidBodyAndRendererComponentsState(true, true);
 
             if (myRigidBody2D.IsSleeping())
-            {
                 myRigidBody2D.WakeUp();
-            }
         }
         else
         {
