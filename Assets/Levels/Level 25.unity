@@ -1166,6 +1166,7 @@ GameObject:
   - component: {fileID: 682356661}
   - component: {fileID: 682356660}
   - component: {fileID: 682356663}
+  - component: {fileID: 682356664}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (S) (1)
   m_TagString: Traps
@@ -1232,7 +1233,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 682356658}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e73a2ee8934c22a4995250b88b54d298, type: 3}
   m_Name: 
@@ -1243,6 +1244,21 @@ MonoBehaviour:
   posRangeLimit: 2
   negRangeLimit: -2
   isScrollingUp: 0
+--- !u!114 &682356664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 682356658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cf974111724474484fee867f4a0164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 0
+  moveRate: 1
+  rangeLimit: 2
 --- !u!1 &697138052
 GameObject:
   m_ObjectHideFlags: 0
@@ -13123,7 +13139,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMovingRight: 0
   moveRate: 1
-  range: 0
   rangeLimit: 4
 --- !u!4 &3176584318228617368
 Transform:
@@ -14097,7 +14112,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMovingRight: 1
   moveRate: 0.5
-  range: 0
   rangeLimit: 4
 --- !u!1 &7420115226779600866
 GameObject:
@@ -14111,6 +14125,7 @@ GameObject:
   - component: {fileID: 7420115226779600869}
   - component: {fileID: 7420115226779600868}
   - component: {fileID: 7420115226779600871}
+  - component: {fileID: 7420115226779600872}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (S)
   m_TagString: Traps
@@ -14177,7 +14192,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420115226779600866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e73a2ee8934c22a4995250b88b54d298, type: 3}
   m_Name: 
@@ -14188,6 +14203,21 @@ MonoBehaviour:
   posRangeLimit: 2
   negRangeLimit: -2
   isScrollingUp: 0
+--- !u!114 &7420115226779600872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420115226779600866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cf974111724474484fee867f4a0164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 0
+  moveRate: 1
+  rangeLimit: 2
 --- !u!1 &7420115226872153145
 GameObject:
   m_ObjectHideFlags: 0
@@ -14576,7 +14606,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMovingUp: 1
   moveRate: 1
-  range: 0
   rangeLimit: 2
 --- !u!4 &7808166132663230970
 Transform:

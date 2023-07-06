@@ -10848,6 +10848,7 @@ GameObject:
   - component: {fileID: 7140150133631625739}
   - component: {fileID: 7140150133631625738}
   - component: {fileID: 7140150133631625742}
+  - component: {fileID: 7140150133631625743}
   m_Layer: 10
   m_Name: TrapHole_Mov_H (S)
   m_TagString: Traps
@@ -10862,7 +10863,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7140150133631625741}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 813d49a0457377948bb2643612f78bed, type: 3}
   m_Name: 
@@ -10873,6 +10874,22 @@ MonoBehaviour:
   posRangeLimit: 4
   negRangeLimit: -4
   isMovingRight: 0
+--- !u!114 &7140150133631625743
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7140150133631625741}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbfff7f5a1875b46b2e0185cbee6a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 0
+  moveRate: 0.5
+  range: 0
+  rangeLimit: 4
 --- !u!1 &7420115226779600866
 GameObject:
   m_ObjectHideFlags: 0
@@ -10885,6 +10902,7 @@ GameObject:
   - component: {fileID: 7420115226779600869}
   - component: {fileID: 7420115226779600868}
   - component: {fileID: 7420115226779600871}
+  - component: {fileID: 7420115226779600872}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (S)
   m_TagString: Traps
@@ -10951,7 +10969,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7420115226779600866}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e73a2ee8934c22a4995250b88b54d298, type: 3}
   m_Name: 
@@ -10962,6 +10980,22 @@ MonoBehaviour:
   posRangeLimit: 1
   negRangeLimit: -1
   isScrollingUp: 0
+--- !u!114 &7420115226779600872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7420115226779600866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cf974111724474484fee867f4a0164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 0
+  moveRate: 1
+  range: 0
+  rangeLimit: 1
 --- !u!1 &7420115226872153145
 GameObject:
   m_ObjectHideFlags: 0

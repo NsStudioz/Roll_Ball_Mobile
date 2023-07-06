@@ -22946,22 +22946,6 @@ Transform:
   m_Father: {fileID: 1910821746}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &286388025262773698
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286388025262773758}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d8226eb02eb0184ebb086e1d07a99eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 2
-  delayTime: 1.5
-  timeElapsed: 0
-  isMovingRight: 0
 --- !u!1 &286388025262773758
 GameObject:
   m_ObjectHideFlags: 0
@@ -22973,8 +22957,8 @@ GameObject:
   - component: {fileID: 286388025262773697}
   - component: {fileID: 286388025262773696}
   - component: {fileID: 286388025262773759}
-  - component: {fileID: 286388025262773698}
   - component: {fileID: 286388025262773760}
+  - component: {fileID: 286388025262773761}
   m_Layer: 10
   m_Name: TrapHole_Mov_H (L)
   m_TagString: Traps
@@ -23020,6 +23004,21 @@ MonoBehaviour:
   posRangeLimit: 3
   negRangeLimit: -3
   isMovingRight: 0
+--- !u!114 &286388025262773761
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 286388025262773758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fbfff7f5a1875b46b2e0185cbee6a5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingRight: 0
+  moveRate: 2
+  rangeLimit: 3
 --- !u!1 &286388025263032207
 GameObject:
   m_ObjectHideFlags: 0
@@ -24012,8 +24011,8 @@ GameObject:
   - component: {fileID: 2899853058441185077}
   - component: {fileID: 2899853058441185076}
   - component: {fileID: 2899853058441185067}
-  - component: {fileID: 2899853058441185066}
   - component: {fileID: 2899853058441185068}
+  - component: {fileID: 2899853058441185078}
   m_Layer: 10
   m_Name: TrapHole_Mov_V (L)
   m_TagString: Traps
@@ -24021,22 +24020,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2899853058441185066
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2899853058441185065}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4c0bcba9ea47b144ab40463afa7d85f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  scrollRate: 0.5
-  delayTime: 3
-  timeElapsed: 0
-  isMovingUp: 0
 --- !u!95 &2899853058441185067
 Animator:
   serializedVersion: 4
@@ -24107,6 +24090,21 @@ Transform:
   m_Father: {fileID: 1910821746}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2899853058441185078
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2899853058441185065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 50cf974111724474484fee867f4a0164, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isMovingUp: 0
+  moveRate: 0.5
+  rangeLimit: 1.5
 --- !u!61 &4166505513166026815
 BoxCollider2D:
   m_ObjectHideFlags: 0
