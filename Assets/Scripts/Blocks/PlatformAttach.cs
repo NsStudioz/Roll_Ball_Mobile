@@ -31,7 +31,7 @@ public class PlatformAttach : MonoBehaviour
         if(other.CompareTag(player)) // if this other collision is the Player
             other.gameObject.transform.parent = null; // Detach Player position from this platform.
 
-        else if (isOutOfTime)
+        else if (other.CompareTag(player) && isOutOfTime)
             other.gameObject.transform.parent = null;
 
         DontDestroyOnLoad(other.gameObject);
