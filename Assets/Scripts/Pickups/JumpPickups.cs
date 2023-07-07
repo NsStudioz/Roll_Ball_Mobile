@@ -32,7 +32,7 @@ public class JumpPickups : MonoBehaviour
         if (player.CompareTag(Player))
             GameEvents.OnJumpPickup?.Invoke(jumpsToAdd);
 
-        SoundManager.Instance.Play("JumpsPickup");
+        //SoundManager.Instance.Play("JumpsPickup");
         Destroy(gameObject);
     }
 }

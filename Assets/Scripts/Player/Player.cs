@@ -105,7 +105,7 @@ public class Player : MonoBehaviour
         {
             Jump();
             GameEvents.OnPlayerJump?.Invoke(jumpOnce);
-            SoundManager.Instance.Play("PlayerJump");
+            //SoundManager.Instance.Play("PlayerJump");
         }
     }
 
@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
                 Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
                 myRigidBody2D.velocity = jumpVelocity;
                 GameEvents.OnPlayerJump?.Invoke(jumpOnce);
-                SoundManager.Instance.Play("PlayerJump");
+                //SoundManager.Instance.Play("PlayerJump");
             }
         }
     }
@@ -166,7 +166,7 @@ public class Player : MonoBehaviour
             SetRigidBodyAndRendererComponentsState(false, false);
 
         GameEvents.OnPlayerDead?.Invoke();
-        SoundManager.Instance.Play("PlayerDeath");
+        //SoundManager.Instance.Play("PlayerDeath");
         system.Play();
     }
 

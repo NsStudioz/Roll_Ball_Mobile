@@ -68,7 +68,7 @@ public class GameTimer : MonoBehaviour
     private void OutOfTime()
     {
         GameEvents.OnOutOfTime?.Invoke();
-        PlayOutOfTimeAudio();
+        //PlayOutOfTimeAudio();
     }
 
     private void StartTimer()

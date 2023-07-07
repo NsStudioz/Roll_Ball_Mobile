@@ -15,7 +15,7 @@ public class UnlockDoor : MonoBehaviour
         if (other.gameObject.CompareTag(player) && GameSession.Instance.KeyCount > 0)
         {
             GameEvents.OnKeyUsed(keys);
-            SoundManager.Instance.Play("BlockUnlock");
+            //SoundManager.Instance.Play("BlockUnlock");
             CreateNewEffectInstance();
             Destroy(gameObject);
         }
