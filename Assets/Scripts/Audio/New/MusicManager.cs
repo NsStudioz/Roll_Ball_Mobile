@@ -21,7 +21,8 @@ public class MusicManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null) { instance = this; }
+        if (instance == null) 
+            instance = this;
         else
         {
             Destroy(gameObject);
@@ -40,7 +41,7 @@ public class MusicManager : MonoBehaviour
         {
             s.source = gameObject.AddComponent<AudioSource>();
             s.source.clip = s.clip;
-
+            //
             s.source.volume = s.volume;
             s.source.pitch = s.pitch;
             s.source.loop = s.loop;
@@ -60,7 +61,7 @@ public class MusicManager : MonoBehaviour
     private void OnEnable()
     {
         OptionsEvents.OnMusicMuteState += OnMusicMuteStateInvoked_SetMusicSettings;
-        MusicHandler.OnTriggerSwapTracks += SwapTracksNew;
+        MusicHandler.OnTriggerSwapTracks += SwapTracks;
         GameEvents.OnReturnToMainMenu += SwitchToMainMenuTrack;
         GameEvents.OnLevelRestarted += RestartCurrentTrack;
     }
@@ -68,7 +69,7 @@ public class MusicManager : MonoBehaviour
     private void OnDisable()
     {
         OptionsEvents.OnMusicMuteState -= OnMusicMuteStateInvoked_SetMusicSettings;
-        MusicHandler.OnTriggerSwapTracks -= SwapTracksNew;
+        MusicHandler.OnTriggerSwapTracks -= SwapTracks;
         GameEvents.OnReturnToMainMenu -= SwitchToMainMenuTrack;
         GameEvents.OnLevelRestarted -= RestartCurrentTrack;
     }
@@ -78,9 +79,7 @@ public class MusicManager : MonoBehaviour
     private void SetTracksLoopTrue()
     {
         foreach (Sound s in sounds)
-        {
             s.source.loop = true;
-        }
     }
 
     private void TrackNullCheck(string name, Sound track)
@@ -123,7 +122,7 @@ public class MusicManager : MonoBehaviour
             s.source.mute = muteState;
     }
 
-    public void OnMusicMuteStateInvoked_SetMusicSettings()
+    private void OnMusicMuteStateInvoked_SetMusicSettings()
     {
         if (PlayerPrefs.GetInt("m_Muted") == 1)
             SetMuteState(true);
@@ -150,7 +149,7 @@ public class MusicManager : MonoBehaviour
     private void SwitchToMainMenuTrack()
     {
         if (currentIngameTrack != null)
-            SwapTracksNew(currentIngameTrack.name, MAIN_MENU_TRACK_NAME);
+            SwapTracks(currentIngameTrack.name, MAIN_MENU_TRACK_NAME);
         else
             FadeInNextTrack(MAIN_MENU_TRACK_NAME);
     }
@@ -201,7 +200,7 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    private void SwapTracksNew(string oldTrack, string newTrack)
+    private void SwapTracks(string oldTrack, string newTrack)
     {
         FadeOutOldTrack(oldTrack);
         FadeInNextTrack(newTrack);

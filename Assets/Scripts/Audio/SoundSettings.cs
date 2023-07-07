@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class SoundSettings : MonoBehaviour
 {
     // TODO: TriggerOnSoundMuteClicked_Event() Should be listened by AudioHandler.cs
+    //FindObjectOfType<AudioManager>().Play("AudioButtonClick");
 
     [SerializeField] private Button SoundMuteBtn;
     [SerializeField] private Sprite soundMutedImg;
@@ -82,6 +83,4 @@ public class SoundSettings : MonoBehaviour
     {
         OptionsEvents.OnSoundMuteState?.Invoke(); // Listeners: AudioManager
     }
-
-    //FindObjectOfType<AudioManager>().Play("AudioButtonClick");
 }
