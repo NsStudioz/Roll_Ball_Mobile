@@ -73,4 +73,10 @@ public class SoundSettings : MonoBehaviour
         SaveAudioSettings();
         audioManager.SetSoundSettings();
     }
+
+    private void TriggerOnSoundMuteState_Event()
+    {
+        OptionsEvents.OnSoundMuteState?.Invoke(muted);
+    }
+
 }
