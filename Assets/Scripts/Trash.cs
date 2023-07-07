@@ -169,4 +169,54 @@ public class Trash
         }*/
 
     #endregion
+
+
+    #region---------------------------------------------------SoundSettings---------------------------------------------------
+
+
+    /*    public static SoundSettings soundSettings;
+[SerializeField] GameObject soundButtonOn;
+[SerializeField] GameObject soundButtonOff;*/
+
+    /*    AudioManager audioManager;
+
+        private void Awake()
+        {
+            GameObject forAudioManager = GameObject.Find("AudioManager");
+            audioManager = forAudioManager.GetComponent<AudioManager>();
+        }*/
+
+    /*    public void UpdateButtonIcon()
+        {
+            if (muted == false)
+            {
+                soundButtonOn.SetActive(true);
+                soundButtonOff.SetActive(false);
+            }
+            else
+            {
+                soundButtonOn.SetActive(false);
+                soundButtonOff.SetActive(true);
+            }
+        }*/
+
+    /*    public void SoundOff()
+        {
+            UpdateButtonIcon();
+            muted = true;
+            SaveAudioSettings();
+            audioManager.OnSoundMuteStateInvoked_SetSoundSettings();
+        }*/
+
+    /*    public void SoundOn()
+        {
+            muted = false;
+            UpdateButtonIcon();
+            SaveAudioSettings();
+            audioManager.OnSoundMuteStateInvoked_SetSoundSettings();
+        }*/
+
+    //UpdateButtonIcon();
+
+    #endregion
 }

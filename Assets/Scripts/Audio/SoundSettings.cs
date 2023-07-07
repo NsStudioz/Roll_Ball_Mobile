@@ -5,23 +5,12 @@ using UnityEngine.UI;
 
 public class SoundSettings : MonoBehaviour
 {
-
-    public static SoundSettings soundSettings;
-    [SerializeField] GameObject soundButtonOn;
-    [SerializeField] GameObject soundButtonOff;
-    [SerializeField] bool muted = false;
+    // TODO: TriggerOnSoundMuteClicked_Event() Should be listened by AudioHandler.cs
 
     [SerializeField] private Button SoundMuteBtn;
-    [SerializeField] private Sprite soundMuted;
-    [SerializeField] private Sprite soundUnmuted;
-
-    AudioManager audioManager;
-
-    private void Awake()
-    {
-        GameObject forAudioManager = GameObject.Find("AudioManager");
-        audioManager = forAudioManager.GetComponent<AudioManager>();
-    }
+    [SerializeField] private Sprite soundMutedImg;
+    [SerializeField] private Sprite soundUnmutedImg;
+    private bool muted = false;
 
     private void OnEnable()
     {
@@ -46,9 +35,9 @@ public class SoundSettings : MonoBehaviour
     private void UpdateButtonImage()
     {
         if (muted)
-            SoundMuteBtn.image.sprite = soundMuted;
+            SoundMuteBtn.image.sprite = soundMutedImg;
         else
-            SoundMuteBtn.image.sprite = soundUnmuted;
+            SoundMuteBtn.image.sprite = soundUnmutedImg;
     }
 
     private void UpdateSoundState()
@@ -69,11 +58,8 @@ public class SoundSettings : MonoBehaviour
             LoadAudioSettings(); // load the current settings.
         }
         else
-        {
             LoadAudioSettings(); // if there are saved data from previous game sessions, load the saved settings instead.
-        }
 
-        //UpdateButtonIcon();
         UpdateButtonImage();
     }
 
@@ -97,39 +83,5 @@ public class SoundSettings : MonoBehaviour
         OptionsEvents.OnSoundMuteState?.Invoke(); // Listeners: AudioManager
     }
 
-    //-------------------------------------------------------------------------------------------
-
-    public void UpdateButtonIcon()
-    {
-        if (muted == false)
-        {
-            soundButtonOn.SetActive(true);
-            soundButtonOff.SetActive(false);
-        }
-        else
-        {
-            soundButtonOn.SetActive(false);
-            soundButtonOff.SetActive(true);
-        }
-    }
-
-    public void SoundOff()
-    {
-        muted = true;
-        UpdateButtonIcon();
-        SaveAudioSettings();
-        audioManager.OnSoundMuteStateInvoked_SetSoundSettings();
-    }
-
-    public void SoundOn()
-    {
-        muted = false;
-        FindObjectOfType<AudioManager>().Play("AudioButtonClick");
-        UpdateButtonIcon();
-        SaveAudioSettings();
-        audioManager.OnSoundMuteStateInvoked_SetSoundSettings();
-    }
-
-
-
+    //FindObjectOfType<AudioManager>().Play("AudioButtonClick");
 }

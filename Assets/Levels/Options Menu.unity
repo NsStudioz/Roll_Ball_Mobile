@@ -1186,12 +1186,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f67f19f0cc6ad6b449df064167a7499f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundButtonOn: {fileID: 896382759}
-  soundButtonOff: {fileID: 1821232944}
-  muted: 0
   SoundMuteBtn: {fileID: 638073847}
-  soundMuted: {fileID: 21300000, guid: 6e2b94dbb10485446b0a8ac4b4dd2cae, type: 3}
-  soundUnmuted: {fileID: 21300000, guid: 5eecf80753b12b64abdd45a0062d3f92, type: 3}
+  soundMutedImg: {fileID: 21300000, guid: 6e2b94dbb10485446b0a8ac4b4dd2cae, type: 3}
+  soundUnmutedImg: {fileID: 21300000, guid: 5eecf80753b12b64abdd45a0062d3f92, type: 3}
 --- !u!4 &1199877910
 Transform:
   m_ObjectHideFlags: 0
