@@ -8,6 +8,9 @@ public class OptionsEvents
     public delegate void SoundMuteState(bool state);
     public static SoundMuteState OnSoundMuteState;
 
+    public delegate void SoundMute();
+    public static SoundMute OnSoundMute;
+
     #endregion
 
     #region Music_Events:
