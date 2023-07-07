@@ -4,7 +4,28 @@ using UnityEngine;
 
 public class OptionsEvents
 {
-    #region Audio_Events:
+
+    #region PauseMenu_Events:
+
+    public delegate void Pause();
+    public static Pause OnPause;
+
+    public delegate void Resume();
+    public static Resume OnResume;
+
+    #endregion
+
+    #region MainMenu_Events:
+
+    public delegate void ButtonClicked();
+    public static ButtonClicked OnButtonClicked;
+
+    public delegate void BackButtonClicked();
+    public static BackButtonClicked OnBackButtonClicked;
+
+    #endregion
+
+    #region AudioSettings_Events:
     public delegate void SoundMuteState();
     public static SoundMuteState OnSoundMuteState;
 
@@ -13,7 +34,7 @@ public class OptionsEvents
 
     #endregion
 
-    #region Music_Events:
+    #region MusicSettings_Events:
 
     public delegate void MusicMuteState();
     public static MusicMuteState OnMusicMuteState;
