@@ -15,6 +15,11 @@ public class OptionsEvents
 
     #region Music_Events:
 
+    public delegate void MusicMuteState();
+    public static MusicMuteState OnMusicMuteState;
+
+    public delegate void MusicMute();
+    public static MusicMute OnMusicMute;
 
     #endregion
 
