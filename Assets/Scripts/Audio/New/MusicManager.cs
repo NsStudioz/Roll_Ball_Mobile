@@ -60,7 +60,7 @@ public class MusicManager : MonoBehaviour
 
     private void OnEnable()
     {
-        OptionsEvents.OnMusicMuteState += OnMusicMuteStateInvoked_SetMusicSettings;
+        UIEvents.OnMusicMuteState += OnMusicMuteStateInvoked_SetMusicSettings;
         MusicHandler.OnTriggerSwapTracks += SwapTracks;
         GameEvents.OnReturnToMainMenu += SwitchToMainMenuTrack;
         GameEvents.OnLevelRestarted += RestartCurrentTrack;
@@ -68,7 +68,7 @@ public class MusicManager : MonoBehaviour
 
     private void OnDisable()
     {
-        OptionsEvents.OnMusicMuteState -= OnMusicMuteStateInvoked_SetMusicSettings;
+        UIEvents.OnMusicMuteState -= OnMusicMuteStateInvoked_SetMusicSettings;
         MusicHandler.OnTriggerSwapTracks -= SwapTracks;
         GameEvents.OnReturnToMainMenu -= SwitchToMainMenuTrack;
         GameEvents.OnLevelRestarted -= RestartCurrentTrack;

@@ -52,12 +52,12 @@ public class MusicSettings : MonoBehaviour
 
     private void TriggerOnMusicMuteState_Event()
     {
-        OptionsEvents.OnMusicMuteState?.Invoke();
+        UIEvents.OnMusicMuteState?.Invoke();
     }
 
     private void TriggerOnMusicMute_Event()
     {
-        OptionsEvents.OnMusicMute?.Invoke();
+        UIEvents.OnMusicMute?.Invoke();
     }
 
     void Start()

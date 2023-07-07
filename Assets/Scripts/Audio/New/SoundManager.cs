@@ -26,12 +26,12 @@ public class SoundManager : MonoBehaviour
 
     private void OnEnable()
     {
-        OptionsEvents.OnSoundMuteState += OnSoundMuteStateInvoked_SetSoundSettings;
+        UIEvents.OnSoundMuteState += OnSoundMuteStateInvoked_SetSoundSettings;
     }
 
     private void OnDisable()
     {
-        OptionsEvents.OnSoundMuteState -= OnSoundMuteStateInvoked_SetSoundSettings;
+        UIEvents.OnSoundMuteState -= OnSoundMuteStateInvoked_SetSoundSettings;
     }
 
     private void Initialize()

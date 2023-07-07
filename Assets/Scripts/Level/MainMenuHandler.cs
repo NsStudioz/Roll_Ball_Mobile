@@ -55,12 +55,12 @@ namespace MainMenu
 
         private void TriggerOnBackButtonClicked()
         {
-            OptionsEvents.OnBackButtonClicked?.Invoke();
+            UIEvents.OnBackButtonClicked?.Invoke();
         }
 
         private void TriggerOnButtonClicked()
         {
-            OptionsEvents.OnButtonClicked?.Invoke();
+            UIEvents.OnButtonClicked?.Invoke();
         }
 
 /*        private void PlayAudioClipOnButtonClick()

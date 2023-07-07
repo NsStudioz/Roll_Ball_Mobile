@@ -8,12 +8,12 @@ public class SoundHandler : MonoBehaviour
 
     private void OnEnable()
     {
-        OptionsEvents.OnSoundMute += OnMuteButtonsInvoked_PlayUnmuteSFX;
-        OptionsEvents.OnMusicMute += OnMuteButtonsInvoked_PlayUnmuteSFX;
-        OptionsEvents.OnButtonClicked += OnButtonClickedInvoked_PlayButtonClickSFX;
-        OptionsEvents.OnBackButtonClicked += OnBackButtonClickedInvoked_PlayBackButtonClickSFX;
-        OptionsEvents.OnPause += OnPauseInvoked_PlayPauseSFX;
-        OptionsEvents.OnResume += OnResumeInvoked_PlayResumeSFX;
+        UIEvents.OnSoundMute += OnMuteButtonsInvoked_PlayUnmuteSFX;
+        UIEvents.OnMusicMute += OnMuteButtonsInvoked_PlayUnmuteSFX;
+        UIEvents.OnButtonClicked += OnButtonClickedInvoked_PlayButtonClickSFX;
+        UIEvents.OnBackButtonClicked += OnBackButtonClickedInvoked_PlayBackButtonClickSFX;
+        UIEvents.OnPause += OnPauseInvoked_PlayPauseSFX;
+        UIEvents.OnResume += OnResumeInvoked_PlayResumeSFX;
         //
         GameEvents.OnLevelSelected += OnLevelSelectedInvoked_PlayLevelSelectedSFX;
         GameEvents.OnLevelCompleted += OnLevelCompleted_PlayLevelCompletedSFX;
@@ -33,12 +33,12 @@ public class SoundHandler : MonoBehaviour
 
     private void OnDisable()
     {
-        OptionsEvents.OnSoundMute -= OnMuteButtonsInvoked_PlayUnmuteSFX;
-        OptionsEvents.OnMusicMute -= OnMuteButtonsInvoked_PlayUnmuteSFX;
-        OptionsEvents.OnButtonClicked -= OnButtonClickedInvoked_PlayButtonClickSFX;
-        OptionsEvents.OnBackButtonClicked -= OnBackButtonClickedInvoked_PlayBackButtonClickSFX;
-        OptionsEvents.OnPause -= OnPauseInvoked_PlayPauseSFX;
-        OptionsEvents.OnResume -= OnResumeInvoked_PlayResumeSFX;
+        UIEvents.OnSoundMute -= OnMuteButtonsInvoked_PlayUnmuteSFX;
+        UIEvents.OnMusicMute -= OnMuteButtonsInvoked_PlayUnmuteSFX;
+        UIEvents.OnButtonClicked -= OnButtonClickedInvoked_PlayButtonClickSFX;
+        UIEvents.OnBackButtonClicked -= OnBackButtonClickedInvoked_PlayBackButtonClickSFX;
+        UIEvents.OnPause -= OnPauseInvoked_PlayPauseSFX;
+        UIEvents.OnResume -= OnResumeInvoked_PlayResumeSFX;
         //
         GameEvents.OnLevelSelected -= OnLevelSelectedInvoked_PlayLevelSelectedSFX;
         GameEvents.OnLevelCompleted -= OnLevelCompleted_PlayLevelCompletedSFX;

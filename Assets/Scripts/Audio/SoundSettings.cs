@@ -74,11 +74,11 @@ public class SoundSettings : MonoBehaviour
 
     private void TriggerOnSoundMuteClicked_Event()
     {
-        OptionsEvents.OnSoundMute?.Invoke(); // Listeners: AudioManager & AudioHandler
+        UIEvents.OnSoundMute?.Invoke(); // Listeners: AudioManager & AudioHandler
     }
 
     private void TriggerOnSoundMuteState_Event()
     {
-        OptionsEvents.OnSoundMuteState?.Invoke(); // Listeners: AudioManager
+        UIEvents.OnSoundMuteState?.Invoke(); // Listeners: AudioManager
     }
 }

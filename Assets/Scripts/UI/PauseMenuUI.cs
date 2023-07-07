@@ -90,12 +90,12 @@ public class PauseMenuUI : MonoBehaviour
 
     private void TriggerOnPauseEvent()
     {
-        OptionsEvents.OnPause?.Invoke();
+        UIEvents.OnPause?.Invoke();
     }
 
     private void TriggerOnResumeEvent()
     {
-        OptionsEvents.OnResume?.Invoke();
+        UIEvents.OnResume?.Invoke();
     }
 
     private void PlayAudioClipOnButtonClick()
