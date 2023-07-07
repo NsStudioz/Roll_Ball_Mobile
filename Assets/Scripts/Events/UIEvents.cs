@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class OptionsEvents
+public class UIEvents
 {
 
     #region PauseMenu_Events:
