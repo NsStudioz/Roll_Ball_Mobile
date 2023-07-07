@@ -29,6 +29,7 @@ public class SoundSettings : MonoBehaviour
         {
             SetSoundMuteState();
             UpdateButtonImage();
+            UpdateSoundState();
         });
     }
 
@@ -48,8 +49,17 @@ public class SoundSettings : MonoBehaviour
             SoundMuteBtn.image.sprite = soundMuted;
         else
             SoundMuteBtn.image.sprite = soundUnmuted;
-
     }
+
+    private void UpdateSoundState()
+    {
+        if (!muted)
+            TriggerOnSoundMuteClicked_Event();
+
+        SaveAudioSettings();
+        TriggerOnSoundMuteState_Event(); // update mute state in AudioManager
+    }
+
 
     void Start()
     {
@@ -63,8 +73,31 @@ public class SoundSettings : MonoBehaviour
             LoadAudioSettings(); // if there are saved data from previous game sessions, load the saved settings instead.
         }
 
-        UpdateButtonIcon();
+        //UpdateButtonIcon();
+        UpdateButtonImage();
     }
+
+    private void LoadAudioSettings()
+    {
+        muted = PlayerPrefs.GetInt("muted") == 1;
+    }
+
+    private void SaveAudioSettings()
+    {
+        PlayerPrefs.SetInt("muted", muted ? 1 : 0); // if "muted" = true, we will save it as "1", if false, we will save it as "0"
+    }
+
+    private void TriggerOnSoundMuteClicked_Event()
+    {
+        OptionsEvents.OnSoundMute?.Invoke(); // Listeners: AudioManager & AudioHandler
+    }
+
+    private void TriggerOnSoundMuteState_Event()
+    {
+        OptionsEvents.OnSoundMuteState?.Invoke(muted); // Listeners: AudioManager
+    }
+
+    //-------------------------------------------------------------------------------------------
 
     public void UpdateButtonIcon()
     {
@@ -79,18 +112,6 @@ public class SoundSettings : MonoBehaviour
             soundButtonOff.SetActive(true);
         }
     }
-
-    private void LoadAudioSettings()
-    {
-        muted = PlayerPrefs.GetInt("muted") == 1;
-    }
-
-    private void SaveAudioSettings()
-    {
-        PlayerPrefs.SetInt("muted", muted ? 1 : 0); // if "muted" = true, we will save it as "1", if false, we will save it as "0"
-    }
-
-
 
     public void SoundOff()
     {
@@ -109,14 +130,6 @@ public class SoundSettings : MonoBehaviour
         audioManager.SetSoundSettings();
     }
 
-    private void TriggerOnSoundUnmuteClicked_Event()
-    {
-        OptionsEvents.OnSoundMute?.Invoke(); // Listeners: AudioManager & AudioHandler
-    }
 
-    private void TriggerOnSoundMuteState_Event()
-    {
-        OptionsEvents.OnSoundMuteState?.Invoke(muted); // Listeners: AudioManager
-    }
 
 }
