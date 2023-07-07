@@ -42,12 +42,12 @@ public class LevelSelection : MonoBehaviour
     private void TriggerFadeToLevel(int currentSceneIndex)
     {
         GameEvents.OnLevelSelected?.Invoke(currentSceneIndex);
-        PlayAudioClipOnLevelSelected();
+        //PlayAudioClipOnLevelSelected();
     }
 
-    private void PlayAudioClipOnLevelSelected()
+/*    private void PlayAudioClipOnLevelSelected()
     {
         SoundManager.Instance.Play("LevelChoosed");
-    }
+    }*/
 
 }

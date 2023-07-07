@@ -53,7 +53,8 @@ public class PauseMenuUI : MonoBehaviour
         ShowPauseMenu();
         PauseGame();
         //
-        PlayAudioClipOnMenuButtonClick();
+        //PlayAudioClipOnMenuButtonClick();
+        TriggerOnPauseEvent();
     }
 
     private void Resume()
@@ -61,7 +62,8 @@ public class PauseMenuUI : MonoBehaviour
         HidePauseMenu();
         ResumeGame();
         //
-        PlayAudioClipOnButtonClick();
+        //PlayAudioClipOnButtonClick();
+        TriggerOnResumeEvent();
     }
 
     private void PauseGame()
@@ -84,6 +86,16 @@ public class PauseMenuUI : MonoBehaviour
     {
         controlsUI.SetActive(true);
         pauseMenuUI.SetActive(false);
+    }
+
+    private void TriggerOnPauseEvent()
+    {
+        OptionsEvents.OnPause?.Invoke();
+    }
+
+    private void TriggerOnResumeEvent()
+    {
+        OptionsEvents.OnResume?.Invoke();
     }
 
     private void PlayAudioClipOnButtonClick()

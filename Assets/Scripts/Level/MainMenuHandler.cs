@@ -16,31 +16,36 @@ namespace MainMenu
         public void StartGame()
         {
             LoadScene(LEVEL_SELECT_INDEX);
-            PlayAudioClipOnButtonClick();
+            TriggerOnButtonClicked();
+            //PlayAudioClipOnButtonClick();
         }
 
         public void ReturnToMainMenu()
         {
             LoadScene(MAIN_MENU_INDEX);
-            PlayAudioClipOnBackButtonClick();
+            TriggerOnBackButtonClicked();
+            //PlayAudioClipOnBackButtonClick();
         }
 
         public void OptionsMenu()
         {
             LoadScene(OPTIONS_INDEX);
-            PlayAudioClipOnButtonClick();
+            TriggerOnButtonClicked();
+            //PlayAudioClipOnButtonClick();
         }
 
         public void CreditsMenu()
         {
             LoadScene(CREDITS_INDEX);
-            PlayAudioClipOnButtonClick();
+            TriggerOnButtonClicked();
+            //PlayAudioClipOnButtonClick();
         }
 
         public void TutorialScene()
         {
             LoadScene(TUTORIAL_INDEX);
-            PlayAudioClipOnButtonClick();
+            TriggerOnButtonClicked();
+            //PlayAudioClipOnButtonClick();
         }
 
         private void LoadScene(int SceneIndex)
@@ -48,7 +53,17 @@ namespace MainMenu
             SceneManager.LoadScene(SceneIndex);
         }
 
-        private void PlayAudioClipOnButtonClick()
+        private void TriggerOnBackButtonClicked()
+        {
+            OptionsEvents.OnBackButtonClicked?.Invoke();
+        }
+
+        private void TriggerOnButtonClicked()
+        {
+            OptionsEvents.OnButtonClicked?.Invoke();
+        }
+
+/*        private void PlayAudioClipOnButtonClick()
         {
             SoundManager.Instance.Play("ButtonClick");
         }
@@ -56,7 +71,7 @@ namespace MainMenu
         private void PlayAudioClipOnBackButtonClick()
         {
             SoundManager.Instance.Play("BackButtonClick");
-        }
+        }*/
 
         public void QuitGame()
         {

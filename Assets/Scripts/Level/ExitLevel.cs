@@ -18,7 +18,7 @@ public class ExitLevel : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameEvents.OnTriggerStopTimer?.Invoke();
-        SoundManager.Instance.Play("LevelCompleted");
+        //SoundManager.Instance.Play("LevelCompleted");
 
         if (other.CompareTag(player))
             CheckLevelProgress();
