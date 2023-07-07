@@ -94,7 +94,7 @@ public class SoundSettings : MonoBehaviour
 
     private void TriggerOnSoundMuteState_Event()
     {
-        OptionsEvents.OnSoundMuteState?.Invoke(muted); // Listeners: AudioManager
+        OptionsEvents.OnSoundMuteState?.Invoke(); // Listeners: AudioManager
     }
 
     //-------------------------------------------------------------------------------------------
@@ -118,7 +118,7 @@ public class SoundSettings : MonoBehaviour
         muted = true;
         UpdateButtonIcon();
         SaveAudioSettings();
-        audioManager.SetSoundSettings();
+        audioManager.OnSoundMuteStateInvoked_SetSoundSettings();
     }
 
     public void SoundOn()
@@ -127,7 +127,7 @@ public class SoundSettings : MonoBehaviour
         FindObjectOfType<AudioManager>().Play("AudioButtonClick");
         UpdateButtonIcon();
         SaveAudioSettings();
-        audioManager.SetSoundSettings();
+        audioManager.OnSoundMuteStateInvoked_SetSoundSettings();
     }
 
 

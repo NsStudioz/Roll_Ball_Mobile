@@ -5,7 +5,7 @@ using UnityEngine;
 public class OptionsEvents
 {
     #region Audio_Events:
-    public delegate void SoundMuteState(bool state);
+    public delegate void SoundMuteState();
     public static SoundMuteState OnSoundMuteState;
 
     public delegate void SoundMute();
