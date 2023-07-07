@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SoundSettings : MonoBehaviour
 {
@@ -10,12 +11,27 @@ public class SoundSettings : MonoBehaviour
     [SerializeField] GameObject soundButtonOff;
     [SerializeField] bool muted = false;
 
+    [SerializeField] private Button SoundMuteBtn;
+
     AudioManager audioManager;
 
     private void Awake()
     {
         GameObject forAudioManager = GameObject.Find("AudioManager");
         audioManager = forAudioManager.GetComponent<AudioManager>();
+    }
+
+    private void OnEnable()
+    {
+        SoundMuteBtn.onClick.AddListener(() =>
+        {
+            //SetSoundMuteState();
+        });
+    }
+
+    private void OnDisable()
+    {
+        SoundMuteBtn.onClick.RemoveAllListeners();
     }
 
     void Start()
@@ -56,6 +72,8 @@ public class SoundSettings : MonoBehaviour
     {
         PlayerPrefs.SetInt("muted", muted ? 1 : 0); // if "muted" = true, we will save it as "1", if false, we will save it as "0"
     }
+
+
 
     public void SoundOff()
     {
