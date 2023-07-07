@@ -13,7 +13,7 @@ public class KeyPickup : MonoBehaviour
     {
         if (player.CompareTag(Player))
         {
-            AudioManager.Instance.Play("KeyPickup");
+            SoundManager.Instance.Play("KeyPickup");
             GameEvents.OnKeyPickup(keys);
             Destroy(gameObject);
         }

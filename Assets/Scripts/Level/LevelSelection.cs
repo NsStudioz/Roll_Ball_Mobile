@@ -47,7 +47,7 @@ public class LevelSelection : MonoBehaviour
 
     private void PlayAudioClipOnLevelSelected()
     {
-        AudioManager.Instance.Play("LevelChoosed");
+        SoundManager.Instance.Play("LevelChoosed");
     }
 
 }

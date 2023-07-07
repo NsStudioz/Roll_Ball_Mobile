@@ -39,7 +39,7 @@ public class TimePickups : MonoBehaviour
         if (player.CompareTag(Player))
             GameEvents.OnTimePickup?.Invoke(timeToAdd);
 
-        AudioManager.Instance.Play("TimePickup");
+        SoundManager.Instance.Play("TimePickup");
         Destroy(gameObject);
     }
 }

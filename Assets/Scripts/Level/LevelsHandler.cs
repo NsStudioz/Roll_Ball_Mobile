@@ -62,13 +62,13 @@ public class LevelsHandler : MonoBehaviour
 
     private void FadeToMainMenu()
     {
-        AudioManager.Instance.Play("ButtonClick");
+        SoundManager.Instance.Play("ButtonClick");
         FadeToLevel(MAIN_MENU_INDEX);
     }
 
     private void RestartLevel(int currentLevelIndex)
     {
-        AudioManager.Instance.Play("ButtonClick");
+        SoundManager.Instance.Play("ButtonClick");
         levelIndex = currentLevelIndex;
         OnComplete_SwitchToScene();
         GameEvents.OnLevelRestarted?.Invoke();

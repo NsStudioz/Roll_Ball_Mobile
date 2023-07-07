@@ -50,12 +50,12 @@ namespace MainMenu
 
         private void PlayAudioClipOnButtonClick()
         {
-            AudioManager.Instance.Play("ButtonClick");
+            SoundManager.Instance.Play("ButtonClick");
         }
 
         private void PlayAudioClipOnBackButtonClick()
         {
-            AudioManager.Instance.Play("BackButtonClick");
+            SoundManager.Instance.Play("BackButtonClick");
         }
 
         public void QuitGame()

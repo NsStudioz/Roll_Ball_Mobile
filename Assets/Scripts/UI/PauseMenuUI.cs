@@ -88,12 +88,12 @@ public class PauseMenuUI : MonoBehaviour
 
     private void PlayAudioClipOnButtonClick()
     {
-        AudioManager.Instance.Play("ButtonClick");
+        SoundManager.Instance.Play("ButtonClick");
     }
 
     private void PlayAudioClipOnMenuButtonClick()
     {
-        AudioManager.Instance.Play("MenuButtonClick");
+        SoundManager.Instance.Play("MenuButtonClick");
     }
 
     // Button Function

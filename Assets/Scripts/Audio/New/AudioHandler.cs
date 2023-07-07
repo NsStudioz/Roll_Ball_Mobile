@@ -16,14 +16,14 @@ public class AudioHandler : MonoBehaviour
 
     private void Play_()
     {
-        AudioManager.Instance.Play("");
+        SoundManager.Instance.Play("");
     }
 
     #region Player_Functions
 
     private void Play_PlayerJump()
     {
-        AudioManager.Instance.Play("");
+        SoundManager.Instance.Play("");
     }
 
 

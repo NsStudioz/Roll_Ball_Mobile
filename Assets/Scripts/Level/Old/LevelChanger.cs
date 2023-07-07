@@ -13,7 +13,7 @@ public class LevelChanger : MonoBehaviour
 
         animator.SetTrigger("FadeOut"); 
 
-        FindObjectOfType<AudioManager>().Play("LevelChoosed");
+        FindObjectOfType<SoundManager>().Play("LevelChoosed");
     }
 
     public void OnFadeComplete()

@@ -97,7 +97,7 @@ public class GameTimer : MonoBehaviour
     {
         if (!isOutOfTimeAudioPlayed)
         {
-            AudioManager.Instance.Play("PlayerDeath");
+            SoundManager.Instance.Play("PlayerDeath");
             isOutOfTimeAudioPlayed = true;
         }
     }
