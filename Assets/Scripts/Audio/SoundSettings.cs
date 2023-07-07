@@ -12,6 +12,8 @@ public class SoundSettings : MonoBehaviour
     [SerializeField] bool muted = false;
 
     [SerializeField] private Button SoundMuteBtn;
+    [SerializeField] private Image soundMuted;
+    [SerializeField] private Image soundUnmuted;
 
     AudioManager audioManager;
 
@@ -26,6 +28,7 @@ public class SoundSettings : MonoBehaviour
         SoundMuteBtn.onClick.AddListener(() =>
         {
             SetSoundMuteState();
+            UpdateButtonImage();
         });
     }
 
@@ -37,6 +40,15 @@ public class SoundSettings : MonoBehaviour
     private void SetSoundMuteState()
     {
         muted = !muted;
+    }
+
+    private void UpdateButtonImage()
+    {
+        if (muted)
+            SoundMuteBtn.image = soundMuted;
+        else
+            SoundMuteBtn.image = soundUnmuted;
+
     }
 
     void Start()
