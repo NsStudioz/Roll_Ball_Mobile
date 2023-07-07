@@ -2,10 +2,10 @@
 using System;
 using UnityEngine;
 
-public class AudioManager : MonoBehaviour
+public class SoundManager : MonoBehaviour
 {
-    
-    public static AudioManager Instance;
+    // Handles SFX:
+    public static SoundManager Instance;
 
     [SerializeField] private Sound[] sounds;
 
