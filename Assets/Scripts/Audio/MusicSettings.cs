@@ -1,6 +1,9 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MusicSettings : MonoBehaviour
 {
@@ -10,7 +13,60 @@ public class MusicSettings : MonoBehaviour
     [SerializeField] GameObject musicButtonOff;
 
     [SerializeField] bool m_Muted = false;
-    
+    //
+
+    [SerializeField] private Button musicMuteBtn;
+    [SerializeField] private Sprite musicMutedImg;
+    [SerializeField] private Sprite musicUnmutedImg;
+
+
+    private void OnEnable()
+    {
+        musicMuteBtn.onClick.AddListener(() =>
+        {
+            SetSoundMuteState();
+            UpdateButtonImage();
+            UpdateMusicState();
+        });
+    }
+
+    private void OnDisable()
+    {
+        musicMuteBtn.onClick.RemoveAllListeners();
+    }
+
+    private void SetSoundMuteState()
+    {
+        m_Muted = !m_Muted;
+    }
+
+    private void UpdateButtonImage()
+    {
+        if (m_Muted)
+            musicMuteBtn.image.sprite = musicMutedImg;
+        else
+            musicMuteBtn.image.sprite = musicUnmutedImg;
+    }
+
+    private void UpdateMusicState()
+    {
+        if (!m_Muted)
+            TriggerOnMusicMute_Event();
+
+        SaveMusicSettings();
+        TriggerOnMusicMuteState_Event(); // update mute state in AudioManager
+    }
+
+    private void TriggerOnMusicMuteState_Event()
+    {
+        OptionsEvents.OnMusicMuteState?.Invoke();
+    }
+
+    private void TriggerOnMusicMute_Event()
+    {
+        OptionsEvents.OnMusicMute?.Invoke();
+    }
+
     private void Awake()
     {
         GameObject forMusicManager = GameObject.Find("MusicManager");
