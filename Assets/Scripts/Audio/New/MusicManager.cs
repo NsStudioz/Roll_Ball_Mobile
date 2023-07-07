@@ -50,7 +50,7 @@ public class MusicManager : MonoBehaviour
 
     private void Start()
     {
-        SetMusicSettings();
+        OnMusicMuteStateInvoked_SetMusicSettings();
 
         SetMusicVolumeToZero();
 
@@ -59,6 +59,7 @@ public class MusicManager : MonoBehaviour
 
     private void OnEnable()
     {
+        OptionsEvents.OnMusicMuteState += OnMusicMuteStateInvoked_SetMusicSettings;
         MusicHandler.OnTriggerSwapTracks += SwapTracksNew;
         GameEvents.OnReturnToMainMenu += SwitchToMainMenuTrack;
         GameEvents.OnLevelRestarted += RestartCurrentTrack;
@@ -66,6 +67,7 @@ public class MusicManager : MonoBehaviour
 
     private void OnDisable()
     {
+        OptionsEvents.OnMusicMuteState -= OnMusicMuteStateInvoked_SetMusicSettings;
         MusicHandler.OnTriggerSwapTracks -= SwapTracksNew;
         GameEvents.OnReturnToMainMenu -= SwitchToMainMenuTrack;
         GameEvents.OnLevelRestarted -= RestartCurrentTrack;
@@ -121,7 +123,7 @@ public class MusicManager : MonoBehaviour
             s.source.mute = muteState;
     }
 
-    public void SetMusicSettings()
+    public void OnMusicMuteStateInvoked_SetMusicSettings()
     {
         if (PlayerPrefs.GetInt("m_Muted") == 1)
             SetMuteState(true);
