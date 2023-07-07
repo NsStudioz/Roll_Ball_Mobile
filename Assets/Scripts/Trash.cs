@@ -219,4 +219,66 @@ public class Trash
     //UpdateButtonIcon();
 
     #endregion
+
+
+    #region---------------------------------------------------MusicSettings---------------------------------------------------
+    /*    MusicManager musicManager;
+
+    [SerializeField] GameObject musicButtonOn;
+    [SerializeField] GameObject musicButtonOff;*/
+
+    //
+    /*    private void Awake()
+        {
+            GameObject forMusicManager = GameObject.Find("MusicManager");
+            musicManager = forMusicManager.GetComponent<MusicManager>();
+        }*/
+
+
+    //UpdateButtonIcon();
+
+
+    /*    public void MusicOn()
+        {
+            m_Muted = false;
+            FindObjectOfType<AudioManager>().Play("AudioButtonClick");
+            UpdateButtonIcon();
+            SaveMusicSettings();
+            musicManager.SetMusicSettings();
+        }*/
+
+    /*    public void MusicOff()
+        {
+            m_Muted = true;
+            UpdateButtonIcon();
+            SaveMusicSettings();
+            musicManager.SetMusicSettings();
+        }*/
+
+    /*    private void UpdateButtonIcon()
+        {
+            if (m_Muted == false)
+            {
+                musicButtonOn.SetActive(true);
+                musicButtonOff.SetActive(false);
+            }
+            else
+            {
+                musicButtonOn.SetActive(false);
+                musicButtonOff.SetActive(true);
+            }
+        }*/
+
+    #endregion
+
+
+
+
+
+
+
+
+
+
+
 }
