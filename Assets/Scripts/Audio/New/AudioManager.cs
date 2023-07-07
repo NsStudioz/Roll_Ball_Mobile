@@ -23,6 +23,16 @@ public class AudioManager : MonoBehaviour
         Initialize();
     }
 
+    private void OnEnable()
+    {
+        OptionsEvents.OnSoundMuteState += OnSoundMuteStateInvoked_SetSoundSettings;
+    }
+
+    private void OnDisable()
+    {
+        OptionsEvents.OnSoundMuteState -= OnSoundMuteStateInvoked_SetSoundSettings;
+    }
+
     private void Initialize()
     {
         foreach (Sound s in sounds) // check in sounds array.
@@ -39,7 +49,7 @@ public class AudioManager : MonoBehaviour
 
     void Start()
     {
-        SetSoundSettings();
+        OnSoundMuteStateInvoked_SetSoundSettings();
     }
 
     public void Play (string name)
@@ -61,7 +71,7 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void SetSoundSettings()
+    public void OnSoundMuteStateInvoked_SetSoundSettings()
     {
         if(PlayerPrefs.GetInt("muted") == 1)
         {
