@@ -25,13 +25,18 @@ public class SoundSettings : MonoBehaviour
     {
         SoundMuteBtn.onClick.AddListener(() =>
         {
-            //SetSoundMuteState();
+            SetSoundMuteState();
         });
     }
 
     private void OnDisable()
     {
         SoundMuteBtn.onClick.RemoveAllListeners();
+    }
+
+    private void SetSoundMuteState()
+    {
+        muted = !muted;
     }
 
     void Start()
