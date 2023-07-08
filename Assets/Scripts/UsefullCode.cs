@@ -191,3 +191,14 @@ public class UsefullCode
 
 
 }
+
+
+/*        private void PlayAudioClipOnButtonClick()
+        {
+            SoundManager.Instance.Play("ButtonClick");
+        }
+
+        private void PlayAudioClipOnBackButtonClick()
+        {
+            SoundManager.Instance.Play("BackButtonClick");
+        }*/
