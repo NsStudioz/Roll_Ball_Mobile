@@ -649,7 +649,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1077910437
 RectTransform:
@@ -976,6 +976,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GameSession
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693746842714522313, guid: 604ee5c6f05bc7644b237176bd6a5bd7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8693746842714522315, guid: 604ee5c6f05bc7644b237176bd6a5bd7,
         type: 3}
