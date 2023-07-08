@@ -174,7 +174,20 @@ public class UsefullCode
         }
     }*/
 
+    #region GameTimer:
+    // [SerializeField] private bool isOutOfTimeAudioPlayed;
+    //isOutOfTimeAudioPlayed = false;
+    // use bool & event to play once.
+    /*    private void PlayOutOfTimeAudio()
+    {
+        if (!isOutOfTimeAudioPlayed)
+        {
+            SoundManager.Instance.Play("PlayerDeath");
+            isOutOfTimeAudioPlayed = true;
+        }
+    }*/
 
+    #endregion
 
 
 }
