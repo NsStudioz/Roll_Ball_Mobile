@@ -26,16 +26,15 @@ public class PersistentPlayerSpawner : MonoBehaviour
     }
     private void InitializeSingleton()
     {
-        if (Instance == null) { Instance = this; } // singleton pattern
+        if (Instance == null)  // singleton pattern
+            Instance = this;
         else
         {
             Destroy(gameObject);
             return; // so that no more code is called before we destroy this gameObject.
         }
-
         DontDestroyOnLoad(gameObject);
     }
-
 
     private void Start()
     {
@@ -46,7 +45,6 @@ public class PersistentPlayerSpawner : MonoBehaviour
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
     }
-
 
     private void OnSceneLoaded(Scene sceneIndex, LoadSceneMode mode)
     {

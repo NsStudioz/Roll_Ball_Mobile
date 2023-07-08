@@ -7,12 +7,9 @@ public class ConfineCamera : MonoBehaviour
 {
 
     [SerializeField] private GameObject backgroundTilesetPrefab = null;
-    private string BACKGROUND_TILESET_TAG = "Background";
+    private readonly string BACKGROUND_TILESET_TAG = "Background";
 
-    void Awake()
-    {
-        ConfineCameraToLevel();
-    }
+    void Awake() => ConfineCameraToLevel();
 
     private void ConfineCameraToLevel()
     {

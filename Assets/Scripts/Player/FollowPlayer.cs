@@ -7,12 +7,9 @@ public class FollowPlayer : MonoBehaviour
 {
 
     [SerializeField] private GameObject playerPrefab = null;
-    private string PLAYER_TAG = "Player";
+    private readonly string PLAYER_TAG = "Player";
     
-    private void Start()
-    {
-        FollowTargetPlayer();
-    }
+    private void Start() => FollowTargetPlayer();
 
     private void FollowTargetPlayer()
     {

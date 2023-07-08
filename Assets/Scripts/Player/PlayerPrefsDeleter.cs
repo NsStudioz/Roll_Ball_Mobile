@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerPrefsDeleter : MonoBehaviour
 {
+
+#if UNITY_EDITOR
     void Update()
     {
         DeletePlayerData();
@@ -17,4 +19,6 @@ public class PlayerPrefsDeleter : MonoBehaviour
             Debug.Log("Player Prefs Has Been Successfully Deleted!");
         }
     }
+
+#endif
 }

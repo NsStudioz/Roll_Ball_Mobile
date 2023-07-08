@@ -16,17 +16,16 @@ public class Player : MonoBehaviour
     [Header("Player Elements")]
     [SerializeField] private float ballMoveSpeed = 4f;
     [SerializeField] private float ballJumpSpeed = 5f;
-    [SerializeField] private bool isDestroyed = false;
+    private bool isDestroyed = false;
     private readonly int jumpOnce = -1;
 
-    [Header("Tags")]
-    [SerializeField] private string TRAPS_TAG = "Traps";
-    [SerializeField] private string EXITLEVEL_TAG = "ExitLevel";
-    [SerializeField] private string STARTLEVEL_TAG = "StartLevel";
-
-    [Header("Tags")]
+    [Header("Prefabs")]
     [SerializeField] private GameObject startLevelPrefab = null;
 
+    // Tags
+    private readonly string TRAPS_TAG = "Traps";
+    private readonly string EXITLEVEL_TAG = "ExitLevel";
+    private readonly string STARTLEVEL_TAG = "StartLevel";
 
     private void OnEnable()
     {
@@ -69,12 +68,12 @@ public class Player : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
     private void Update() // Suitable for Handling inputs and animations
     {
-#if UNITY_EDITOR
         PcJumpMechanic();
-#endif
     }
+#endif
 
     private void FixedUpdate() // Suitable for Movement;
     {
@@ -104,8 +103,7 @@ public class Player : MonoBehaviour
         else
         {
             Jump();
-            GameEvents.OnPlayerJump?.Invoke(jumpOnce);
-            //SoundManager.Instance.Play("PlayerJump");
+            TriggerOnPlayerJumpEvent();
         }
     }
 
@@ -132,12 +130,15 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Vector2 jumpVelocity = new Vector2(myRigidBody2D.velocity.x, ballJumpSpeed);
-                myRigidBody2D.velocity = jumpVelocity;
-                GameEvents.OnPlayerJump?.Invoke(jumpOnce);
-                //SoundManager.Instance.Play("PlayerJump");
+                Jump();
+                TriggerOnPlayerJumpEvent();
             }
         }
+    }
+
+    private void TriggerOnPlayerJumpEvent()
+    {
+        GameEvents.OnPlayerJump?.Invoke(jumpOnce);
     }
 
     #endregion
@@ -165,8 +166,7 @@ public class Player : MonoBehaviour
         if (isDestroyed)
             SetRigidBodyAndRendererComponentsState(false, false);
 
-        GameEvents.OnPlayerDead?.Invoke();
-        //SoundManager.Instance.Play("PlayerDeath");
+        TriggerOnPlayerDeadEvent();
         system.Play();
     }
 
@@ -174,6 +174,12 @@ public class Player : MonoBehaviour
     {
         myRigidBody2D.simulated = rigidBody2D;
         mySpriteRenderer.enabled = renderer;
+    }
+
+
+    private void TriggerOnPlayerDeadEvent()
+    {
+        GameEvents.OnPlayerDead?.Invoke();
     }
 
 }
