@@ -15,20 +15,17 @@ public class GameSession : MonoBehaviour
 
     public int KeyCount { get; private set; }
 
-    private void Awake()
-    {
-        InitializeSingleton();
-    }
+    private void Awake() => InitializeSingleton();
 
     private void InitializeSingleton()
     {
-        if (Instance == null) { Instance = this; } // singleton pattern
+        if (Instance == null) // singleton pattern
+            Instance = this;
         else
         {
             Destroy(gameObject);
             return; // so that no more code is called before we destroy this gameObject.
         }
-
         DontDestroyOnLoad(gameObject);
     }
 
@@ -36,28 +33,30 @@ public class GameSession : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         //
-        GameEvents.OnPlayerJump += CalculatePlayerJumps;
-        GameEvents.OnJumpPickup += CalculatePlayerJumps;
+        GameEvents.OnPlayerJump += OnPlayerJumpOrOnJumpPickupInvoked_CalculatePlayerJumps;
+        GameEvents.OnJumpPickup += OnPlayerJumpOrOnJumpPickupInvoked_CalculatePlayerJumps;
         //
-        GameEvents.OnKeyUsed += CalculateKeyCount;
-        GameEvents.OnKeyPickup += CalculateKeyCount;
+        GameEvents.OnKeyUsed += OnKeyPickupOrOnKeyUsedInvoked_CalculateKeyCount;
+        GameEvents.OnKeyPickup += OnKeyPickupOrOnKeyUsedInvoked_CalculateKeyCount;
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         //
-        GameEvents.OnPlayerJump -= CalculatePlayerJumps;
-        GameEvents.OnJumpPickup -= CalculatePlayerJumps;
+        GameEvents.OnPlayerJump -= OnPlayerJumpOrOnJumpPickupInvoked_CalculatePlayerJumps;
+        GameEvents.OnJumpPickup -= OnPlayerJumpOrOnJumpPickupInvoked_CalculatePlayerJumps;
         //
-        GameEvents.OnKeyUsed -= CalculateKeyCount;
-        GameEvents.OnKeyPickup -= CalculateKeyCount;
+        GameEvents.OnKeyUsed -= OnKeyPickupOrOnKeyUsedInvoked_CalculateKeyCount;
+        GameEvents.OnKeyPickup -= OnKeyPickupOrOnKeyUsedInvoked_CalculateKeyCount;
     }
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         CurrentSceneIndex = scene.buildIndex;
+#if UNITY_EDITOR
         Debug.Log("Scene Index: " + CurrentSceneIndex);
+#endif
 
         if (scene.buildIndex > 2 && scene.buildIndex < 53)
             ResetJumpsAndKeysAndTimer();
@@ -73,24 +72,35 @@ public class GameSession : MonoBehaviour
     private void ResetPlayerJumps()
     {
         PlayerJumps = 3;
+        TriggerOnPlayerJumpsCheckEvent();
+    }
+
+    private void OnPlayerJumpOrOnJumpPickupInvoked_CalculatePlayerJumps(int jumps)
+    {
+        PlayerJumps += jumps;
+        TriggerOnPlayerJumpsCheckEvent();
+    }
+
+    private void TriggerOnPlayerJumpsCheckEvent()
+    {
         GameEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
     }
 
-    private void CalculatePlayerJumps(int jumps)
-    {
-        PlayerJumps += jumps;
-        GameEvents.OnPlayerJumpsCheck?.Invoke(PlayerJumps);
-    }
 
     private void ResetPlayerKeyCount()
     {
         if (KeyCount > 0) { KeyCount = 0; }
-        GameEvents.OnKeyCountCheck?.Invoke(KeyCount);
+        TriggerOnKeyCountCheckEvent();
     }
 
-    private void CalculateKeyCount(int keys)
+    private void OnKeyPickupOrOnKeyUsedInvoked_CalculateKeyCount(int keys)
     {
         KeyCount += keys;
+        TriggerOnKeyCountCheckEvent();
+    }
+
+    private void TriggerOnKeyCountCheckEvent()
+    {
         GameEvents.OnKeyCountCheck?.Invoke(KeyCount);
     }
 

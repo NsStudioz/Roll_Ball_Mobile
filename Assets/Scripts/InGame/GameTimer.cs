@@ -13,7 +13,7 @@ public class GameTimer : MonoBehaviour
     [SerializeField] private float resetTimer = 10f;
 
     [SerializeField] private bool startTimer;
-    [SerializeField] private bool isOutOfTimeAudioPlayed;
+
 
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
@@ -25,20 +25,20 @@ public class GameTimer : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
         //
-        GameEvents.OnLevelStarted += StartTimer;
-        GameEvents.OnTriggerStopTimer += StopTimer;
-        GameEvents.OnPlayerDead += StopTimer;
-        GameEvents.OnTimePickup += AddTimeToTimer;    
+        GameEvents.OnLevelStarted += OnLevelStartedInvoked_StartTimer;
+        GameEvents.OnTriggerStopTimer += OnTriggerStopTimerOrOnPlayerDeadInvoked_StopTimer;
+        GameEvents.OnPlayerDead += OnTriggerStopTimerOrOnPlayerDeadInvoked_StopTimer;
+        GameEvents.OnTimePickup += OnTimePickupInvoked_AddTimeToTimer;    
     }
 
     private void OnDisable()
     {
         SceneManager.sceneLoaded -= OnSceneLoaded;
         //
-        GameEvents.OnLevelStarted -= StartTimer;
-        GameEvents.OnTriggerStopTimer -= StopTimer;
-        GameEvents.OnPlayerDead -= StopTimer;
-        GameEvents.OnTimePickup -= AddTimeToTimer;
+        GameEvents.OnLevelStarted -= OnLevelStartedInvoked_StartTimer;
+        GameEvents.OnTriggerStopTimer -= OnTriggerStopTimerOrOnPlayerDeadInvoked_StopTimer;
+        GameEvents.OnPlayerDead -= OnTriggerStopTimerOrOnPlayerDeadInvoked_StopTimer;
+        GameEvents.OnTimePickup -= OnTimePickupInvoked_AddTimeToTimer;
     }
 
     void Update()
@@ -53,7 +53,7 @@ public class GameTimer : MonoBehaviour
         }
         else // decimalTimer < 0
         {
-            StopTimer();
+            OnTriggerStopTimerOrOnPlayerDeadInvoked_StopTimer();
             OutOfTime();
         }
     }
@@ -62,24 +62,18 @@ public class GameTimer : MonoBehaviour
     {
         decimalTimer = resetTimer;
         LevelTimer = Mathf.RoundToInt(decimalTimer);
-        isOutOfTimeAudioPlayed = false;
     }
 
-    private void OutOfTime()
+    private void OutOfTime() => TriggerOnOutOfTimeEvent();
+
+    private void TriggerOnOutOfTimeEvent()
     {
         GameEvents.OnOutOfTime?.Invoke();
-        //PlayOutOfTimeAudio();
     }
 
-    private void StartTimer()
-    {
-        SetTimerState(true);
-    }
+    private void OnLevelStartedInvoked_StartTimer() => SetTimerState(true);
 
-    private void StopTimer()
-    {
-        SetTimerState(false);
-    }
+    private void OnTriggerStopTimerOrOnPlayerDeadInvoked_StopTimer() => SetTimerState(false);
 
     private void SetTimerState(bool _startTimer)
     {
@@ -87,18 +81,9 @@ public class GameTimer : MonoBehaviour
     }
 
     // Time Pickups
-    private void AddTimeToTimer(float time)
+    private void OnTimePickupInvoked_AddTimeToTimer(float time)
     {
         decimalTimer += time;
     }
 
-    // use bool & event to play once.
-    private void PlayOutOfTimeAudio()
-    {
-        if (!isOutOfTimeAudioPlayed)
-        {
-            SoundManager.Instance.Play("PlayerDeath");
-            isOutOfTimeAudioPlayed = true;
-        }
-    }
 }

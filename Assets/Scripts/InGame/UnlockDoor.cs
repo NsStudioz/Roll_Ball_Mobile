@@ -7,15 +7,14 @@ public class UnlockDoor : MonoBehaviour
 
     [SerializeField] ParticleSystem unlockedblockSystem;
 
-    private int keys = -1;
-    private string player = "Player";
+    private readonly int keys = -1;
+    private readonly string player = "Player";
 
     private void OnCollisionEnter2D(Collision2D other)
     {
         if (other.gameObject.CompareTag(player) && GameSession.Instance.KeyCount > 0)
         {
-            GameEvents.OnKeyUsed(keys);
-            //SoundManager.Instance.Play("BlockUnlock");
+            TriggerOnKeyUsedEvent();
             CreateNewEffectInstance();
             Destroy(gameObject);
         }
@@ -27,6 +26,11 @@ public class UnlockDoor : MonoBehaviour
         ParticleSystem particleSystemInstance = Instantiate(pSystem, gameObject.transform.position, Quaternion.identity);
 
         particleSystemInstance.Play();
+    }
+
+    private void TriggerOnKeyUsedEvent()
+    {
+        GameEvents.OnKeyUsed(keys);
     }
 
 
