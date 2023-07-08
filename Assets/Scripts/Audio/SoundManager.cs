@@ -9,7 +9,7 @@ public class SoundManager : MonoBehaviour
 
     [SerializeField] private Sound[] sounds;
 
-    void Awake()
+    private void Awake()
     {
         if (Instance == null) 
             Instance = this;
@@ -48,7 +48,7 @@ public class SoundManager : MonoBehaviour
         }
     }
 
-    void Start()
+    private void Start()
     {
         OnSoundMuteStateInvoked_SetSoundSettings();
     }

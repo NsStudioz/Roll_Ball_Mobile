@@ -15,14 +15,14 @@ public class MusicHandler : MonoBehaviour
 
     private void Start()
     {
-        GameEvents.OnLevelSelected += OnLevelSelected_CountDownTimerToSwapTracks;
-        GameEvents.OnLevelCompleted += OnLevelCompleted_CountDownTimerToSwapTracks;
+        GameEvents.OnLevelSelected += OnLevelSelectedInvoked_CountDownTimerToSwapTracks;
+        GameEvents.OnLevelCompleted += OnLevelCompletedInvoked_CountDownTimerToSwapTracks;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnLevelSelected -= OnLevelSelected_CountDownTimerToSwapTracks;
-        GameEvents.OnLevelCompleted -= OnLevelCompleted_CountDownTimerToSwapTracks;
+        GameEvents.OnLevelSelected -= OnLevelSelectedInvoked_CountDownTimerToSwapTracks;
+        GameEvents.OnLevelCompleted -= OnLevelCompletedInvoked_CountDownTimerToSwapTracks;
     }
 
 
@@ -40,11 +40,11 @@ public class MusicHandler : MonoBehaviour
 
     #endregion
 
-    private void OnLevelSelected_CountDownTimerToSwapTracks(int selectedSceneIndex)
+    private void OnLevelSelectedInvoked_CountDownTimerToSwapTracks(int selectedSceneIndex)
     {
         StartCoroutine(OnLevelSelectedCountDownTimer(selectedSceneIndex));
     }
-    private void OnLevelCompleted_CountDownTimerToSwapTracks()
+    private void OnLevelCompletedInvoked_CountDownTimerToSwapTracks()
     {
         StartCoroutine(OnLevelCompletedCountDownTimer());
     }

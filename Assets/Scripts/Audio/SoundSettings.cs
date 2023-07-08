@@ -42,10 +42,10 @@ public class SoundSettings : MonoBehaviour
     private void UpdateSoundState()
     {
         if (!muted)
-            TriggerOnSoundMuteClicked_Event();
+            TriggerOnSoundMuteEvent();
 
         SaveAudioSettings();
-        TriggerOnSoundMuteState_Event(); // update mute state in AudioManager
+        TriggerOnSoundMuteStateEvent(); // update mute state in AudioManager
     }
 
 
@@ -72,12 +72,12 @@ public class SoundSettings : MonoBehaviour
         PlayerPrefs.SetInt("muted", muted ? 1 : 0); // if "muted" = true, we will save it as "1", if false, we will save it as "0"
     }
 
-    private void TriggerOnSoundMuteClicked_Event()
+    private void TriggerOnSoundMuteEvent()
     {
         UIEvents.OnSoundMute?.Invoke(); // Listeners: AudioManager & AudioHandler
     }
 
-    private void TriggerOnSoundMuteState_Event()
+    private void TriggerOnSoundMuteStateEvent()
     {
         UIEvents.OnSoundMuteState?.Invoke(); // Listeners: AudioManager
     }

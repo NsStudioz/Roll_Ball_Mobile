@@ -15,7 +15,7 @@ public class MusicManager : MonoBehaviour
     [SerializeField] private Sound currentIngameTrack = null;
     [SerializeField] private float timeToFade = 1;
     //
-    private string MAIN_MENU_TRACK_NAME = "Theme_Main_Menu";
+    private readonly string MAIN_MENU_TRACK_NAME = "Theme_Main_Menu";
     private float timeElapsed;
 
 
@@ -55,23 +55,23 @@ public class MusicManager : MonoBehaviour
 
         SetMusicVolumeToZero();
 
-        PlayMainMenuTrackNew();
+        PlayMainMenuTrack();
     }
 
     private void OnEnable()
     {
         UIEvents.OnMusicMuteState += OnMusicMuteStateInvoked_SetMusicSettings;
-        MusicHandler.OnTriggerSwapTracks += SwapTracks;
-        GameEvents.OnReturnToMainMenu += SwitchToMainMenuTrack;
-        GameEvents.OnLevelRestarted += RestartCurrentTrack;
+        MusicHandler.OnTriggerSwapTracks += OnTriggerSwapTracksInvoked_SwapTracks;
+        GameEvents.OnReturnToMainMenu += OnReturnToMainMenuInvoked_SwitchToMainMenuTrack;
+        GameEvents.OnLevelRestarted += OnLevelRestartedInvoked_RestartCurrentTrack;
     }
 
     private void OnDisable()
     {
         UIEvents.OnMusicMuteState -= OnMusicMuteStateInvoked_SetMusicSettings;
-        MusicHandler.OnTriggerSwapTracks -= SwapTracks;
-        GameEvents.OnReturnToMainMenu -= SwitchToMainMenuTrack;
-        GameEvents.OnLevelRestarted -= RestartCurrentTrack;
+        MusicHandler.OnTriggerSwapTracks -= OnTriggerSwapTracksInvoked_SwapTracks;
+        GameEvents.OnReturnToMainMenu -= OnReturnToMainMenuInvoked_SwitchToMainMenuTrack;
+        GameEvents.OnLevelRestarted -= OnLevelRestartedInvoked_RestartCurrentTrack;
     }
 
     #region ---------------------------------------------------Music_Tracks_Main_Functions---------------------------------------------------:
@@ -136,20 +136,20 @@ public class MusicManager : MonoBehaviour
 
     #region ---------------------------------------------------SwapTrack_Mechanics---------------------------------------------------:
 
-    private void PlayMainMenuTrackNew()
+    private void PlayMainMenuTrack()
     {
         FadeInNextTrack(MAIN_MENU_TRACK_NAME);
     }
 
-    private void RestartCurrentTrack()
+    private void OnLevelRestartedInvoked_RestartCurrentTrack()
     {
         FadeInNextTrack(currentIngameTrack.name);
     }
 
-    private void SwitchToMainMenuTrack()
+    private void OnReturnToMainMenuInvoked_SwitchToMainMenuTrack()
     {
         if (currentIngameTrack != null)
-            SwapTracks(currentIngameTrack.name, MAIN_MENU_TRACK_NAME);
+            OnTriggerSwapTracksInvoked_SwapTracks(currentIngameTrack.name, MAIN_MENU_TRACK_NAME);
         else
             FadeInNextTrack(MAIN_MENU_TRACK_NAME);
     }
@@ -200,7 +200,7 @@ public class MusicManager : MonoBehaviour
         }
     }
 
-    private void SwapTracks(string oldTrack, string newTrack)
+    private void OnTriggerSwapTracksInvoked_SwapTracks(string oldTrack, string newTrack)
     {
         FadeOutOldTrack(oldTrack);
         FadeInNextTrack(newTrack);

@@ -44,18 +44,18 @@ public class MusicSettings : MonoBehaviour
     private void UpdateMusicState()
     {
         if (!m_Muted)
-            TriggerOnMusicMute_Event();
+            TriggerOnMusicMuteEvent();
 
         SaveMusicSettings();
-        TriggerOnMusicMuteState_Event(); // update mute state in AudioManager
+        TriggerOnMusicMuteStateEvent(); // update mute state in AudioManager
     }
 
-    private void TriggerOnMusicMuteState_Event()
+    private void TriggerOnMusicMuteStateEvent()
     {
         UIEvents.OnMusicMuteState?.Invoke();
     }
 
-    private void TriggerOnMusicMute_Event()
+    private void TriggerOnMusicMuteEvent()
     {
         UIEvents.OnMusicMute?.Invoke();
     }
