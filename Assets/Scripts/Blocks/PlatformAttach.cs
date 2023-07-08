@@ -17,8 +17,6 @@ public class PlatformAttach : MonoBehaviour
         UIEvents.OnResume += OnResume_PlayerPlatformAttach;
     }
 
-
-
     private void OnDisable()
     {
         GameEvents.OnOutOfTime -= OnInvoked_DetachPlayerFromPlatform;
@@ -26,12 +24,18 @@ public class PlatformAttach : MonoBehaviour
         UIEvents.OnPause -= OnPause_PlayerPlatformDetach;
         UIEvents.OnResume -= OnResume_PlayerPlatformAttach;
     }
+
     private void OnResume_PlayerPlatformAttach() => SetDetachFromPlatform(false);
+    private void OnInvoked_DetachPlayerFromPlatform() => SetDetachFromPlatform(true);
 
     private void OnPause_PlayerPlatformDetach()
     {
         SetDetachFromPlatform(true);
         DetachPlayer();
+    }
+    private void SetDetachFromPlatform(bool state)
+    {
+        detachFromPlatform = state;
     }
 
     private void DetachPlayer()
@@ -45,43 +49,6 @@ public class PlatformAttach : MonoBehaviour
         }
     }
 
-    private void OnInvoked_DetachPlayerFromPlatform() => SetDetachFromPlatform(true);
-
-    private void SetDetachFromPlatform(bool state)
-    {
-        detachFromPlatform = state;
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if (other.CompareTag(player) && !detachFromPlatform) // if this other collision is the Player
-            other.gameObject.transform.parent = transform; // Attach Player position to this platform.
-        else if(other.CompareTag(player) && detachFromPlatform)
-        {
-            other.gameObject.transform.parent = null;
-            DontDestroyOnLoad(other.gameObject);
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D other)
-    {
-        if (other.CompareTag(player) && !detachFromPlatform)
-        {
-            other.gameObject.transform.parent = transform;
-        }
-    }
-
-    private void OnTriggerExit2D(Collider2D other)
-    {
-        if(other.CompareTag(player)) // if this other collision is the Player
-            other.gameObject.transform.parent = null; // Detach Player position from this platform.
-
-        else if (other.CompareTag(player) && detachFromPlatform)
-            other.gameObject.transform.parent = null;
-
-        DontDestroyOnLoad(other.gameObject);
-    }
-
     private void SetPlayerObjectParentToRoot(Collider2D player)
     {
         player.gameObject.transform.parent = null;
@@ -91,6 +58,34 @@ public class PlatformAttach : MonoBehaviour
     {
         player.gameObject.transform.parent = transform;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.CompareTag(player) && !detachFromPlatform)     // if this other collision is the Player
+            SetPlayerObjectParentToPlatformObject(other);        // Attach Player position to this platform.
+
+        else if (other.CompareTag(player) && detachFromPlatform)
+        {
+            SetPlayerObjectParentToRoot(other);
+            DontDestroyOnLoad(other.gameObject);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D other)
+    {
+        if (other.CompareTag(player) && !detachFromPlatform)
+            SetPlayerObjectParentToPlatformObject(other);
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.CompareTag(player))           // if this other collision is the Player
+            SetPlayerObjectParentToRoot(other); // Detach Player position from this platform.
+
+        DontDestroyOnLoad(other.gameObject);
+    }
+
+
 
 
 
