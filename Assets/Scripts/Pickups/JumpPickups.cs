@@ -12,10 +12,7 @@ public class JumpPickups : MonoBehaviour
     private readonly string jumpPickupTwo = "JumpsPlusTwo";
     private readonly string jumpPickupThree = "JumpsPlusThree";
 
-    private void Start()
-    {
-        InitializeValue();
-    }
+    private void Start() => InitializeValue();
 
     private void InitializeValue()
     {
@@ -30,11 +27,16 @@ public class JumpPickups : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D player)
     {
         if (player.CompareTag(Player))
-            GameEvents.OnJumpPickup?.Invoke(jumpsToAdd);
+            TriggerOnJumpPickupEvent();
 
-        //SoundManager.Instance.Play("JumpsPickup");
         Destroy(gameObject);
     }
+
+    private void TriggerOnJumpPickupEvent()
+    {
+        GameEvents.OnJumpPickup?.Invoke(jumpsToAdd);
+    }
+
 }
 
 

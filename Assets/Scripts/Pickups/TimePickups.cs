@@ -14,32 +14,33 @@ public class TimePickups : MonoBehaviour
     private readonly string TimePlusFour = "TimePlusFour";
     private readonly string TimePlusFive = "TimePlusFive";
 
-
-    private void Start()
-    {
-        InitializeValue();
-    }
+    private void Start() => InitializeValue();
 
     private void InitializeValue()
     {
         if (CompareTag(TimePlusOne))
-            timeToAdd = 1;
+            timeToAdd = 1f;
         else if (CompareTag(TimePlusTwo))
-            timeToAdd = 2;
+            timeToAdd = 2f;
         else if (CompareTag(TimePlusThree))
-            timeToAdd = 3;
+            timeToAdd = 3f;
         else if (CompareTag(TimePlusFour))
-            timeToAdd = 4;
+            timeToAdd = 4f;
         else if (CompareTag(TimePlusFive))
-            timeToAdd = 5;
+            timeToAdd = 5f;
     }
 
     private void OnTriggerEnter2D(Collider2D player)
     {
         if (player.CompareTag(Player))
-            GameEvents.OnTimePickup?.Invoke(timeToAdd);
+            TriggerOnTimePickupEvent();
 
-        //SoundManager.Instance.Play("TimePickup");
         Destroy(gameObject);
     }
+
+    private void TriggerOnTimePickupEvent()
+    {
+        GameEvents.OnTimePickup?.Invoke(timeToAdd);
+    }
+
 }

@@ -13,9 +13,14 @@ public class KeyPickup : MonoBehaviour
     {
         if (player.CompareTag(Player))
         {
-            //SoundManager.Instance.Play("KeyPickup");
-            GameEvents.OnKeyPickup(keys);
+            TriggerOnKeyPickupEvent();
             Destroy(gameObject);
         }
     }
+
+    private void TriggerOnKeyPickupEvent()
+    {
+        GameEvents.OnKeyPickup(keys);
+    }
+
 }
