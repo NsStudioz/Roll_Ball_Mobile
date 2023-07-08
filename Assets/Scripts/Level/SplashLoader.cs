@@ -11,6 +11,11 @@ namespace InitSplash
         [SerializeField] private float timeElapesd = 0f;
         [SerializeField] private float delayTime = 5f;
 
+        private void Start()
+        {
+            Application.targetFrameRate = 60;
+        }
+
         void Update()
         {
             if (timeElapesd < delayTime)
