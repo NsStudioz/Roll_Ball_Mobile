@@ -31,16 +31,16 @@ public class Player : MonoBehaviour
     {
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        GameEvents.OnOutOfTime += OutOfTime;
-        PlayerJumpButton.OnButtonClickDown += HoldButton;
-        PlayerJumpButton.OnButtonClickUp += ReleaseButton;
+        GameEvents.OnOutOfTime += OnOutOfTimeInvoked_OutOfTime;
+        PlayerJumpButton.OnButtonClickDown += OnButtonClickDownInvoked_HoldButton;
+        PlayerJumpButton.OnButtonClickUp += OnButtonClickUpInvoked_ReleaseButton;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnOutOfTime -= OutOfTime;
-        PlayerJumpButton.OnButtonClickDown -= HoldButton;
-        PlayerJumpButton.OnButtonClickUp -= ReleaseButton;
+        GameEvents.OnOutOfTime -= OnOutOfTimeInvoked_OutOfTime;
+        PlayerJumpButton.OnButtonClickDown -= OnButtonClickDownInvoked_HoldButton;
+        PlayerJumpButton.OnButtonClickUp -= OnButtonClickUpInvoked_ReleaseButton;
     }
 
     private void OnDestroy()
@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     #region Player_Jump_Functions:
 
     // Mobile Controls:
-    private void HoldButton() // Jump when press
+    private void OnButtonClickDownInvoked_HoldButton() // Jump when press
     {
         if (GameSession.Instance.PlayerJumps == 0 || isDestroyed) { return; }
         else
@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
     }
 
     // Mobile Controls:
-    private void ReleaseButton() // Do nothing upon release
+    private void OnButtonClickUpInvoked_ReleaseButton() // Do nothing upon release
     {
         return;
     }
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
 
     #endregion
 
-    private void OutOfTime()
+    private void OnOutOfTimeInvoked_OutOfTime()
     {
         SetRigidBodyAndRendererComponentsState(false, true);
     }
