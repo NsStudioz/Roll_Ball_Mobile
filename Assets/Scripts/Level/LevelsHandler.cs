@@ -64,9 +64,13 @@ public class LevelsHandler : MonoBehaviour
 
     private void OnRestartLevelInvoked_RestartLevel(int currentLevelIndex)
     {
-
         levelIndex = currentLevelIndex;
         OnComplete_SwitchToScene();
+        TriggerOnLevelRestartedEvent();
+    }
+
+    private void TriggerOnLevelRestartedEvent()
+    {
         GameEvents.OnLevelRestarted?.Invoke();
     }
 
