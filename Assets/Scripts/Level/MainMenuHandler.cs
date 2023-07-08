@@ -7,45 +7,45 @@ namespace MainMenu
     {
 
         [Header("Menu Scene Indexers")]
-        [SerializeField] private int MAIN_MENU_INDEX = 1;
-        [SerializeField] private int LEVEL_SELECT_INDEX = 2;
-        [SerializeField] private int OPTIONS_INDEX = 53;
-        [SerializeField] private int CREDITS_INDEX = 54;
-        [SerializeField] private int TUTORIAL_INDEX = 55;
+        private readonly int MAIN_MENU_INDEX = 1;
+        private readonly int LEVEL_SELECT_INDEX = 2;
+        private readonly int OPTIONS_INDEX = 53;
+        private readonly int CREDITS_INDEX = 54;
+        private readonly int TUTORIAL_INDEX = 55;
 
+        // Button Function:
         public void StartGame()
         {
             LoadScene(LEVEL_SELECT_INDEX);
-            TriggerOnButtonClicked();
-            //PlayAudioClipOnButtonClick();
+            TriggerOnButtonClickedEvent();
         }
 
+        // Button Function:
         public void ReturnToMainMenu()
         {
             LoadScene(MAIN_MENU_INDEX);
-            TriggerOnBackButtonClicked();
-            //PlayAudioClipOnBackButtonClick();
+            TriggerOnBackButtonClickedEvent();
         }
 
+        // Button Function:
         public void OptionsMenu()
         {
             LoadScene(OPTIONS_INDEX);
-            TriggerOnButtonClicked();
-            //PlayAudioClipOnButtonClick();
+            TriggerOnButtonClickedEvent();
         }
 
+        // Button Function:
         public void CreditsMenu()
         {
             LoadScene(CREDITS_INDEX);
-            TriggerOnButtonClicked();
-            //PlayAudioClipOnButtonClick();
+            TriggerOnButtonClickedEvent();
         }
 
+        // Button Function:
         public void TutorialScene()
         {
             LoadScene(TUTORIAL_INDEX);
-            TriggerOnButtonClicked();
-            //PlayAudioClipOnButtonClick();
+            TriggerOnButtonClickedEvent();
         }
 
         private void LoadScene(int SceneIndex)
@@ -53,29 +53,14 @@ namespace MainMenu
             SceneManager.LoadScene(SceneIndex);
         }
 
-        private void TriggerOnBackButtonClicked()
+        private void TriggerOnBackButtonClickedEvent()
         {
             UIEvents.OnBackButtonClicked?.Invoke();
         }
 
-        private void TriggerOnButtonClicked()
+        private void TriggerOnButtonClickedEvent()
         {
             UIEvents.OnButtonClicked?.Invoke();
-        }
-
-/*        private void PlayAudioClipOnButtonClick()
-        {
-            SoundManager.Instance.Play("ButtonClick");
-        }
-
-        private void PlayAudioClipOnBackButtonClick()
-        {
-            SoundManager.Instance.Play("BackButtonClick");
-        }*/
-
-        public void QuitGame()
-        {
-            Application.Quit();
         }
     }
 }

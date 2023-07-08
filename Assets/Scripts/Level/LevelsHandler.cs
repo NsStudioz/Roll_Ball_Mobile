@@ -21,74 +21,66 @@ public class LevelsHandler : MonoBehaviour
     private readonly int MAIN_MENU_INDEX = 1;
     private readonly int ADD_INDEX_BY_ONE = 1;
 
-    private void Awake()
-    {
-        InitializeSingleton();
-    }
+    private void Awake() => InitializeSingleton();
 
     private void InitializeSingleton()
     {
-        if (Instance == null) { Instance = this; } // singleton pattern
+        if (Instance == null)  // singleton pattern
+            Instance = this;
         else
         {
             Destroy(gameObject);
             return;
         }
-
         DontDestroyOnLoad(gameObject);
     }
 
     private void OnEnable()
     {
-        GameEvents.OnLevelSelected += FadeToLevel;
-        GameEvents.OnLevelCompleted += FadeToNextLevel;
-        GameEvents.OnReturnToMainMenu += FadeToMainMenu;
-        GameEvents.OnRestartLevel += RestartLevel;
+        GameEvents.OnLevelSelected += OnLevelSelectedInvoked_FadeToLevel;
+        GameEvents.OnLevelCompleted += OnLevelCompletedInvoked_FadeToNextLevel;
+        GameEvents.OnReturnToMainMenu += OnReturnToMainMenuInvoked_FadeToMainMenu;
+        GameEvents.OnRestartLevel += OnRestartLevelInvoked_RestartLevel;
         //
-        GameEvents.OnPlayerDead += CountDownTimerToRestartLevel;
-        GameEvents.OnOutOfTime += CountDownTimerToRestartLevel;
+        GameEvents.OnPlayerDead += OnInvoked_CountDownTimerToRestartLevel;
+        GameEvents.OnOutOfTime += OnInvoked_CountDownTimerToRestartLevel;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnLevelSelected -= FadeToLevel;
-        GameEvents.OnLevelCompleted -= FadeToNextLevel;
-        GameEvents.OnReturnToMainMenu -= FadeToMainMenu;
-        GameEvents.OnRestartLevel -= RestartLevel;
+        GameEvents.OnLevelSelected -= OnLevelSelectedInvoked_FadeToLevel;
+        GameEvents.OnLevelCompleted -= OnLevelCompletedInvoked_FadeToNextLevel;
+        GameEvents.OnReturnToMainMenu -= OnReturnToMainMenuInvoked_FadeToMainMenu;
+        GameEvents.OnRestartLevel -= OnRestartLevelInvoked_RestartLevel;
         //
-        GameEvents.OnPlayerDead -= CountDownTimerToRestartLevel;
-        GameEvents.OnOutOfTime -= CountDownTimerToRestartLevel;
+        GameEvents.OnPlayerDead -= OnInvoked_CountDownTimerToRestartLevel;
+        GameEvents.OnOutOfTime -= OnInvoked_CountDownTimerToRestartLevel;
     }
 
-    private void FadeToMainMenu()
+    private void OnReturnToMainMenuInvoked_FadeToMainMenu()
     {
-        //SoundManager.Instance.Play("ButtonClick");
-        FadeToLevel(MAIN_MENU_INDEX);
+        OnLevelSelectedInvoked_FadeToLevel(MAIN_MENU_INDEX);
     }
 
-    private void RestartLevel(int currentLevelIndex)
+    private void OnRestartLevelInvoked_RestartLevel(int currentLevelIndex)
     {
-        //SoundManager.Instance.Play("ButtonClick");
+
         levelIndex = currentLevelIndex;
         OnComplete_SwitchToScene();
         GameEvents.OnLevelRestarted?.Invoke();
     }
 
-    private void FadeToNextLevel()
+    private void OnLevelCompletedInvoked_FadeToNextLevel()
     {
-        FadeToLevel(GameSession.Instance.CurrentSceneIndex + ADD_INDEX_BY_ONE);
+        OnLevelSelectedInvoked_FadeToLevel(GameSession.Instance.CurrentSceneIndex + ADD_INDEX_BY_ONE);
     }
-
-    private void FadeToLevel(int currentLevelIndex)
+    private void OnLevelSelectedInvoked_FadeToLevel(int currentLevelIndex)
     {
         levelIndex = currentLevelIndex;
         StartFadeAnimations();
     }
 
-    private void StartFadeAnimations()
-    {
-        StartCoroutine(PlayFadeAnimations(FADE_OUT_DURATION));
-    }
+    private void StartFadeAnimations() => StartCoroutine(PlayFadeAnimations(FADE_OUT_DURATION));
 
     private IEnumerator PlayFadeAnimations(float delayTime)
     {
@@ -104,10 +96,7 @@ public class LevelsHandler : MonoBehaviour
 
     #region OnPlayerDead + OutOfTime Listeners:
 
-    private void CountDownTimerToRestartLevel()
-    {
-        StartCoroutine(CountDownTimer());
-    }
+    private void OnInvoked_CountDownTimerToRestartLevel() => StartCoroutine(CountDownTimer());
 
     private IEnumerator CountDownTimer()
     {
@@ -115,9 +104,9 @@ public class LevelsHandler : MonoBehaviour
         OnCountDownTimerEnd_RestartLevel();
     }
 
-    private void OnCountDownTimerEnd_RestartLevel()
-    {
-        RestartLevel(GameSession.Instance.CurrentSceneIndex);
+    private void OnCountDownTimerEnd_RestartLevel() 
+    { 
+        OnRestartLevelInvoked_RestartLevel(GameSession.Instance.CurrentSceneIndex); 
     }
 
     #endregion

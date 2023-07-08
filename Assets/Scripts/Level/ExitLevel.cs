@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class ExitLevel : MonoBehaviour
 {
 
-    private string player = "Player";
+    private readonly string player = "Player";
     private int nextSceneLoad;
 
     void Start()
@@ -18,7 +18,6 @@ public class ExitLevel : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         GameEvents.OnTriggerStopTimer?.Invoke();
-        //SoundManager.Instance.Play("LevelCompleted");
 
         if (other.CompareTag(player))
             CheckLevelProgress();
@@ -27,15 +26,26 @@ public class ExitLevel : MonoBehaviour
     private void CheckLevelProgress()
     {
         if (GameSession.Instance.CurrentSceneIndex == 52)
-            GameEvents.OnReturnToMainMenu?.Invoke();
+            TriggerOnReturnToMainMenuEvent();
         else
         {
-            GameEvents.OnLevelCompleted?.Invoke();   
+            TriggerOnLevelCompletedEvent();
             SaveLevelProgress();
         }
     }
 
-    // Setting Int for Index
+    private void TriggerOnReturnToMainMenuEvent()
+    {
+        GameEvents.OnReturnToMainMenu?.Invoke();
+    }
+
+    private void TriggerOnLevelCompletedEvent()
+    {
+        GameEvents.OnLevelCompleted?.Invoke();
+    }
+
+
+    // Setting Int as Index (This will make level selection buttons interactable)
     private void SaveLevelProgress()
     {  
         if (nextSceneLoad > PlayerPrefs.GetInt("levelAt")) 

@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class StartLevel : MonoBehaviour
 {
-    private string player = "Player";
+    private readonly string player = "Player";
 
     private void OnTriggerExit2D(Collider2D other)
     {
         if (other.CompareTag(player))
-            GameEvents.OnLevelStarted?.Invoke();
+            TriggerOnLevelStartedEvent();
+    }
+
+    private void TriggerOnLevelStartedEvent()
+    {
+        GameEvents.OnLevelStarted?.Invoke();
     }
 }
