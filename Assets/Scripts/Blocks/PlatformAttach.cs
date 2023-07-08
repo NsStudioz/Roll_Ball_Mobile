@@ -5,25 +5,23 @@ using UnityEngine;
 public class PlatformAttach : MonoBehaviour
 {
 
-    private string player = "Player";
+    private readonly string player = "Player";
     private bool isOutOfTime = false;
 
     private void OnEnable()
     {
-        GameEvents.OnOutOfTime += TriggerOutOfTime;
+        GameEvents.OnOutOfTime += OnOutOfTimeInvoked_TriggerOutOfTime;
     }
 
     private void OnDisable()
     {
-        GameEvents.OnOutOfTime -= TriggerOutOfTime;
+        GameEvents.OnOutOfTime -= OnOutOfTimeInvoked_TriggerOutOfTime;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag(player) && !isOutOfTime) // if this other collision is the Player
-        {
             other.gameObject.transform.parent = transform; // Attach Player position to this platform.
-        }
     }
 
     private void OnTriggerExit2D(Collider2D other)
@@ -37,7 +35,7 @@ public class PlatformAttach : MonoBehaviour
         DontDestroyOnLoad(other.gameObject);
     }
 
-    private void TriggerOutOfTime()
+    private void OnOutOfTimeInvoked_TriggerOutOfTime()
     {
         isOutOfTime = true;
     }

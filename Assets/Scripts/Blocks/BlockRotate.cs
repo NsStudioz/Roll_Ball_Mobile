@@ -6,10 +6,7 @@ public class BlockRotate : MonoBehaviour
 {
     [SerializeField] private int rotationSpeed;
 
-    void Update()
-    {
-        RotateBlock();
-    }
+    void Update() => RotateBlock();
 
     private void RotateBlock()
     {
