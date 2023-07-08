@@ -18,8 +18,8 @@ public class LaserTrap : MonoBehaviour
     [SerializeField] private float effectChangeDelay = 0.25f;
 
     #region VectorEffects:
-    [SerializeField] private Vector2 m_OldState = new Vector2(0.95f, 0.9f); // 0.95, 0.9;
-    [SerializeField] private Vector2 m_NewState = new Vector2(1f, 0.9f);    // 1, 0.9;
+    [SerializeField] private Vector2 m_OldState; // 0.95, 0.9;
+    [SerializeField] private Vector2 m_NewState;    // 1, 0.9;
     //
     [SerializeField] private Vector2 l_OldState; // 1.05, 1.4
     [SerializeField] private Vector2 l_NewState;  // 1.1, 1.4
