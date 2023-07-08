@@ -54,15 +54,15 @@ public class GameUI : MonoBehaviour
         GameEvents.OnKeyCountCheck -= SyncKeyCountText;
     }
 
-    void Update()
-    {
-        SyncGameTimerText();
-    }
+    void Update() => SyncGameTimerText();
+
 
     private void SyncJumpsText(int jumps)
     {
         jumpsText.text = jumps.ToString();
     }
+
+    #region Keys_Texts:
 
     private void SyncKeyCountText(int keys)
     {
@@ -78,8 +78,9 @@ public class GameUI : MonoBehaviour
             keysObjects.SetActive(false);
     }
 
+    #endregion
 
-    #region Timer Texts
+    #region Timer_Texts:
 
     private void SyncGameTimerText()
     {
@@ -94,20 +95,11 @@ public class GameUI : MonoBehaviour
             ShowTimerText();
     }
 
-    private void ShowTimeOutText()
-    {
-        SetTimerTexts(false, true);
-    }
+    private void ShowTimeOutText() => SetTimerTexts(false, true);
 
-    private void ShowTimerText()
-    {
-        SetTimerTexts(true, false);
-    }
+    private void ShowTimerText() => SetTimerTexts(true, false);
 
-    private void HideTimerTexts()
-    {
-        SetTimerTexts(false, false);
-    }
+    private void HideTimerTexts() => SetTimerTexts(false, false);
 
     private void SetTimerTexts(bool _timerTextObject, bool _OutOfTimeTextObject)
     {
