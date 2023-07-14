@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Fade_Out_Screen_Old
+  m_Name: Fade_Out_Screen_Splash
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
